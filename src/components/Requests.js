@@ -69,3 +69,31 @@ export const requestCreateReflection = (token, reflectionContainer) => {
         {headers: { Authorization: `Token ${token}`}})
         return response
 }
+
+export const requestAllQuestionnaires = (token) => {
+    const url = 'https://neoself-be-service.onrender.com/questionnaire/'
+
+    const response = axios.get(url,
+        { headers: { Authorization: `Token ${token}`, }, })
+        return response
+}
+
+export const requestCreateQuestionnaire = (token, questionnaireCont ) => {
+    const url = 'https://neoself-be-service.onrender.com/questionnaire/'
+
+    const response = axios.post(url,
+
+        questionnaireCont,
+
+        { headers: { Authorization: `Token ${token}`, }, })
+        return response
+}
+
+export const requestSingleQuestionnaire = (token, questionnaireId) => {
+    const url = `https://neoself-be-service.onrender.com/questionnaire/${questionnaireId}`
+
+    const response = axios.get(url,
+        { headers: { Authorization: `Token ${token}`}  
+    })
+        return response
+}

@@ -6,6 +6,9 @@ import { Register } from './components/Register'
 import { Routes, Route } from "react-router-dom"
 import useLocalStorageState from 'use-local-storage-state';
 import { CreateReflection } from './components/CreateReflection';
+import { AllQuestionnaires } from './components/AllQuestionnaires'
+import { SingleQuestionnaire } from './components/SingleQuestionnaire'
+import { CreateQuestionnaire } from './components/CreateQuestionnaire'
 
 
 function App({ cardData }) {
@@ -29,6 +32,9 @@ function App({ cardData }) {
           <Routes>
             <Route path="/FriendList" element={<Friends token={token}/>} />
             <Route path="/Reflection" element={<CreateReflection username={username} token={token}/>} />
+            <Route path="/create" element={<CreateQuestionnaire username={username} token={token}/>} />
+            <Route path="/questionnaire/:questionnaireId" element={<SingleQuestionnaire token={token} isLoggedIn={isLoggedIn}/> }/>
+            <Route path="/questionnaires" element={<AllQuestionnaires username={username} token={token}/>} />
             <Route path="/" element={<Login />} />
           </Routes>
         </div>
