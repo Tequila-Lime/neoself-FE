@@ -1,6 +1,6 @@
 import { requestRemoveFriend } from "./Requests"
 
-export const Unfollow = ({ token, myFriends, friendList, card }) => {
+export const Unfriend = ({ token, myFriends, friendList, card }) => {
 
     const friendshipId = friendList[myFriends.findIndex((person) => person === card.user)].id
 
