@@ -31,7 +31,7 @@ function App({ cardData }) {
         <div>
           <Header token={token} setAuth={setAuth} username={username}/>
           <Routes>
-            <Route path="/UserList" element={<Users token={token}/>} />
+            <Route path="/UserList" element={<Users username={username} token={token}/>} />
             <Route path="/FriendList" element={<Friends token={token}/>} />
             <Route path="/Reflection" element={<CreateReflection username={username} token={token}/>} />
             <Route path="/create" element={<CreateQuestionnaire username={username} token={token}/>} />

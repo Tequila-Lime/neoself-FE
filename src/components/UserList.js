@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
-import { requestUsers, requestAddFriend } from "./Requests";
+import { requestAllUsers, requestAddFriend } from "./Requests";
 
 export const Users = ({ token }) => {
   const [UserList, setUserList] = useState([]);
   const [buttonText, setButtonText] = useState("Befriend");
 
   useEffect(() => {
-    requestUsers(token).then((res) => setUserList(res.data));
+    requestAllUsers(token).then((res) => setUserList(res.data));
   }, [token]);
 
   const handleBefriend = (friendId) => {

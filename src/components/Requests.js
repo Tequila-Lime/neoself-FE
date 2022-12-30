@@ -26,8 +26,8 @@ export const requestLogout = (token) => {
         return response
     }
 
-    export const requestUsers = (token) => {
-        const url = 'https://neoself-be-service.onrender.com/user/'
+    export const requestAllUsers = (token) => {
+        const url = 'https://neoself-be-service.onrender.com/user/all/'
     
         const response = axios.get(url,
             { headers: { Authorization: `Token ${token}`}})
