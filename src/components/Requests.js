@@ -160,7 +160,7 @@ export const requestFriendRecords = (token) => {
         { headers: { Authorization: `Token ${token}`, }, })
         return response
 }
-
+// ✅ 
 export const requestHabitRecords = (token, questionnaireId) => {
     const url = `https://neoself-be-service.onrender.com/habit/${questionnaireId}/records/`
 
@@ -168,15 +168,23 @@ export const requestHabitRecords = (token, questionnaireId) => {
         { headers: { Authorization: `Token ${token}`, }, })
         return response
 }
-
+// ✅
 export const requestRecordDetail = (token, recordId) => {
     const url = `https://neoself-be-service.onrender.com/record/${recordId}/`
 
-    const response = axios.post(url,
+    const response = axios.get(url,
         { headers: { Authorization: `Token ${token}`, }, })
         return response
 }
+// ✅ 
+export const requestUpdateRecordDetail = (token, recordId, updatedRecord) => {
+    const url = `https://neoself-be-service.onrender.com/record/${recordId}/`
 
+    const response = axios.patch(url, updatedRecord,
+        { headers: { Authorization: `Token ${token}`, }, })
+        return response
+}
+// 
 export const requestReactionDetail = (token, reactionId) => {
     const url = `https://neoself-be-service.onrender.com/habit/${reactionId}/records/`
 
