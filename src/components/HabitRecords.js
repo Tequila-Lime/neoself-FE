@@ -1,6 +1,6 @@
 import { requestHabitRecords } from './Requests'
 import { useEffect, useState } from 'react'
-import {  useLocation } from 'react-router-dom'
+import {  useLocation, Link } from 'react-router-dom'
 
 export const HabitRecords = ({ token }) => {
     const [recordList, setRecordList] = useState([])
@@ -20,6 +20,7 @@ export const HabitRecords = ({ token }) => {
                         {/* would like to hav name of habit serialized */}
                         <p>Record for {record.week_reflection } on {record.date}</p>
                         {console.log(record.id)}
+                        <Link  to='/records/:recordId' state={{ id: record.id }}> Record detail</Link>
                         {/* This is where link to record detail would go */}
                     </div>
                 ))}
