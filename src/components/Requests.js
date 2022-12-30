@@ -26,6 +26,13 @@ export const requestLogout = (token) => {
         return response
     }
 
+    export const requestUsers = (token) => {
+        const url = 'https://neoself-be-service.onrender.com/user/'
+    
+        const response = axios.get(url,
+            { headers: { Authorization: `Token ${token}`}})
+            return response
+    }
 
 export const requestFriends = (token) => {
     const url = 'https://neoself-be-service.onrender.com/friends/'

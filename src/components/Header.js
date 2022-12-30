@@ -12,6 +12,9 @@ export const Header = ({ setAuth, username, token }) => {
         <header className='hero is-small is-info'>
             <h1 className='hero-body title is-1 has-text-centered'>Neoself</h1>
             <nav className="navbar is-flex is-justify-content-space-around">
+            <div className="navbar-item title is-3">
+                    <Link to="/UserList">Users</Link>
+                </div>
             <div className="navbar-item title is-4">
                     <Link to="/FriendList"> Friends</Link>
                 </div>
