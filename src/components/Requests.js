@@ -26,6 +26,7 @@ export const requestLogout = (token) => {
         return response
     }
 
+// ✅
 export const requestAllUsers = (token) => {
     const url = 'https://neoself-be-service.onrender.com/user/all/'
     
@@ -34,6 +35,7 @@ export const requestAllUsers = (token) => {
         return response
     }
 
+// ✅
 export const requestFriends = (token) => {
     const url = 'https://neoself-be-service.onrender.com/friends/'
 
@@ -50,6 +52,7 @@ export const requestUserInfo = (token, username) => {
         return response
 }
 
+// ✅
 export const requestAddFriend = (token, friendId) => {
     const url = 'https://neoself-be-service.onrender.com/friends/'
 
@@ -61,6 +64,7 @@ export const requestAddFriend = (token, friendId) => {
         return response
 }
 
+// ✅
 export const requestRemoveFriend = (token, friendshipId) => {
     const url = `https://neoself-be-service.onrender.com/friends/${friendshipId}`
 
@@ -120,6 +124,7 @@ export const requestCreateQuestionnaire = (token, questionnaireCont ) => {
         { headers: { Authorization: `Token ${token}`, }, })
         return response
 }
+
 // ✅
 export const requestSingleQuestionnaire = (token, questionnaireId) => {
     const url = `https://neoself-be-service.onrender.com/questionnaire/${questionnaireId}`
@@ -137,6 +142,7 @@ export const requestUserRecords = (token) => {
         { headers: { Authorization: `Token ${token}`, }, })
         return response
 }
+
 // ✅ ...
 export const requestAllRecords = (token) => {
     const url = 'https://neoself-be-service.onrender.com/record/all/'
@@ -145,6 +151,7 @@ export const requestAllRecords = (token) => {
         { headers: { Authorization: `Token ${token}`, }, })
         return response
 }
+
 // ✅ 
 export const requestFriendRecords = (token) => {
     const url = 'https://neoself-be-service.onrender.com/record/friends/'

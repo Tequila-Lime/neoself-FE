@@ -10,10 +10,7 @@ export const Users = ({ token, username }) => {
   }, [token]);
 
   const handleBefriend = (userId) => {
-    requestAddFriend(token, userId).then(() => {
-      setUserList((prevFriendList) =>
-        prevFriendList.concat([{ id: userId }]));
-    });
+    requestAddFriend(token, userId)
   };
 
   const handleMouseEnter = () => {
