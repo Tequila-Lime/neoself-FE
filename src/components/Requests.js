@@ -185,24 +185,25 @@ export const requestUpdateRecordDetail = (token, recordId, updatedRecord) => {
         return response
 }
 // 
+
 export const requestReactionDetail = (token, reactionId) => {
-    const url = `https://neoself-be-service.onrender.com/habit/${reactionId}/records/`
+    const url = `https://neoself-be-service.onrender.com/reaction/${reactionId}/`
 
     const response = axios.get(url,
         { headers: { Authorization: `Token ${token}`, }, })
         return response
 }
 
-export const requestUpdateReaction = (token, reactionId) => {
-    const url = `https://neoself-be-service.onrender.com/habit/${reactionId}/records/`
+export const requestUpdateReaction = (token, reactionId, reactionInfo) => {
+    const url = `https://neoself-be-service.onrender.com/reaction/${reactionId}/`
 
-    const response = axios.patch(url,
+    const response = axios.patch(url, reactionInfo,
         { headers: { Authorization: `Token ${token}`, }, })
         return response
 }
 
 export const requestDeleteReaction = (token, reactionId) => {
-    const url = `https://neoself-be-service.onrender.com/habit/${reactionId}/records/`
+    const url = `https://neoself-be-service.onrender.com/reaction/${reactionId}/`
 
     const response = axios.delete(url,
         { headers: { Authorization: `Token ${token}`, }, })
