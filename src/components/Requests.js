@@ -1,5 +1,5 @@
 import axios from 'axios'
-
+// ✅
 export const requestNewUser = (username, password) => {
     const url = 'https://neoself-be-service.onrender.com/auth/users/'
 
@@ -8,7 +8,7 @@ export const requestNewUser = (username, password) => {
         password: password})
         return response
 }
-
+// ✅
 export const requestLogin = (username, password) => {
     const url = 'https://neoself-be-service.onrender.com/auth/token/login'
 
@@ -17,7 +17,7 @@ export const requestLogin = (username, password) => {
         password: password})
         return response
 }
-
+// ✅
 export const requestLogout = (token) => {
     const url = 'https://neoself-be-service.onrender.com/auth/token/logout'
 
@@ -101,6 +101,7 @@ export const requestReflectionDetail = (token, reflectionId) => {
         return response
 }
 
+// ✅
 export const requestAllQuestionnaires = (token) => {
     const url = 'https://neoself-be-service.onrender.com/questionnaire/'
 
@@ -108,7 +109,7 @@ export const requestAllQuestionnaires = (token) => {
         { headers: { Authorization: `Token ${token}`, }, })
         return response
 }
-
+// ✅
 export const requestCreateQuestionnaire = (token, questionnaireCont ) => {
     const url = 'https://neoself-be-service.onrender.com/questionnaire/'
 
@@ -119,7 +120,7 @@ export const requestCreateQuestionnaire = (token, questionnaireCont ) => {
         { headers: { Authorization: `Token ${token}`, }, })
         return response
 }
-
+// ✅
 export const requestSingleQuestionnaire = (token, questionnaireId) => {
     const url = `https://neoself-be-service.onrender.com/questionnaire/${questionnaireId}`
 
@@ -128,7 +129,7 @@ export const requestSingleQuestionnaire = (token, questionnaireId) => {
     })
         return response
 }
-
+// ✅ 
 export const requestUserRecords = (token) => {
     const url = 'https://neoself-be-service.onrender.com/record/user/'
 
@@ -136,15 +137,15 @@ export const requestUserRecords = (token) => {
         { headers: { Authorization: `Token ${token}`, }, })
         return response
 }
-
+// ✅ ...
 export const requestAllRecords = (token) => {
-    const url = 'https://neoself-be-service.onrender.com/record/user/'
+    const url = 'https://neoself-be-service.onrender.com/record/all/'
 
     const response = axios.get(url,
         { headers: { Authorization: `Token ${token}`, }, })
         return response
 }
-
+// ✅ 
 export const requestFriendRecords = (token) => {
     const url = 'https://neoself-be-service.onrender.com/record/friends/'
 
