@@ -10,7 +10,9 @@ import { CreateReflection } from './components/CreateReflection';
 import { AllQuestionnaires } from './components/AllQuestionnaires'
 import { SingleQuestionnaire } from './components/SingleQuestionnaire'
 import { CreateQuestionnaire } from './components/CreateQuestionnaire'
-
+import { UserRecords } from './components/UserRecords'
+import { FriendRecords } from './components/FriendRecords'
+import { HabitRecords } from './components/HabitRecords';
 
 function App({ cardData }) {
   const [token, setToken] = useLocalStorageState("token", null)
@@ -37,6 +39,9 @@ function App({ cardData }) {
             <Route path="/create" element={<CreateQuestionnaire username={username} token={token}/>} />
             <Route path="/questionnaire/:questionnaireId" element={<SingleQuestionnaire token={token} isLoggedIn={isLoggedIn}/> }/>
             <Route path="/questionnaires" element={<AllQuestionnaires username={username} token={token}/>} />
+            <Route path="/user-records" element={<UserRecords username={username} token={token}/>} />
+            <Route path="/friend-records" element={<FriendRecords username={username} token={token}/>} />
+            <Route path="/records/:recordId" element={<HabitRecords token={token} isLoggedIn={isLoggedIn}/> }/>
             <Route path="/" element={<Login />} />
           </Routes>
         </div>
