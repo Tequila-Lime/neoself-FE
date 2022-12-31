@@ -1,48 +1,33 @@
-import { requestRecordDetail,requestUpdateRecordDetail  } from './Requests'
+import { requestRecordDetail  } from './Requests'
 import { useEffect, useState } from 'react'
-import {  useLocation, useNavigate } from 'react-router-dom'
+import {  useLocation, Link } from 'react-router-dom'
 
 export const RecordDetail = ({ token, username }) => {
     const [record, setRecord] = useState([])
     const location = useLocation()
-    const navigate = useNavigate()
 
     useEffect(() => {
         requestRecordDetail(token, location.state.id)
             .then(res => setRecord(res.data))
     }, [token, location.state.id])
 
-    const handleUpdate = (event)=>{
-        event.preventDefault()
-        requestUpdateRecordDetail(token, location.state.id, record)
-        navigate("/")
-    }
-
     return(
         <div>
-            {console.log(record)}
-
-            <h1>{record.user} Record on {record.date}</h1>
-            <p>Record number {record.daily_record}</p>
-            <input className="text-box" type='number' value={record.daily_record}
-                onChange={e => setRecord({...record, daily_record: e.target.value})}></input>
-            <p> Did cue effect habit?</p>
-            <input className="text-box" type='checkbox' checked={record.cue_dh}
-                    onChange={e => setRecord(!record.cue_dh)}></input>
-            <p>Did craving effect habit?</p>
-            <input className="text-box" type='checkbox' checked={record.craving_dh}
-                    onChange={e => setRecord(!record.craving_dh)}></input>
-            <p>Did Response effect habit?</p>
-            <input className="text-box" type='checkbox' checked={record.response_dh}
-                    onChange={e => setRecord(!record.response_dh)}></input>
+            <h1>{record.user} Record for {record.habit_name} on {record.date}</h1>
+            <p>Record number {record.daily_record} {record.metric_label}</p>
+            <p> Did cue effect habit?:</p> 
+            {record.cue_dh===false ?<p>❌</p> : <p>✅</p>}
+            <p>Did craving effect habit?: {record.craving_dh}</p>
+            {record.craving_dh===false ?<p>❌</p> : <p>✅</p>}
+            <p>Did Response effect habit?: {record.response_dh}</p>
+            {record.response_dh===false ?<p>❌</p> : <p>✅</p>}
             <p>Self Comments: </p>
             <p>{record.comment_dh}</p>
-            <p>Is it public</p>
-            <input className="text-box" type='checkbox' checked={record.public}
-                    onChange={e => setRecord(!record.public)}></input>
+            <p>Is it public: {record.public}</p>
+            {record.public===false ?<p>❌</p> : <p>✅</p>}
             <p>Likes amount {record.likes_num}</p>
             <hr></hr>
-            {username===record.user && <button onClick={handleUpdate}>Update</button>}
+            {username===record.user && <Link  to='/records/update/:recordId' state={{ id: record.id }}> Update Record</Link>}
             
         </div>
     )
