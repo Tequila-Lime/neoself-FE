@@ -168,7 +168,7 @@ export const requestFriendRecords = (token) => {
         { headers: { Authorization: `Token ${token}`, }, })
         return response
 }
-
+// ✅ 
 export const requestTodayOwnRecords = (token) => {
     const url = 'https://neoself-be-service.onrender.com/record/today/user/'
 

@@ -36,6 +36,9 @@ export const Header = ({ setAuth, username, token }) => {
                 <div className="">
                     <Link to="/friend-records">Friend records</Link>
                 </div>
+                <div className="">
+                    <Link to="/records-today">Records today</Link>
+                </div>
                 <p>Hello {username}!</p>
             </nav>
         </header >
