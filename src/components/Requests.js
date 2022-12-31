@@ -97,6 +97,14 @@ export const requestReflectionsForHabit = (token, reflectionId) => {
         return response
 }
 
+export const requestAddReflectionsForHabit = (token, reflectionId, reflectionCont) => {
+    const url = `https://neoself-be-service.onrender.com/questionnaire/${reflectionId}/reflection/`
+
+    const response = axios.post(url, reflectionCont,
+        { headers: { Authorization: `Token ${token}`, }, })
+        return response
+}
+
 export const requestReflectionDetail = (token, reflectionId) => {
     const url = `https://neoself-be-service.onrender.com/reflection/${reflectionId}`
 
@@ -160,6 +168,30 @@ export const requestFriendRecords = (token) => {
         { headers: { Authorization: `Token ${token}`, }, })
         return response
 }
+
+export const requestTodayOwnRecords = (token) => {
+    const url = 'https://neoself-be-service.onrender.com/record/today/user/'
+
+    const response = axios.get(url,
+        { headers: { Authorization: `Token ${token}`, }, })
+        return response
+}
+
+export const requestOtherUserRecords = (token, recordId) => {
+    const url = `https://neoself-be-service.onrender.com/record/user/${recordId}/`
+
+    const response = axios.get(url,
+        { headers: { Authorization: `Token ${token}`, }, })
+        return response
+}
+
+export const requestWeekLogRecords = (token, recordId) => {
+    const url = `https://neoself-be-service.onrender.com/record/weeklog/${recordId}/`
+
+    const response = axios.get(url,
+        { headers: { Authorization: `Token ${token}`, }, })
+        return response
+}
 // ✅ 
 export const requestHabitRecords = (token, questionnaireId) => {
     const url = `https://neoself-be-service.onrender.com/habit/${questionnaireId}/records/`
@@ -185,6 +217,22 @@ export const requestUpdateRecordDetail = (token, recordId, updatedRecord) => {
         return response
 }
 // 
+
+export const requestRecordReaction = (token, reactionId) => {
+    const url = `https://neoself-be-service.onrender.com/reaction/record/${reactionId}/`
+
+    const response = axios.get(url,
+        { headers: { Authorization: `Token ${token}`, }, })
+        return response
+}
+
+export const requestAddRecordReaction = (token, reactionId, reactionCont) => {
+    const url = `https://neoself-be-service.onrender.com/reaction/record/${reactionId}/`
+
+    const response = axios.post(url, reactionCont,
+        { headers: { Authorization: `Token ${token}`, }, })
+        return response
+}
 
 export const requestReactionDetail = (token, reactionId) => {
     const url = `https://neoself-be-service.onrender.com/reaction/${reactionId}/`
