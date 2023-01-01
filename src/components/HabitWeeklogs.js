@@ -1,14 +1,16 @@
-import { requestWeeklogs } from './Requests'
+import { requestHabitWeeklogs } from './Requests'
 import { useEffect, useState } from 'react'
-import { Link } from "react-router-dom"
+import { useLocation,Link } from "react-router-dom"
 
-export const Weeklogs = ({ token }) => {
+export const HabitWeeklogs = ({ token }) => {
     const [weeklogList, setWeeklogList] = useState([])
+    const location = useLocation()
+
 
     useEffect(() => {
-        requestWeeklogs(token)
+        requestHabitWeeklogs(token, location.state.id)
             .then(res => setWeeklogList(res.data))
-    }, [token])
+    }, [token, location.state.id])
 
     return (
         <div>

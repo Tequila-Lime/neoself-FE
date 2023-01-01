@@ -21,6 +21,8 @@ export const AllQuestionnaires = ({ token }) => {
                         <Link  to='/questionnaire/:questionnaireId' state={{ id: questionnaire.id }}> See habit details</Link>
                         <>     </>
                         <Link  to='/records/habit/:recordId' state={{ id: questionnaire.id }}> See all records</Link>
+                        <>     </>
+                        <Link  to='/habit-weeklogs/:id' state={{ id: questionnaire.id }}> See WeekLogs</Link>
                     </div>
                 ))}
                 </div>    

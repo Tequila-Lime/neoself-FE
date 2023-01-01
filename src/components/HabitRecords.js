@@ -18,7 +18,7 @@ export const HabitRecords = ({ token }) => {
                 <div className='QuestionnaireRecords'>{recordList.map((record, idx) => (
                     <div key={idx}>
                         {/* would like to hav name of habit serialized */}
-                        <p>Record for {record.week_reflection } on {record.date}</p>
+                        <p>Record for {record.habit_name } on {record.date}</p>
                         {console.log(record.id)}
                         <Link  to='/records/:recordId' state={{ id: record.id }}> Record detail</Link>
                         {/* This is where link to record detail would go */}

@@ -18,6 +18,7 @@ import { UpdateRecord } from './components/UpdateRecord';
 import { TodayRecords } from './components/TodayRecords';
 import { OtherUserRecords } from './components/OtherUserRecords';
 import { Weeklogs } from './components/WeekLogs';
+import { HabitWeeklogs } from './components/HabitWeeklogs';
 import { WeeklogsDetail } from './components/WeekLogDetail';
 
 function App({ cardData }) {
@@ -53,6 +54,7 @@ function App({ cardData }) {
             <Route path="/records/:recordId" element={<RecordDetail username={username} token={token} isLoggedIn={isLoggedIn}/> }/>
             <Route path="/records/update/:recordId" element={<UpdateRecord username={username} token={token} isLoggedIn={isLoggedIn}/> }/>
             <Route path="/weeklogs" element={<Weeklogs username={username} token={token}/>} />
+            <Route path="/habit-weeklogs/:id" element={<HabitWeeklogs username={username} token={token}/>} />
             <Route path="/weeklogs/:id" element={<WeeklogsDetail username={username} token={token}/>} />
             <Route path="/" element={<Login />} />
           </Routes>

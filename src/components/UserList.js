@@ -30,7 +30,6 @@ export const Users = ({ token, username }) => {
           {UserList.map((user, idx) => (
             <div key={idx}>
               <div className="card">
-                {console.log(user.id)}
               <Link  to='/profile-records/:recordId' state={{ id: user.id }}>{user.username}</Link>
                 {/* Add the befriend button to the card */}
                 <button

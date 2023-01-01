@@ -10,17 +10,13 @@ export const WeeklogsDetail = ({ token }) => {
     useEffect(() => {
         requestWeekLogRecords(token, location.state.id)
             .then(res => setRecordList(res.data))
-    }, [token, location.state.id])
-
-    useEffect(() => {
         requestWeeklogsDetail(token, location.state.id)
             .then(res => setWeeklog(res.data))
     }, [token, location.state.id])
-
         
     return(
         <div>
-            <h1>Log Records created on {weeklog.date} for {weeklog.questionnaire}</h1>
+            <h1>{weeklog.questionnaire} Log Records created on {weeklog.date}</h1>
         <div>
                 <div className='UserRecords'>{recordList.map((record, idx) => (
                     <div key={idx}>

@@ -265,6 +265,15 @@ export const requestWeeklogs = (token) => {
         { headers: { Authorization: `Token ${token}`, }, })
         return response
 }
+
+export const requestHabitWeeklogs = (token, weeklogId) => {
+    const url = `https://neoself-be-service.onrender.com/weeklogs/habit/${weeklogId}/`
+
+    const response = axios.get(url,
+        { headers: { Authorization: `Token ${token}`, }, })
+        return response
+}
+
 // ✅ 
 export const requestWeeklogsDetail = (token, logId) => {
     const url = `https://neoself-be-service.onrender.com/weeklogs/${logId}/`
@@ -276,6 +285,14 @@ export const requestWeeklogsDetail = (token, logId) => {
 
 export const requestResults = (token) => {
     const url = 'https://neoself-be-service.onrender.com/results/'
+
+    const response = axios.get(url,
+        { headers: { Authorization: `Token ${token}`, }, })
+        return response
+}
+
+export const requestHabitResults = (token, resultsId) => {
+    const url = `https://neoself-be-service.onrender.com/results/habit/${resultsId}/`
 
     const response = axios.get(url,
         { headers: { Authorization: `Token ${token}`, }, })
