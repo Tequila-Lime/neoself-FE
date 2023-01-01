@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { requestUserInfo, requestAllUsers, requestAddFriend } from "./Requests";
+import { Link } from "react-router-dom";
 
 export const Users = ({ token, username }) => {
   const [UserList, setUserList] = useState([]);
@@ -25,12 +26,12 @@ export const Users = ({ token, username }) => {
     <div>
       <h1 className="page-title title is-4 has-text-centered">Users</h1>
       <div>
-        {console.log(UserList)}
         <div className="users">
           {UserList.map((user, idx) => (
             <div key={idx}>
               <div className="card">
-                <p>{user.username}</p>
+                {console.log(user.id)}
+              <Link  to='/profile-records/:recordId' state={{ id: user.id }}>{user.username}</Link>
                 {/* Add the befriend button to the card */}
                 <button
                   onClick={() => handleBefriend(user.id)}

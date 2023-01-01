@@ -16,6 +16,9 @@ import { HabitRecords } from './components/HabitRecords';
 import { RecordDetail } from './components/RecordDetail';
 import { UpdateRecord } from './components/UpdateRecord';
 import { TodayRecords } from './components/TodayRecords';
+import { OtherUserRecords } from './components/OtherUserRecords';
+import { Weeklogs } from './components/WeekLogs';
+import { WeeklogsDetail } from './components/WeekLogDetail';
 
 function App({ cardData }) {
   const [token, setToken] = useLocalStorageState("token", null)
@@ -45,9 +48,12 @@ function App({ cardData }) {
             <Route path="/user-records" element={<UserRecords username={username} token={token}/>} />
             <Route path="/friend-records" element={<FriendRecords username={username} token={token}/>} />
             <Route path="/records-today" element={<TodayRecords username={username} token={token}/>} />
+            <Route path="/profile-records/:recordId" element={<OtherUserRecords username={username} token={token}/>} />
             <Route path="/records/habit/:recordId" element={<HabitRecords token={token} isLoggedIn={isLoggedIn}/> }/>
             <Route path="/records/:recordId" element={<RecordDetail username={username} token={token} isLoggedIn={isLoggedIn}/> }/>
             <Route path="/records/update/:recordId" element={<UpdateRecord username={username} token={token} isLoggedIn={isLoggedIn}/> }/>
+            <Route path="/weeklogs" element={<Weeklogs username={username} token={token}/>} />
+            <Route path="/weeklogs/:id" element={<WeeklogsDetail username={username} token={token}/>} />
             <Route path="/" element={<Login />} />
           </Routes>
         </div>
