@@ -176,7 +176,7 @@ export const requestTodayOwnRecords = (token) => {
         { headers: { Authorization: `Token ${token}`, }, })
         return response
 }
-
+// ✅ 
 export const requestOtherUserRecords = (token, recordId) => {
     const url = `https://neoself-be-service.onrender.com/record/user/${recordId}/`
 
@@ -184,7 +184,7 @@ export const requestOtherUserRecords = (token, recordId) => {
         { headers: { Authorization: `Token ${token}`, }, })
         return response
 }
-
+// ✅ 
 export const requestWeekLogRecords = (token, recordId) => {
     const url = `https://neoself-be-service.onrender.com/record/weeklog/${recordId}/`
 
@@ -257,7 +257,7 @@ export const requestDeleteReaction = (token, reactionId) => {
         { headers: { Authorization: `Token ${token}`, }, })
         return response
 }
-
+// ✅ 
 export const requestWeeklogs = (token) => {
     const url = 'https://neoself-be-service.onrender.com/weeklogs/'
 
@@ -265,9 +265,9 @@ export const requestWeeklogs = (token) => {
         { headers: { Authorization: `Token ${token}`, }, })
         return response
 }
-
+// ✅ 
 export const requestWeeklogsDetail = (token, logId) => {
-    const url = `https://neoself-be-service.onrender.com/weeklogs/${logId}`
+    const url = `https://neoself-be-service.onrender.com/weeklogs/${logId}/`
 
     const response = axios.get(url,
         { headers: { Authorization: `Token ${token}`, }, })
