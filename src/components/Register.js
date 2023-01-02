@@ -22,25 +22,27 @@ export const Register = ({ setAuth }) => {
 
     return (
         <div>
-            <header className='hero is-small is-info'>
-                <h1 className='hero-body title is-1 has-text-centered'>Neoself</h1>
+            <header className='header'>
+                <h1 className='idk'>Neoself</h1>
             </header>
+            <div className="login-box">
+                <h3 className="login-label">Register</h3>
+                <form className="login-form">
+                    <div className="login-field">
+                        <input className="login-input" type="text" placeholder="username"
+                            onChange={(e) => setUsername(e.target.value)} />
+                    </div>
+                    <div className="login-field">
+                        <input className="login-input" type="password" placeholder="password"
+                            onChange={(e) => setPassword(e.target.value)} />
+                    </div>
+                    <div className="login-field is-flex is-justify-content-space-between">
 
-            <form className="login-box box">
-                <div className="field">
-                    <input className="input" type="text" placeholder="username"
-                        onChange={(e) => setUsername(e.target.value)} />
-                </div>
-                <div className="field">
-                    <input className="input" type="password" placeholder="password"
-                        onChange={(e) => setPassword(e.target.value)} />
-                </div>
-                <div className="field is-flex is-justify-content-space-between">
-
-                    <button className='button has-background-danger-light' type="submit"
-                        onClick={handleSubmit}>Register</button>
-                </div>
-            </form>
+                        <button className='register-button' type="submit"
+                            onClick={handleSubmit}>Register</button>
+                    </div>
+                </form>
+            </div>
         </div>
     )
 }
