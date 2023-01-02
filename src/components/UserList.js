@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { requestUserInfo, requestAllUsers, requestAddFriend } from "./Requests";
+import { requestAllUsers, requestAddFriend } from "./Requests";
 import { Link } from "react-router-dom";
 
 export const Users = ({ token, username }) => {
