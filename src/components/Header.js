@@ -42,6 +42,9 @@ export const Header = ({ setAuth, username, token }) => {
                 <div className="">
                     <Link to="/weeklogs">WeekLogs</Link>
                 </div>
+                <div className="">
+                    <Link to="/results">Results</Link>
+                </div>
                 <p>Hello {username}!</p>
             </nav>
         </header >

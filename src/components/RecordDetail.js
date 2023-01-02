@@ -13,7 +13,7 @@ export const RecordDetail = ({ token, username }) => {
 
     return(
         <div>
-            <h1>{record.user} Record for {record.habit_name} on {record.date}</h1>
+            <h1>{record.user} Record to {record.habit_name} on {record.date}</h1>
             <p>Record number {record.daily_record} {record.metric_label}</p>
             <p> Did cue effect habit?:</p> 
             {record.cue_dh===false ?<p>❌</p> : <p>✅</p>}
@@ -23,8 +23,14 @@ export const RecordDetail = ({ token, username }) => {
             {record.response_dh===false ?<p>❌</p> : <p>✅</p>}
             <p>Self Comments: </p>
             <p>{record.comment_dh}</p>
+
+            {username===record.user && (
+            <>
             <p>Is it public: {record.public}</p>
             {record.public===false ?<p>❌</p> : <p>✅</p>}
+            </>
+            )}
+            
             <p>Likes amount {record.likes_num}</p>
             <hr></hr>
             {username===record.user && <Link  to='/records/update/:recordId' state={{ id: record.id }}> Update Record</Link>}

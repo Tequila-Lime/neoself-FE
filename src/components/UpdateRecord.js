@@ -20,7 +20,6 @@ export const UpdateRecord = ({ token, username }) => {
 
     return(
         <div>
-            {console.log(record)}
 
             <h1>{record.user} Record on {record.date}</h1>
             <p>Record number {record.daily_record}</p>
