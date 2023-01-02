@@ -282,7 +282,7 @@ export const requestWeeklogsDetail = (token, logId) => {
         { headers: { Authorization: `Token ${token}`, }, })
         return response
 }
-
+// ✅ 
 export const requestResults = (token) => {
     const url = 'https://neoself-be-service.onrender.com/results/'
 
@@ -298,9 +298,9 @@ export const requestHabitResults = (token, resultsId) => {
         { headers: { Authorization: `Token ${token}`, }, })
         return response
 }
-
+// ✅ 
 export const requestResultDetail = (token, resultId) => {
-    const url = `https://neoself-be-service.onrender.com/results/${resultId}`
+    const url = `https://neoself-be-service.onrender.com/results/${resultId}/`
 
     const response = axios.get(url,
         { headers: { Authorization: `Token ${token}`, }, })
