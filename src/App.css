@@ -2,6 +2,12 @@ body{
   padding: 0px;
   margin: 0px;
 }
+/* Reusable css */
+.indent{
+  margin: 0 2vh 0vh 2vh;
+}
+
+/* end of reusable */
 /* Header css */
 .header{
   background-color: lightblue;
@@ -13,6 +19,17 @@ body{
   padding: 0px 15px;
 }
 
+.logo-side{
+  display:flex;
+  flex-flow: row;
+  align-items: center;
+}
+
+.app-name{
+  font-size: 3em;
+  margin-right: 1em;
+}
+
 .nav-links{
   display:flex;
   flex-flow: row;
@@ -21,6 +38,7 @@ body{
 .nav-link {
   margin: 0px 10px;
   text-decoration: none;
+  font-size: 3vh;
   color: black;
 }
 
@@ -28,6 +46,7 @@ body{
   color: red;
 }
 /* end of header css */
+
 /* login form css */
 .login-box{
   background-color: blue;
@@ -50,7 +69,7 @@ body{
     background-color: aqua;
     margin: 0 10% 5% 10%;
     height: 10em;
-    width: 20em;
+    width: 30%;
     border-radius: 1em;
 }
 
@@ -69,11 +88,15 @@ body{
 }
 
 .login-button{
+  display:flex;
+  justify-content: center;
+  align-items: center;
   border: none;
   text-decoration: none;
   background-color: gold;
-  text-align: center;
   width: 40%;
+  height: 3vh;
+  font-size: 15px;
   border-radius: 2em;
   padding: 0px 2%;
   color: black;
@@ -86,11 +109,99 @@ body{
 
 .register-button{
   width:100%;
-  height: 1.5em;
+  height: 3vh;
   border: none;
   text-decoration: none;
   background-color: gold;
   border-radius: 2em;
   padding: 0px 2%;
   color: black;
+}
+/* end of login info css */
+
+/* Dashboard CSS */
+.dashboard-cont{
+  display:flex;
+  flex-flow:row;
+  width:85%;
+  /* background-color: blueviolet; */
+  margin: 0px auto;
+}
+
+.side-cont{
+  display:flex;
+  flex-flow:column;
+  align-items: center;
+  /* background-color: blanchedalmond; */
+  width: 25%;
+  padding: 0px 1vh;
+}
+
+.middle-cont{
+  display: flex;
+  justify-content: center;
+  width:50%;
+  padding: 0px 1vh;
+}
+
+.dash-component{
+  display:flex;
+  flex-flow: column;
+  width: 100%;
+  border-radius: 1em;
+  background-color: lightblue;
+  /* border: black solid 2px; */
+  margin: 2vh 0 0 0;
+}
+
+/* Profile Component */
+.profile-top{
+  display:flex;
+  justify-content: space-between;
+  margin: 2vh 2vh 0vh 2vh; 
+}
+
+.avatar{
+  height: 100px;
+  width: 100px;
+  background-color: aquamarine;
+  border-radius: 4em;
+}
+
+.profile-info{
+  margin: 0px 0px 0px 10%;
+  text-decoration: none;
+}
+.profile-name{
+  font-size: 25px;
+  background-color: none;
+}
+.basic-button{
+  margin: 2vh 2vh 0vh 2vh;
+  height: 2em;
+  font-size: 2vh;
+  background-color:blueviolet;
+  border: none;
+  border-radius: 2em;
+}
+.basic-button:hover{
+  background-color: red;
+}
+
+.wins{
+  margin: 2vh 2vh 2vh 2vh;
+}
+
+/* Today records */
+
+.user-records{
+  margin-bottom: 2vh;
+}
+.today-records{
+  text-decoration: none;
+  font-size: 2vh;
+  color: black;
+}
+.today-records:hover{
+  color: red;
 }

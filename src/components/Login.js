@@ -13,14 +13,14 @@ export const Login = ({ setAuth }) => {
         .then((res) => {
             const token = res.data.auth_token
             setAuth(token, username)
-            navigate("/all")
+            navigate("/dashboard")
         })
     }
 
     return (
         <div>
             <header className='header'>
-                <h1 className='idk'>Neoself</h1>
+                <h1 className='app-name'>Neoself</h1>
             </header>
             <div className="login-box">
                 <h3 className="login-label">Login</h3>
