@@ -25,12 +25,12 @@ export const Header = ({ setAuth, username, token }) => {
                     <Link className="nav-link" to="/createReflection" >Create Reflection</Link>
                     <Link className="nav-link" to="/Reflection" >Reflection</Link>
                     <Link className="nav-link" to="/create">Create Questionnaire</Link>
-                    <Link className="nav-link" to="/questionnaires">questionnaires</Link>
+                    <Link className="nav-link" to="/questionnaires">questionnaires</Link> */}
                     <Link className="nav-link" to="/user-records">Your records</Link>
-                    <Link className="nav-link" to="/friend-records">Friend records</Link>
+                    {/* <Link className="nav-link" to="/friend-records">Friend records</Link> */}
                     <Link className="nav-link" to="/records-today">Records today</Link>
                     <Link className="nav-link" to="/weeklogs">WeekLogs</Link>
-                    <Link className="nav-link" to="/results">Results</Link> */}
+                    <Link className="nav-link" to="/results">Results</Link>
             </nav>
         </header >
     )

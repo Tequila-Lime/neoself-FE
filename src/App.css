@@ -192,8 +192,7 @@ body{
   margin: 2vh 2vh 2vh 2vh;
 }
 
-/* Today records */
-
+/* Today records component */
 .user-records{
   margin-bottom: 2vh;
 }
@@ -204,4 +203,47 @@ body{
 }
 .today-records:hover{
   color: red;
+}
+
+/* Basic Record Display */
+.records-cont{
+  display:flex;
+  flex-flow: column;
+}
+.indiv-record{
+  display: flex;
+  flex-flow:column;
+  height:60%;
+  margin-bottom: 3vh;
+  
+}
+.record-info{
+  display:flex;
+  flex-flow: column;
+  padding: 0 2vh;
+  height:80%;
+  background-color: lightgrey;
+  border-radius: 2em;
+  margin-bottom: 1vh;
+}
+.record-title{
+  display:flex;
+  flex-flow: row;
+  align-items: center;
+  justify-content: space-between;
+}
+.reaction{
+  display:flex;
+  justify-content: space-between;
+  background-color: aquamarine;
+  height: 20%;
+  border-radius: 2em;
+  padding: 0 2vh;
+}
+
+.load-records{
+  display:flex;
+  justify-content: center;;
+  margin-bottom:2vh;
+
 }
