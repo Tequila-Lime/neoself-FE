@@ -12,18 +12,16 @@ export const TodayRecords = ({ token }) => {
 
     return (
         <div>
-            <h1>Your Records</h1>
             <div>
-                <div className='UserRecords'>{recordList.map((record, idx) => (
-                    <div key={idx}>
-                        {/* would like to hav name of habit serialized */}
-                        <p>Record for {record.habit_name } on {record.date}</p>
-                        {/* This is where link to record detail would go */}
-                        <Link  to='/records/:recordId' state={{ id: record.id }}> See record detail</Link>
-                        {/* maybe a link to the users profile */}
-                    </div>
-                ))}
-                </div>    
+                <div className="indent">
+                        {recordList.length === 0 ? <p>No records test</p> :
+                        <div className='user-records'>{recordList.map((record, idx) => (
+                            <div key={idx}>
+                                <Link className='today-records ' to='/records/:recordId' state={{ id: record.id }}>{record.habit_name } record </Link>
+                            </div>
+                            ))}
+                        </div> }
+                    </div>   
             </div>
         </div>
     )

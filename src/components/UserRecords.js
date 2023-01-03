@@ -4,26 +4,52 @@ import { Link } from "react-router-dom"
 
 export const UserRecords = ({ token }) => {
     const [recordList, setRecordList] = useState([])
+    const [recordsPerPage, setRecordsPerPage] = useState(4)
+
 
     useEffect(() => {
         requestUserRecords(token)
             .then(res => setRecordList(res.data))
     }, [token])
 
+    function handleLoadMore() {
+        setRecordsPerPage(recordsPerPage + 4);
+      }
+    
+    function handleLoadLess() {
+        setRecordsPerPage(recordsPerPage - 4);
+      }
+
     return (
         <div>
-            <h1>Your Records</h1>
-            <div>
-                <div className='UserRecords'>{recordList.map((record, idx) => (
-                    <div key={idx}>
-                        {/* would like to hav name of habit serialized */}
-                        <p>Record for {record.habit_name } on {record.date}</p>
-                        <Link  to='/records/:recordId' state={{ id: record.id }}> See record detail</Link>
-                        {/* This is where link to record detail would go */}
-                    </div>
-                ))}
-                </div>    
+            <div className='records-cont'>
+            {recordList.slice(0, recordsPerPage).map((record, idx) => (
+            <div className="indiv-record" key={idx}>
+                <div className="record-info">
+                <div className="record-title">
+                    <Link to='/records/:recordId' state={{ id: record.id }}>
+                    {record.habit_name} record by {record.user}
+                    </Link>
+                    <p>{record.date}</p>
+                </div>
+                <p>{record.daily_record}{record.metric_label}</p>
+                </div>
+                <div className="reaction">
+                <p>Gif</p>
+                <p>Like</p>
+                </div>
             </div>
+            ))}
+        </div>
+        {/* would like these to be arrows in future */}
+        <div className="load-records">
+            {recordsPerPage < recordList.length && (
+                <button className="load-more" onClick={handleLoadMore}>Load More</button>
+            )}
+            {recordsPerPage > 4 && (
+                <button className="load-more" onClick={handleLoadLess}>Load Less</button>
+            )}
+        </div>
         </div>
     )
 }
