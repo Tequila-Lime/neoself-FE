@@ -6,7 +6,10 @@ import { Friends } from './components/FriendList'
 import { Register } from './components/Register'
 import { Routes, Route } from "react-router-dom"
 import useLocalStorageState from 'use-local-storage-state';
+import { AllReflections } from './components/AllReflections';
 import { CreateReflection } from './components/CreateReflection';
+import { SingleReflection } from './components/SingleReflection';
+import { UpdateReflection } from './components/UpdateReflection';
 import { AllQuestionnaires } from './components/AllQuestionnaires'
 import { SingleQuestionnaire } from './components/SingleQuestionnaire'
 import { CreateQuestionnaire } from './components/CreateQuestionnaire'
@@ -45,7 +48,10 @@ function App({ cardData }) {
           <Routes>
             <Route path="/UserList" element={<Users username={username} token={token}/>} />
             <Route path="/FriendList" element={<Friends token={token}/>} />
-            <Route path="/Reflection" element={<CreateReflection username={username} token={token}/>} />
+            <Route path="/createReflection" element={<CreateReflection username={username} token={token}/>} />
+            <Route path="/reflection" element={<AllReflections username={username} token={token}/>} />
+            <Route path="/reflection/:reflectionId" element={<SingleReflection token={token} isLoggedIn={isLoggedIn}/> }/>
+            <Route path="/reflection/update/:reflectionId" element={<UpdateReflection username={username} token={token} isLoggedIn={isLoggedIn}/> }/>
             <Route path="/create" element={<CreateQuestionnaire username={username} token={token}/>} />
             <Route path="/questionnaire/:questionnaireId" element={<SingleQuestionnaire token={token} isLoggedIn={isLoggedIn}/> }/>
             <Route path="/questionnaires" element={<AllQuestionnaires username={username} token={token}/>} />
