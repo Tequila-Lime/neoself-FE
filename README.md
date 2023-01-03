@@ -1,6 +1,9 @@
-# Getting Started with Create React App
+# Welcome to Neoself
+This is a our final project and is still currently in the works
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Link to Production
+
+https://neoself.netlify.app/
 
 ## Available Scripts
 
