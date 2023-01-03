@@ -80,7 +80,7 @@ export const requestRemoveFriend = (token, friendshipId) => {
         {headers: { Authorization: `Token ${token}`}})
         return response
 }
-
+// ✅
 export const requestCreateReflection = (token, reflectionContainer) => {
     const url = `https://neoself-be-service.onrender.com/reflection/`
 
@@ -89,6 +89,7 @@ export const requestCreateReflection = (token, reflectionContainer) => {
         return response
 }
 
+// ✅
 export const requestAllReflections = (token) => {
     const url = 'https://neoself-be-service.onrender.com/reflection/'
 
@@ -113,6 +114,7 @@ export const requestAddReflectionsForHabit = (token, reflectionId, reflectionCon
         return response
 }
 
+// ✅
 export const requestReflectionDetail = (token, reflectionId) => {
     const url = `https://neoself-be-service.onrender.com/reflection/${reflectionId}`
 
@@ -121,6 +123,21 @@ export const requestReflectionDetail = (token, reflectionId) => {
         return response
 }
 
+export const requestSingleReflection = (token, reflectionId) => {
+    const url = `https://neoself-be-service.onrender.com/reflection/${reflectionId}`
+
+    const response = axios.get(url,
+        { headers: { Authorization: `Token ${token}`}  
+    })
+        return response
+}
+export const requestUpdateReflectionDetail = (token, reflectionId, updateReflection) => {
+    const url = `https://neoself-be-service.onrender.com/reaction/${reflectionId}/`
+
+    const response = axios.patch(url, updateReflection,
+        { headers: { Authorization: `Token ${token}`, }, })
+        return response
+}
 // ✅
 export const requestAllQuestionnaires = (token) => {
     const url = 'https://neoself-be-service.onrender.com/questionnaire/'
