@@ -25,7 +25,7 @@ export const requestLogout = (token) => {
         { headers: { Authorization: `Token ${token}`, }, })
         return response
     }
-
+// ✅
 export const requestOwnProfileInfo = (token) => {
         const url = 'https://neoself-be-service.onrender.com/user/self/'
         
@@ -33,6 +33,14 @@ export const requestOwnProfileInfo = (token) => {
             { headers: { Authorization: `Token ${token}`}})
             return response
         }
+
+export const requestUsersProfileInfo = (token, userId) => {
+    const url = `https://neoself-be-service.onrender.com/user/${userId}/`
+    
+    const response = axios.get(url,
+        { headers: { Authorization: `Token ${token}`}})
+        return response
+    }
 
 // ✅
 export const requestAllUsers = (token) => {
@@ -51,9 +59,9 @@ export const requestFriends = (token) => {
         { headers: { Authorization: `Token ${token}`}})
         return response
 }
-
-export const requestUserInfo = (token, username) => {
-    const url = `https://neoself-be-service.onrender.com/profile/search/?q=${username}`
+// 
+export const requestUserInfo = (token, searchTerm) => {
+    const url = `https://neoself-be-service.onrender.com/user/search/?q=${searchTerm}`
 
     const response = axios.get(url,
         { headers: { Authorization: `Token ${token}`}})
@@ -62,12 +70,9 @@ export const requestUserInfo = (token, username) => {
 
 // ✅
 export const requestAddFriend = (token, friendId) => {
-    const url = 'https://neoself-be-service.onrender.com/friends/'
+    const url = `https://neoself-be-service.onrender.com/friends/`
 
-    const response = axios.post(url,
-
-        {friend: friendId},
-    
+    const response = axios.post(url,  {"friend":friendId},
         {headers: { Authorization: `Token ${token}`}})
         return response
 }

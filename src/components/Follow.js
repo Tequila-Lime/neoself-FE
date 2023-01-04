@@ -1,15 +1,12 @@
-import { requestUserInfo, requestAddFriend } from "./Requests";
-import { useState } from "react";
+import { requestAddFriend } from "./Requests";
 
-export const Follow = ({ token, author }) => {
-  const [friendId, setFriendId] = useState(null);
-
-  const handleClick = () => {
-    requestUserInfo(token, author).then((res) => {
-      setFriendId(res.data[0].id);
-      friendId && requestAddFriend(token, friendId);
-    });
-  };
+export const Follow = ({ token, friendId}) => {  
+  
+  const handleClick = (event) => {
+    event.preventDefault()
+    requestAddFriend(token, friendId);
+    window.location.reload()
+    };
 
   return (
     <div>

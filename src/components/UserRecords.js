@@ -35,8 +35,8 @@ export const UserRecords = ({ token }) => {
                 <p>{record.daily_record}{record.metric_label}</p>
                 </div>
                 <div className="reaction">
-                <p>Gif</p>
-                <p>Like</p>
+                    <p>Gif</p>
+                    <p>Like</p>
                 </div>
             </div>
             ))}

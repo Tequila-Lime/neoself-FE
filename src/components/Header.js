@@ -13,7 +13,7 @@ export const Header = ({ setAuth, username, token }) => {
             <div className='logo-side'>
                 <h1 className='app-name'>Neoself</h1>
                 <Link className="nav-link" to="/dashboard">Dashboard</Link>
-                <p className='nav-link'>Friends</p>
+                <Link className="nav-link" to="/friends">Friends</Link>
             </div>
 
             <nav className="nav-links">
