@@ -88,165 +88,210 @@ export const CreateQuestionnaire = ({token}) => {
 
     const handleClick = (event) => {
         event.preventDefault()
-        if (startOrEnd === true){
-            setStep(step + 1)
-        } else { setStep(step + 2 ) }
+        if(startOrEnd === true && step ===5){
+            setStep(step+1)
+        }
+        else if(startOrEnd === false && step ===5){
+            setStep(12)
+        }
+        else if(step === 11 ){
+            setStep(16)
+        }
+        else{
+            setStep(step+1)
+        }
     }
 
     const handlePrevClick = (event) => {
         event.preventDefault()
-        setStep(0)
+        if (step === 16 && startOrEnd===true){
+            setStep(11)
+        }
+        else if(step === 12){
+            setStep(5)
+        }
+        else{setStep(step-1)}
     }
 
     function renderStep(step){
         const formSteps = [
-        <div>
-            <p>What is your habit</p>
-            <input className="text-box" type='text' value={habitName}
-                onChange={e => setHabitName(e.target.value)}></input>
-            
-            {/* want button to change to true if previously false and be false if previously true */}
-            <p>Start or end habit</p>
-            <input className="text-box" type='checkbox' checked={startOrEnd}
-                onChange={e => setStartOrEnd(!startOrEnd)}></input>
-
-            <p>Are you starting today?</p>
-            <input className="text-box" type='checkbox' checked={startToday}
-                onChange={e => setStartToday(!startToday)}></input>
-
-            <p>How many days will you do this habit</p>
-            <input className="text-box" type='number' value={lengthOfHabit}
-                onChange={e => setLengthOfHabit(e.target.value)}></input>
-            
-            <div className="weekdays">
-                <p>Sunday</p>
-                <input className="text-box" type='checkbox' checked={sunday}
-                    onChange={e => setSunday(!sunday)}></input>
-                
-                <p>Monday</p>
-                <input className="text-box" type='checkbox' checked={monday}
-                    onChange={e => setMonday(!monday)}></input>
-                
-                <p>Tuesday</p>
-                <input className="text-box" type='checkbox' checked={tuesday}
-                    onChange={e => setTuesday(!tuesday)}></input>
-
-                <p>Wednesday</p>
-                <input className="text-box" type='checkbox' checked={wednesday}
-                    onChange={e => setWednesday(!wednesday)}></input>
-                
-                <p>Thursday</p>
-                <input className="text-box" type='checkbox' checked={thursday}
-                    onChange={e => setThursday(!thursday)}></input>
-                
-                <p>Friday</p>
-                <input className="text-box" type='checkbox' checked={friday}
-                    onChange={e => setFriday(!friday)}></input>
-
-                <p>Saturday</p>
-                <input className="text-box" type='checkbox' checked={saturday}
-                    onChange={e => setSaturday(!saturday)}></input>
+            <div className="questionnaire indent">
+                <p>Are you starting or ending Habit?</p>
+                <div>
+                    <input className="text-box" type='checkbox' checked={startOrEnd}
+                    onChange={e => setStartOrEnd(!startOrEnd)}></input>
+                </div>
             </div>
-
-            <p>Numeric Value for habit</p>
-            <input className="text-box" type='number' value={metricBaseline}
+            ,
+            <div className="questionnaire indent">
+                <p>What is your habit</p>
+                <input className="text-box" type='text' value={habitName}
+                onChange={e => setHabitName(e.target.value)}></input>
+            </div>
+            ,
+            <div className="questionnaire indent">
+                <p>What days of the week will you do habit?</p>
+                <div className="weekdays">
+                    <div>
+                        <p>Sunday</p>
+                        <input className="dow" type='checkbox' checked={sunday}
+                            onChange={e => setSunday(!sunday)}></input>
+                    </div>
+                    <div>
+                        <p>Monday</p>
+                        <input className="dow" type='checkbox' checked={monday}
+                            onChange={e => setMonday(!monday)}></input>
+                    </div>
+                    <div>
+                        <p>Tuesday</p>
+                        <input className="dow" type='checkbox' checked={tuesday}
+                            onChange={e => setTuesday(!tuesday)}></input>
+                    </div>
+                    <div>
+                        <p>Wednesday</p>
+                        <input className="dow" type='checkbox' checked={wednesday}
+                            onChange={e => setWednesday(!wednesday)}></input>
+                    </div>
+                    <div>
+                        <p>Thursday</p>
+                        <input className="dow" type='checkbox' checked={thursday}
+                            onChange={e => setThursday(!thursday)}></input>
+                    </div>
+                    <div>
+                        <p>Friday</p>
+                        <input className="dow" type='checkbox' checked={friday}
+                            onChange={e => setFriday(!friday)}></input>
+                    </div>
+                    <div>
+                        <p>Saturday</p>
+                        <input className="dow" type='checkbox' checked={saturday}
+                            onChange={e => setSaturday(!saturday)}></input>
+                    </div>
+                </div>
+                <p>Are you starting today?</p>
+                <input className="text-box" type='checkbox' checked={startToday}
+                onChange={e => setStartToday(!startToday)}></input>
+            </div>
+            ,
+            <div className="questionnaire indent">
+                <p>Over how many days will this habit be done?</p>
+                <input className="text-box" type='number' value={lengthOfHabit}
+                onChange={e => setLengthOfHabit(e.target.value)}></input>
+            </div>
+            ,
+            <div className="questionnaire indent">
+                <p>Numeric Value for habit</p>
+                <input className="text-box" type='number' value={metricBaseline}
                 onChange={e => setMetricBaseline(e.target.value)}></input>
 
-            <p>How will you measure your habit</p>
-            <input className="text-box" type='text' value={metricLabel}
-                onChange={e => setMetricLabel(e.target.value)}></input>
-
-            <p>Ultimate goal metric for habit</p>
-            <input className="text-box" type='number' value={goalBaseline}
-                onChange={e => setGoalBaseline(e.target.value)}></input>
-            <p>{metricLabel}</p>
-
-            <p>Would you like to opt-in to notifications?</p>
-            <input className="text-box" type='checkbox' checked={notification}
-                onChange={e => setNotification(!notification)}></input>        
-        </div>,
-            // next part
-        <div>
-            <h1>version 1</h1>
-            <p>Cue Question 1?</p>
-            <input className="text-box" type='text' value={questionC1}
-                onChange={e => setQuestionC1(e.target.value)}></input>
-
-            <p>Cue Question 2?</p>
-            <input className="text-box" type='text' value={questionC2}
-                onChange={e => setQuestionC2(e.target.value)}></input>
-            
-            <p>Cue Question 3?</p>
-            <input className="text-box" type='text' value={questionC3}
-                onChange={e => setQuestionC3(e.target.value)}></input>
-
-            <p>Craving Question 1?</p>
-            <input className="text-box" type='text' value={questionCR1}
-                onChange={e => setQuestionCR1(e.target.value)}></input>
-            
-            <p>response Question 1?</p>
-            <input className="text-box" type='text' value={questionR1}
-                onChange={e => setQuestionR1(e.target.value)}></input>
-
-            <p>response Question 2?</p>
-            <input className="text-box" type='text' value={questionR2}
-                onChange={e => setQuestionR2(e.target.value)}></input>
-            
-            <p>Sign</p>
-            <input className="text-box" type='text' value={signature}
+                <p>How will you measure your habit</p>
+                <input className="text-box" type='text' value={metricLabel}
+                    onChange={e => setMetricLabel(e.target.value)}></input>
+            </div>
+            ,
+            <div className="questionnaire indent">
+                <p>Ultimate goal metric for habit</p>
+                <input className="text-box" type='number' value={goalBaseline}
+                    onChange={e => setGoalBaseline(e.target.value)}></input>
+                <p>{metricLabel}</p>
+            </div>
+            ,
+            <div className="questionnaire indent">
+                <p>START HABIT Cue Question 1?</p>
+                <textarea value={questionC1} onChange={e => setQuestionC1(e.target.value)}/>
+                {/* <input className="text-box" type='text' value={questionC1}
+                    onChange={e => setQuestionC1(e.target.value)}></input> */}
+            </div>
+            ,
+            <div className="questionnaire indent">
+                <p>START HABIT Cue Question 2?</p>
+                <textarea value={questionC2} onChange={e => setQuestionC2(e.target.value)}/>
+                {/* <input className="text-box" type='text' value={questionC2}
+                onChange={e => setQuestionC2(e.target.value)}></input> */}
+            </div>
+            ,
+            <div className="questionnaire indent">
+                <p>START HABIT Cue Question 3?</p>
+                <textarea value={questionC3} onChange={e => setQuestionC3(e.target.value)}/>
+                {/* <input className="text-box" type='text' value={questionC3}
+                onChange={e => setQuestionC3(e.target.value)}></input> */}
+            </div>
+            ,
+            <div className="questionnaire indent">
+                <p>START HABIT Craving Question 1?</p>
+                <textarea value={questionCR1} onChange={e => setQuestionCR1(e.target.value)}/>
+                {/* <input className="text-box" type='text' value={questionCR1}
+                onChange={e => setQuestionCR1(e.target.value)}></input> */}
+            </div>
+            ,
+            <div className="questionnaire indent">
+                <p>START HABIT response Question 1?</p>
+                <textarea value={questionR1} onChange={e => setQuestionR1(e.target.value)}/>
+                {/* <input className="text-box" type='text' value={questionR1}
+                onChange={e => setQuestionR1(e.target.value)}></input> */}
+            </div>
+            ,
+            <div className="questionnaire indent">
+                <p>START HABIT response Question 2?</p>
+                <textarea value={questionR2} onChange={e => setQuestionR2(e.target.value)}/>
+                {/* <input className="text-box" type='text' value={questionR2}
+                onChange={e => setQuestionR2(e.target.value)}></input> */}
+            </div>
+            ,
+            <div className="questionnaire indent">
+                <p>END HABIT Cue Question 1?</p>
+                <textarea value={questionC1} onChange={e => setQuestionC1(e.target.value)}/>
+                {/* <input className="text-box" type='text' value={questionC1}
+                onChange={e => setQuestionC1(e.target.value)}></input> */}
+            </div>
+            ,
+            <div className="questionnaire indent">
+                <p>END HABIT Cue Question 2?</p>
+                <textarea value={questionC2} onChange={e => setQuestionC2(e.target.value)}/>
+                {/* <input className="text-box" type='text' value={questionC2}
+                onChange={e => setQuestionC2(e.target.value)}></input> */}
+            </div>
+            ,
+            <div className="questionnaire indent">
+                <p>END HABIT Craving Question 1?</p>
+                <textarea value={questionCR1} onChange={e => setQuestionCR1(e.target.value)}/>
+                {/* <input className="text-box" type='text' value={questionCR1}
+                onChange={e => setQuestionCR1(e.target.value)}></input> */}
+            </div>
+            ,
+            <div className="questionnaire indent">
+                <p>END HABIT response Question 1?</p>
+                <textarea value={questionR1} onChange={e => setQuestionR1(e.target.value)}/>
+                {/* <input className="text-box" type='text' value={questionR1}
+                onChange={e => setQuestionR1(e.target.value)}></input> */}
+            </div>
+            ,
+            <div className="questionnaire indent">
+                <p>Sign</p>
+                <input className="text-box" type='text' value={signature}
                 onChange={e => setSignature(e.target.value)}></input>
-            
-        </div>,
-        <div>
-            <h1>version 2</h1>
-            <p>Cue Question 1?</p>
-            <input className="text-box" type='text' value={questionC1}
-                onChange={e => setQuestionC1(e.target.value)}></input>
-
-            <p>Cue Question 2?</p>
-            <input className="text-box" type='text' value={questionC2}
-                onChange={e => setQuestionC2(e.target.value)}></input>
-            
-            <p>Cue Question 3?</p>
-            <input className="text-box" type='text' value={questionC3}
-                onChange={e => setQuestionC3(e.target.value)}></input>
-
-            <p>Craving Question 1?</p>
-            <input className="text-box" type='text' value={questionCR1}
-                onChange={e => setQuestionCR1(e.target.value)}></input>
-            
-            <p>response Question 1?</p>
-            <input className="text-box" type='text' value={questionR1}
-                onChange={e => setQuestionR1(e.target.value)}></input>
-
-            <p>response Question 2?</p>
-            <input className="text-box" type='text' value={questionR2}
-                onChange={e => setQuestionR2(e.target.value)}></input>
-            
-            <p>Sign</p>
-            <input className="text-box" type='text' value={signature}
-                onChange={e => setSignature(e.target.value)}></input>
-        </div>
+            </div>
         ];
 
     return step < formSteps.length ? formSteps[step] : null;
     }
 
     return(
-        <form>
+        <form className="habit-form">
             {renderStep(step)}
-            {step === 0 && (
-                <>
-                <button onClick={handleClick}>Next</button>
-                <br />
-                </>
+            {step <= 15 && (
+                <div className='habit-buttons'>
+                    {step !== 0 && <button className='button' onClick={handlePrevClick}>Prev</button>}
+                    <button className='button' onClick={handleClick}>Next</button>
+                </div>
                 )}
 
-            {step > 0 &&(
-                <>
-                <button onClick={handlePrevClick}>Prev</button>
-                <button onClick={handleCreate}> Submit </button>
-                </>
+            {step > 15 &&(
+                <div className='habit-buttons'>
+                    <button className='button' onClick={handlePrevClick}>Prev</button>
+                    {signature === "empty" ? null : <button className='button' onClick={handleCreate}> Submit </button>}
+                    
+                </div>
                 )}
         </form>
     )

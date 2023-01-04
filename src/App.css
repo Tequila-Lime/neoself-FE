@@ -33,7 +33,20 @@ body{
 .nav-links{
   display:flex;
   flex-flow: row;
+  align-items: center;
   color: black;
+}
+.new-habit{
+  color: black;
+  font-size: 2vh;
+  text-decoration: none;
+  background-color: gold;
+  padding: 2vh 2vh;
+  border-radius: 2em;
+}
+.new-habit:hover{
+  padding:2.25vh 2.25vh;
+  color:red;
 }
 .nav-link {
   margin: 0px 10px;
@@ -49,7 +62,7 @@ body{
 
 /* login form css */
 .login-box{
-  background-color: blue;
+
   display:flex;
   flex-flow:column;
   justify-content: center;
@@ -57,7 +70,7 @@ body{
 }
 
 .login-label{
-  color: white;
+  color: black;
   font-size: 2em;
 }
 
@@ -66,7 +79,7 @@ body{
     justify-content: space-evenly;
     align-items: left;
     flex-flow: column;
-    background-color: aqua;
+    background-color: rgb(205, 199, 168);
     margin: 0 10% 5% 10%;
     height: 10em;
     width: 30%;
@@ -81,7 +94,7 @@ body{
 
 .login-input{
   width:100%;
-  height: 2em;
+  height: 3vh;
   border: none;
   border-radius: 2em;
   padding: 0 3%;
@@ -95,16 +108,16 @@ body{
   text-decoration: none;
   background-color: gold;
   width: 40%;
-  height: 3vh;
-  font-size: 15px;
-  border-radius: 2em;
+  height: 2.5vh;
+  font-size: 18px;
+  border-radius: .5em;
   padding: 0px 2%;
-  color: black;
+  color: white;
 }
 
 .login-button:hover{
-  background-color: aquamarine;
-  color: red;
+  background-color: rgb(183, 211, 90);
+  height:3.5vh;
 }
 
 .register-button{
@@ -245,5 +258,50 @@ body{
   display:flex;
   justify-content: center;;
   margin-bottom:2vh;
+}
 
+/* Habit form */
+.habit-form{
+  display:flex;
+  flex-flow:column;
+  justify-content: space-between;
+  align-items: center;
+  width: 50%;
+  margin: 5% auto;
+  background-color: rgb(218, 210, 210);
+  border-radius: 2em;
+}
+.questionnaire{
+    display:flex;
+    width:100%;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    margin: 2vh 2vh;
+}
+.weekdays{
+  display:flex;
+}
+.dow{
+  background-color: olive;
+}
+
+.habit-buttons{
+  display:flex;
+  justify-content: space-around;
+  width: 100%;
+  margin-bottom: 2vh;
+}
+
+.button{
+  color: black;
+  background-color: rgb(218, 210, 210);
+  border: black 1px solid;
+  height: 3vh;
+  width: 5vh;
+  border-radius: 2em;
+}
+.button:hover{
+  background-color:grey;
+  height:3.5vh; 
 }
