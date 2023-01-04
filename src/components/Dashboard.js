@@ -17,7 +17,7 @@ export const Dashboard = ({ token }) => {
                 <div className="dash-component">
                     <div className="profile-top">
                         <div className="avatar">
-                            <p>I'm a picture</p>
+                            {profile.avatar && <img src={profile.avatar} alt={profile.username}/>}
                         </div>
                         <div className="profile-info">
                             <p className="profile-name">{profile.username}</p>

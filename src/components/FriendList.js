@@ -28,7 +28,6 @@ export const Friends = ({ token }) => {
     <div>
       <h1 className="page-title title is-4 has-text-centered">Friends</h1>
       <div>
-        {console.log(friendList)}
         <div className="friends">
           {friendList.map((friend, idx) => (
             <div key={idx}>
