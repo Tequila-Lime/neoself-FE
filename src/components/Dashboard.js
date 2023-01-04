@@ -1,14 +1,13 @@
-import { requestOwnProfileInfo, requestTodayOwnRecords } from './Requests';
+import { requestOwnProfileInfo } from './Requests';
 import { useEffect, useState } from 'react';
-import { Link } from "react-router-dom"
+import { TodayRecords } from './TodayRecords';
+import { UserRecords } from './UserRecords';
 
 export const Dashboard = ({ token }) => {
     const [ profile, setProfile ] = useState([])
-    const [todayRecord, setTodayRecord] = useState([])
 
     useEffect(() => {
         requestOwnProfileInfo(token).then((res) => setProfile(res.data))
-        requestTodayOwnRecords(token).then(res => setTodayRecord(res.data))
     }, [token]);
 
 
@@ -18,7 +17,7 @@ export const Dashboard = ({ token }) => {
                 <div className="dash-component">
                     <div className="profile-top">
                         <div className="avatar">
-                            <p>I'm a picture</p>
+                            {profile.avatar && <img src={profile.avatar} alt={profile.username}/>}
                         </div>
                         <div className="profile-info">
                             <p className="profile-name">{profile.username}</p>
@@ -31,30 +30,20 @@ export const Dashboard = ({ token }) => {
                 <div className="dash-component">
                     <div className="indent">
                         <h3>Today's Records</h3>
-                        {todayRecord.length === 0 ? <p>No records</p> :
-                        <div className='user-records'>{todayRecord.map((record, idx) => (
-                            <div key={idx}>
-                                <Link className='today-records ' to='/records/:recordId' state={{ id: record.id }}>{record.habit_name } record </Link>
-                            </div>
-                            ))}
-                        </div> }
+                        <TodayRecords token={token}/>
                     </div>
                 </div>
             </div>
             <div className="middle-cont">
                 <div className="dash-component">
-                    <p>test</p>
-                    <p>test</p>
-                    <p>test</p>
-                    <p>test</p>
-                    <p>test</p>
-                    <p>test</p>
-                    <p>test</p>
+                    <div className='indent'>
+                        <h3>Your Records</h3>
+                        <UserRecords token={token}/>
+                    </div>
                 </div>
             </div>
             <div className="side-cont">
                 <div className="dash-component">
-                    <p>test</p>
                     <p>test</p>
                     <p>test</p>
                     <p>test</p>

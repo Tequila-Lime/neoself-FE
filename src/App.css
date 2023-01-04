@@ -1,4 +1,5 @@
 body{
+  background-color: rgb(255, 255, 255);
   padding: 0px;
   margin: 0px;
 }
@@ -33,7 +34,20 @@ body{
 .nav-links{
   display:flex;
   flex-flow: row;
+  align-items: center;
   color: black;
+}
+.new-habit{
+  color: black;
+  font-size: 2vh;
+  text-decoration: none;
+  background-color: gold;
+  padding: 1vh 1vh;
+  border-radius: .5em;
+}
+.new-habit:hover{
+  padding:1.25vh 1.25vh;
+  font-size: 2.25vh;
 }
 .nav-link {
   margin: 0px 10px;
@@ -49,7 +63,7 @@ body{
 
 /* login form css */
 .login-box{
-  background-color: blue;
+
   display:flex;
   flex-flow:column;
   justify-content: center;
@@ -57,7 +71,7 @@ body{
 }
 
 .login-label{
-  color: white;
+  color: black;
   font-size: 2em;
 }
 
@@ -66,7 +80,7 @@ body{
     justify-content: space-evenly;
     align-items: left;
     flex-flow: column;
-    background-color: aqua;
+    background-color: rgb(205, 199, 168);
     margin: 0 10% 5% 10%;
     height: 10em;
     width: 30%;
@@ -81,7 +95,7 @@ body{
 
 .login-input{
   width:100%;
-  height: 2em;
+  height: 3vh;
   border: none;
   border-radius: 2em;
   padding: 0 3%;
@@ -95,16 +109,16 @@ body{
   text-decoration: none;
   background-color: gold;
   width: 40%;
-  height: 3vh;
-  font-size: 15px;
-  border-radius: 2em;
+  height: 2.5vh;
+  font-size: 18px;
+  border-radius: .5em;
   padding: 0px 2%;
-  color: black;
+  color: white;
 }
 
 .login-button:hover{
-  background-color: aquamarine;
-  color: red;
+  background-color: rgb(183, 211, 90);
+  height:3.5vh;
 }
 
 .register-button{
@@ -149,7 +163,8 @@ body{
   flex-flow: column;
   width: 100%;
   border-radius: 1em;
-  background-color: lightblue;
+  background-color: rgb(97, 195, 237);
+  box-shadow: 0px 0px 5px rgb(12, 60, 83) ;
   /* border: black solid 2px; */
   margin: 2vh 0 0 0;
 }
@@ -192,8 +207,7 @@ body{
   margin: 2vh 2vh 2vh 2vh;
 }
 
-/* Today records */
-
+/* Today records component */
 .user-records{
   margin-bottom: 2vh;
 }
@@ -204,4 +218,95 @@ body{
 }
 .today-records:hover{
   color: red;
+}
+
+/* Basic Record Display */
+.records-cont{
+  display:flex;
+  flex-flow: column;
+}
+.indiv-record{
+  display: flex;
+  flex-flow:column;
+  height:60%;
+  margin-bottom: 3vh;
+  
+}
+.record-info{
+  display:flex;
+  flex-flow: column;
+  padding: 0 2vh;
+  height:80%;
+  background-color:rgb(247, 241, 233);
+  border-radius: 1.5em;
+  margin-bottom: 1vh;
+  box-shadow: 0 0 5px black inset;
+  /* border: black 1px solid; */
+}
+.record-title{
+  display:flex;
+  flex-flow: row;
+  align-items: center;
+  justify-content: space-between;
+}
+.reaction{
+  display:flex;
+  justify-content: space-between;
+  background-color: rgb(221, 247, 255);
+  height: 20%;
+  border-radius: .75em;
+  padding: 0 2vh;
+  box-shadow: 0 0 5px black inset;
+}
+
+.load-records{
+  display:flex;
+  justify-content: center;;
+  margin-bottom:2vh;
+}
+
+/* Habit form */
+.habit-form{
+  display:flex;
+  flex-flow:column;
+  justify-content: space-between;
+  align-items: center;
+  width: 50%;
+  margin: 5% auto;
+  background-color: rgb(218, 210, 210);
+  border-radius: 2em;
+}
+.questionnaire{
+    display:flex;
+    width:100%;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    margin: 2vh 2vh;
+}
+.weekdays{
+  display:flex;
+}
+.dow{
+  background-color: olive;
+}
+
+.habit-buttons{
+  display:flex;
+  justify-content: space-around;
+  width: 100%;
+  margin-bottom: 2vh;
+}
+
+.button{
+  color: black;
+  background-color: rgb(218, 210, 210);
+  border: black 1px solid;
+  height: 3vh;
+  width: 10%;
+  border-radius: 2em;
+}
+.button:hover{
+  background-color:grey;
+  height:3.5vh; 
 }
