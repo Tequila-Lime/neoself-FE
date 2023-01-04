@@ -1,6 +1,8 @@
+
 import { requestRecordDetail  } from './Requests'
 import { useEffect, useState } from 'react'
 import {  useLocation, Link } from 'react-router-dom'
+import { GiphyBar } from './GiphyBar'
 
 export const RecordDetail = ({ token, username }) => {
     const [record, setRecord] = useState([])
@@ -34,7 +36,8 @@ export const RecordDetail = ({ token, username }) => {
             <p>Likes amount {record.likes_num}</p>
             <hr></hr>
             {username===record.user && <Link  to='/records/update/:recordId' state={{ id: record.id }}> Update Record</Link>}
-            
+            {}
+            <GiphyBar/>
         </div>
     )
 
