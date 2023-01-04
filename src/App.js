@@ -20,6 +20,8 @@ import { RecordDetail } from './components/RecordDetail';
 import { UpdateRecord } from './components/UpdateRecord';
 import { TodayRecords } from './components/TodayRecords';
 import { OtherUserRecords } from './components/OtherUserRecords';
+import { GiphyBar } from './components/GiphyBar';
+import { CreateReaction } from './components/CreateReaction';
 import { Weeklogs } from './components/WeekLogs';
 import { HabitWeeklogs } from './components/HabitWeeklogs';
 import { WeeklogsDetail } from './components/WeekLogDetail';
@@ -52,6 +54,7 @@ function App({ cardData }) {
             <Route path="/FriendList" element={<Friends token={token}/>} />
             <Route path="/createReflection" element={<CreateReflection username={username} token={token}/>} />
             <Route path="/reflection" element={<AllReflections username={username} token={token}/>} />
+            <Route path="/reflection" element={<AllReflections username={username} token={token}/>} />
             <Route path="/reflection/:reflectionId" element={<SingleReflection token={token} isLoggedIn={isLoggedIn}/> }/>
             <Route path="/reflection/update/:reflectionId" element={<UpdateReflection username={username} token={token} isLoggedIn={isLoggedIn}/> }/>
             <Route path="/create" element={<CreateQuestionnaire username={username} token={token}/>} />
@@ -64,6 +67,8 @@ function App({ cardData }) {
             <Route path="/records/habit/:recordId" element={<HabitRecords token={token} isLoggedIn={isLoggedIn}/> }/>
             <Route path="/records/:recordId" element={<RecordDetail username={username} token={token} isLoggedIn={isLoggedIn}/> }/>
             <Route path="/records/update/:recordId" element={<UpdateRecord username={username} token={token} isLoggedIn={isLoggedIn}/> }/>
+            <Route path="/createReaction" element={<CreateReaction username={username} token={token}/>} />
+            <Route path="/giphybar" element={<GiphyBar username={username} token={token}/>} />
             <Route path="/weeklogs" element={<Weeklogs username={username} token={token}/>} />
             <Route path="/habit-weeklogs/:id" element={<HabitWeeklogs username={username} token={token}/>} />
             <Route path="/weeklogs/:id" element={<WeeklogsDetail username={username} token={token}/>} />
