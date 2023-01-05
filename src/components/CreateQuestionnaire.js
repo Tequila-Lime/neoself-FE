@@ -62,7 +62,7 @@ export const CreateQuestionnaire = ({token}) => {
         event.preventDefault()
 
         requestCreateQuestionnaire(token, questionnaireCont) 
-        navigate("/questionnaires")
+        navigate("/")
 
         setStartOrEnd(true)
         setHabitName('empty')
