@@ -125,8 +125,10 @@ export const CreateQuestionnaire = ({token}) => {
             ,
             <div className="questionnaire indent">
                 <p>What is your habit</p>
+                <p>Ex: Reading</p>
                 <input className="text-box" type='text' value={habitName}
                 onChange={e => setHabitName(e.target.value)}></input>
+                <p>*Just put name of activity*</p>
             </div>
             ,
             <div className="questionnaire indent">
@@ -187,6 +189,8 @@ export const CreateQuestionnaire = ({token}) => {
                 <p>How will you measure your habit</p>
                 <input className="text-box" type='text' value={metricLabel}
                     onChange={e => setMetricLabel(e.target.value)}></input>
+
+                <p>Note: If goal is to just do it or not do it, input <b>1 time</b> for this section </p>
             </div>
             ,
             <div className="questionnaire indent">
@@ -194,73 +198,86 @@ export const CreateQuestionnaire = ({token}) => {
                 <input className="text-box" type='number' value={goalBaseline}
                     onChange={e => setGoalBaseline(e.target.value)}></input>
                 <p>{metricLabel}</p>
+                <p>If no progressions input the same as previous </p>
             </div>
             ,
             <div className="questionnaire indent">
-                <p>START HABIT Cue Question 1?</p>
+                <p>Follow this prompt: I will [habit] at [time] in [location]</p>
+                <p>Ex: I will read at 9pm in my office chair</p>
                 <textarea value={questionC1} onChange={e => setQuestionC1(e.target.value)}/>
                 {/* <input className="text-box" type='text' value={questionC1}
                     onChange={e => setQuestionC1(e.target.value)}></input> */}
             </div>
             ,
             <div className="questionnaire indent">
-                <p>START HABIT Cue Question 2?</p>
+                <p>Follow this prompt: After [current habit], I will [new habit]</p>
+                <p>Ex: After I take a shower at night, I will read</p>
                 <textarea value={questionC2} onChange={e => setQuestionC2(e.target.value)}/>
                 {/* <input className="text-box" type='text' value={questionC2}
                 onChange={e => setQuestionC2(e.target.value)}></input> */}
             </div>
             ,
             <div className="questionnaire indent">
-                <p>START HABIT Cue Question 3?</p>
+                <p>Follow this prompt: Please define a visual cue that would remind you to do habit?</p>
+                <p>Ex: I will place book on my bed because it is where I go after I take a shower </p>
                 <textarea value={questionC3} onChange={e => setQuestionC3(e.target.value)}/>
                 {/* <input className="text-box" type='text' value={questionC3}
                 onChange={e => setQuestionC3(e.target.value)}></input> */}
             </div>
             ,
             <div className="questionnaire indent">
-                <p>START HABIT Craving Question 1?</p>
+                <p>Follow this prompt: How will you reward yourself?</p>
+                <p>Ex:I will reward myself with more TV time on the weekend</p>
                 <textarea value={questionCR1} onChange={e => setQuestionCR1(e.target.value)}/>
                 {/* <input className="text-box" type='text' value={questionCR1}
                 onChange={e => setQuestionCR1(e.target.value)}></input> */}
             </div>
             ,
             <div className="questionnaire indent">
-                <p>START HABIT response Question 1?</p>
+                <p>Follow this prompt: How can I make this habit easy?</p>
+                <p>Ex: When I place the book on my bed it will already be open to the page where I left off</p>
                 <textarea value={questionR1} onChange={e => setQuestionR1(e.target.value)}/>
                 {/* <input className="text-box" type='text' value={questionR1}
                 onChange={e => setQuestionR1(e.target.value)}></input> */}
             </div>
             ,
             <div className="questionnaire indent">
-                <p>START HABIT response Question 2?</p>
+                <p>Follow this prompt: What are the Progressions?</p>
+                <p>Ex: I will start by reading for 5 min, then each day read longer by a minute</p>
                 <textarea value={questionR2} onChange={e => setQuestionR2(e.target.value)}/>
                 {/* <input className="text-box" type='text' value={questionR2}
                 onChange={e => setQuestionR2(e.target.value)}></input> */}
             </div>
             ,
+            // This is the end habit questions
             <div className="questionnaire indent">
-                <p>END HABIT Cue Question 1?</p>
+                <p>Follow this prompt: Try to identify a trigger (Environment)</p>
+                <p>Ex: When I am stressed I watch too much TV</p>
                 <textarea value={questionC1} onChange={e => setQuestionC1(e.target.value)}/>
                 {/* <input className="text-box" type='text' value={questionC1}
                 onChange={e => setQuestionC1(e.target.value)}></input> */}
             </div>
             ,
             <div className="questionnaire indent">
-                <p>END HABIT Cue Question 2?</p>
+                <p>Follow this prompt: Define an alternate behavior</p>
+                <p>Ex: I can meditate instead of watching TV</p>
                 <textarea value={questionC2} onChange={e => setQuestionC2(e.target.value)}/>
                 {/* <input className="text-box" type='text' value={questionC2}
                 onChange={e => setQuestionC2(e.target.value)}></input> */}
             </div>
             ,
             <div className="questionnaire indent">
-                <p>END HABIT Craving Question 1?</p>
+                <p>Follow this prompt: What will be your consequence if you do habit?</p>
+                <p>Ex: I will add an additional leg day in the gym </p>
+                <p>Note: Make this a mild inconvenience</p>
                 <textarea value={questionCR1} onChange={e => setQuestionCR1(e.target.value)}/>
                 {/* <input className="text-box" type='text' value={questionCR1}
                 onChange={e => setQuestionCR1(e.target.value)}></input> */}
             </div>
             ,
             <div className="questionnaire indent">
-                <p>END HABIT response Question 1?</p>
+                <p>Follow this prompt: How can you make habit hard to do?</p>
+                <p>Ex: I will unplug the TV after every use</p>
                 <textarea value={questionR1} onChange={e => setQuestionR1(e.target.value)}/>
                 {/* <input className="text-box" type='text' value={questionR1}
                 onChange={e => setQuestionR1(e.target.value)}></input> */}
