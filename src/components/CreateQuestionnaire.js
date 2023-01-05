@@ -6,7 +6,7 @@ export const CreateQuestionnaire = ({token}) => {
     const [step, setStep] = useState(0)
 
     const [startOrEnd, setStartOrEnd] = useState(true)
-    const [habitName, setHabitName] = useState('empty')
+    const [habitName, setHabitName] = useState()
     const [startToday, setStartToday] = useState(false)
     const [lengthOfHabit, setLengthOfHabit] = useState(30)
     const [monday, setMonday] = useState(true)
@@ -16,17 +16,19 @@ export const CreateQuestionnaire = ({token}) => {
     const [friday, setFriday] = useState(true)
     const [saturday, setSaturday] = useState(true)
     const [sunday, setSunday] = useState(true)
-    const [metricLabel, setMetricLabel] = useState('empty')
+    const [metricLabel, setMetricLabel] = useState()
     const [metricBaseline, setMetricBaseline] = useState(0)
     const [goalBaseline, setGoalBaseline] = useState(0)
     const [notification, setNotification] = useState(true)
-    const [questionC1, setQuestionC1] = useState('none')
-    const [questionC2, setQuestionC2] = useState('none')
-    const [questionC3, setQuestionC3] = useState('none')
-    const [questionCR1, setQuestionCR1] = useState('none')
-    const [questionR1, setQuestionR1] = useState('none')
-    const [questionR2, setQuestionR2] = useState('none')
-    const [signature, setSignature] = useState('empty')
+    const [questionC1, setQuestionC1] = useState()
+    const [questionC2, setQuestionC2] = useState()
+    const [questionC3, setQuestionC3] = useState()
+    const [questionCR1, setQuestionCR1] = useState()
+    const [questionR1, setQuestionR1] = useState()
+    const [questionR2, setQuestionR2] = useState()
+    const [signature, setSignature] = useState()
+    const [publicStatus, setPublicStatus] = useState(true)
+
     const navigate = useNavigate()
 
     let questionnaireCont = {
@@ -53,6 +55,7 @@ export const CreateQuestionnaire = ({token}) => {
         "response_question_1": `${questionR1}`,
         "response_question_2": `${questionR2}`,
         "signature": `${signature}`,
+        "public": `${publicStatus}`
     }
 
     const handleCreate = (event) => {
@@ -82,6 +85,7 @@ export const CreateQuestionnaire = ({token}) => {
         setQuestionCR1('empty')
         setQuestionR1('empty')
         setQuestionR2('empty')
+        setPublicStatus(true)
         setSignature('empty')
     }
 // have to change the value
@@ -100,6 +104,11 @@ export const CreateQuestionnaire = ({token}) => {
         else{
             setStep(step+1)
         }
+    }
+
+    const handleBegin = (event) => {
+        event.preventDefault()
+        setStep(0)
     }
 
     const handlePrevClick = (event) => {
@@ -126,7 +135,7 @@ export const CreateQuestionnaire = ({token}) => {
             <div className="questionnaire indent">
                 <p>What is your habit</p>
                 <p>Ex: Reading</p>
-                <input className="text-box" type='text' value={habitName}
+                <input className="text-box" placeholder='Ex: Reading' type='text' value={habitName}
                 onChange={e => setHabitName(e.target.value)}></input>
                 <p>*Just put name of activity*</p>
             </div>
@@ -176,7 +185,7 @@ export const CreateQuestionnaire = ({token}) => {
             </div>
             ,
             <div className="questionnaire indent">
-                <p>Over how many days will this habit be done?</p>
+                <p>Over how many days will this habit be tracked?</p>
                 <input className="text-box" type='number' value={lengthOfHabit}
                 onChange={e => setLengthOfHabit(e.target.value)}></input>
             </div>
@@ -187,7 +196,7 @@ export const CreateQuestionnaire = ({token}) => {
                 onChange={e => setMetricBaseline(e.target.value)}></input>
 
                 <p>How will you measure your habit</p>
-                <input className="text-box" type='text' value={metricLabel}
+                <input className="text-box" type='text' placeholder="Ex: min" value={metricLabel}
                     onChange={e => setMetricLabel(e.target.value)}></input>
 
                 <p>Note: If goal is to just do it or not do it, input <b>1 time</b> for this section </p>
@@ -284,8 +293,12 @@ export const CreateQuestionnaire = ({token}) => {
             </div>
             ,
             <div className="questionnaire indent">
+                <p>Do you want all records to be public(can change later)</p>
+                <input className="dow" type='checkbox' checked={publicStatus}
+                            onChange={e => setPublicStatus(e.target.value)}></input>
+
                 <p>Sign</p>
-                <input className="text-box" type='text' value={signature}
+                <input className="text-box" placeholder='Ex: John Doe' type='text' value={signature}
                 onChange={e => setSignature(e.target.value)}></input>
             </div>
         ];
@@ -298,7 +311,11 @@ export const CreateQuestionnaire = ({token}) => {
             {renderStep(step)}
             {step <= 15 && (
                 <div className='habit-buttons'>
-                    {step !== 0 && <button className='button' onClick={handlePrevClick}>Prev</button>}
+                    {step !== 0 &&
+                        <>
+                        <button className='button' onClick={handlePrevClick}>Prev</button>
+                        <button className='button' onClick={handleBegin}> To start </button>
+                        </> }
                     <button className='button' onClick={handleClick}>Next</button>
                 </div>
                 )}
@@ -306,7 +323,7 @@ export const CreateQuestionnaire = ({token}) => {
             {step > 15 &&(
                 <div className='habit-buttons'>
                     <button className='button' onClick={handlePrevClick}>Prev</button>
-                    {signature === "empty" ? null : <button className='button' onClick={handleCreate}> Submit </button>}
+                    {signature === undefined ? null : <button className='button' onClick={handleCreate}> Submit </button>}
                     
                 </div>
                 )}
