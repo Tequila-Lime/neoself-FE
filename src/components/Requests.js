@@ -33,6 +33,14 @@ export const requestOwnProfileInfo = (token) => {
             { headers: { Authorization: `Token ${token}`}})
             return response
         }
+// ...
+export const requestEditOwnProfileInfo = (token, updateProfile) => {
+    const url = 'https://neoself-be-service.onrender.com/user/self/'
+    
+    const response = axios.patch(url, updateProfile,
+        { headers: { Authorization: `Token ${token}`}})
+        return response
+    }
 
 export const requestUsersProfileInfo = (token, userId) => {
     const url = `https://neoself-be-service.onrender.com/user/${userId}/`
