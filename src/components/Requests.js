@@ -33,7 +33,7 @@ export const requestOwnProfileInfo = (token) => {
             { headers: { Authorization: `Token ${token}`}})
             return response
         }
-// ...
+// ✅
 export const requestEditOwnProfileInfo = (token, updateProfile) => {
     const url = 'https://neoself-be-service.onrender.com/user/self/'
     
@@ -344,4 +344,20 @@ export const requestResultDetail = (token, resultId) => {
         { headers: { Authorization: `Token ${token}`, }, })
         return response
 }
+// these are for liking a record
 
+export const requestRecordLike = (token, reactionId) => {
+    const url = `https://neoself-be-service.onrender.com/like/record/${reactionId}/`
+
+    const response = axios.get(url,
+        { headers: { Authorization: `Token ${token}`, }, })
+        return response
+}
+
+export const requestAddRecordLike = (token, reactionId, likeCont) => {
+    const url = `https://neoself-be-service.onrender.com/like/record/${reactionId}/`
+
+    const response = axios.post(url, likeCont,
+        { headers: { Authorization: `Token ${token}`, }, })
+        return response
+}
