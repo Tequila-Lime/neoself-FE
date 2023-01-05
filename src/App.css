@@ -436,3 +436,74 @@ body{
   margin: 2vh 0vh 0 2vh;
 }
 /* end profile page */
+
+/* record detail */
+.record-detail{
+  display:flex;
+  flex-flow: column;
+  margin: 5% auto 0 auto;
+  width: 50%;
+  /* background-color: aqua; */
+  border: 1px black solid;
+  border-radius: 1em;
+}
+.effect-record{
+  display:flex;
+  justify-content: space-between;
+}
+.record-detail-comment{
+  display:flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.actual-comment{
+  display:flex;
+  margin-top: 2vh;
+  width:85%;
+  height:10vh;
+  border:1px black solid;
+  border-radius: .5em;
+  background-color: antiquewhite;
+}
+.actual-edit-comment{
+  display:flex;
+  margin-top: 2vh;
+  padding: 1vh;
+  width:85%;
+  border:1px black solid;
+  border-radius: .5em;
+  background-color: antiquewhite;
+}
+.bio-text-record{
+  display: flex;
+  margin: 1vh;
+}
+.r-detail-title{
+  background-color: lightgreen;
+  width:100%;
+  border-radius: 1em 1em 0 0;
+}
+.record-info-input{
+  display:flex;
+  margin-top: 2vh;
+}
+.record-info-input-num{
+  margin-right:2vh;
+}
+.detail-title{
+  margin: 2vh;
+}
+.status-input{
+  display:flex;
+  justify-content: space-between;
+}
+.upd-sav-button{
+  display: flex;
+  justify-content: space-between;
+  margin:1vh 0;
+}
+.detail-record-button{
+  display:flex;
+  background-color: blueviolet;
+  color: white;
+}

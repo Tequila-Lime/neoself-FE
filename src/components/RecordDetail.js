@@ -1,11 +1,12 @@
 
-import { requestRecordDetail  } from './Requests'
+import { requestRecordDetail, requestUpdateRecordDetail } from './Requests'
 import { useEffect, useState } from 'react'
-import {  useLocation, Link } from 'react-router-dom'
+import {  useLocation } from 'react-router-dom'
 import { GiphyBar } from './GiphyBar'
 
 export const RecordDetail = ({ token, username }) => {
     const [record, setRecord] = useState([])
+    const [step, setStep] = useState(0)
     const location = useLocation()
 
     useEffect(() => {
@@ -13,32 +14,131 @@ export const RecordDetail = ({ token, username }) => {
             .then(res => setRecord(res.data))
     }, [token, location.state.id])
 
-    return(
-        <div>
-            <h1>{record.user} Record to {record.habit_name} on {record.date}</h1>
-            <p>Record number {record.daily_record} {record.metric_label}</p>
-            <p> Did cue effect habit?:</p> 
-            {record.cue_dh===false ?<p>❌</p> : <p>✅</p>}
-            <p>Did craving effect habit?: {record.craving_dh}</p>
-            {record.craving_dh===false ?<p>❌</p> : <p>✅</p>}
-            <p>Did Response effect habit?: {record.response_dh}</p>
-            {record.response_dh===false ?<p>❌</p> : <p>✅</p>}
-            <p>Self Comments: </p>
-            <p>{record.comment_dh}</p>
+    const handleSaveUpdate = (event)=>{
+        event.preventDefault()
+        requestUpdateRecordDetail(token, location.state.id, record)
+        setStep(0)
+    }
 
-            {username===record.user && (
-            <>
-            <p>Is it public: {record.public}</p>
-            {record.public===false ?<p>❌</p> : <p>✅</p>}
-            </>
-            )}
+    const handleUpdate = (event) => {
+        event.preventDefault()
+        setStep(1)
+    }
+    const handleBack = (event) => {
+        event.preventDefault()
+        setStep(step-1)
+    }
+
+    function renderStep(step){
+        const formSteps = [
+        <div className='record-detail'>
+                <div className='r-detail-title' >
+                    <h1 className='detail-title'>{record.user} Record to {record.habit_name} on {record.date}</h1>
+                </div>
+                <div className='indent'>    
+                <div className='status-input'>
+                    <p>Record number {record.daily_record} {record.metric_label}</p>
+                    {record.public===false ?<p>Private</p> : <p>Public</p>}
+                </div>
+                
+                {username===record.user && 
+                <div className='user-record-details'>
+                    <div className='effect-record'>
+                        <div>
+                            <p> Did cue effect habit?:</p> 
+                            {record.cue_dh===false ?<p>❌</p> : <p>✅</p>}
+                        </div>
+                        <div>
+                            <p>Did craving effect habit?: {record.craving_dh}</p>
+                            {record.craving_dh===false ?<p>❌</p> : <p>✅</p>}
+                        </div>
+                        <div>
+                            <p>Did Response effect habit?: {record.response_dh}</p>
+                            {record.response_dh===false ?<p>❌</p> : <p>✅</p>}
+                        </div>
+                    </div>
+                </div>
+                }
+                <div className='record-detail-comment'>
+                        <p>Comments: </p>
+                        <div className='actual-comment'>
+                            <p className='bio-text-record'>{record.comment_dh}</p>
+                        </div>
+                        
+                </div>
+                <div className='upd-sav-button'>
+                {(username===record.user && step===0) && <button className='detail-record-button' onClick={handleUpdate}> Update </button>}
+                </div>
+                <hr></hr>
+                {}
+                <GiphyBar/>
+                {/* where gif and like button will go */}
+                </div>
+        </div>,
+        <div className='record-detail'>
+            <div className='r-detail-title' >
+                <h1 className='detail-title'>{record.user} Record to {record.habit_name} on {record.date}</h1>
+            </div>
+            <div className='indent'>    
+                <div className='status-input'>
+                    <div className='record-info-input'>
+                        <input className="record-info-input-num" type='number' value={record.daily_record}
+                        onChange={e => setRecord({...record, daily_record: e.target.value})}></input>
+                        <p>{record.metric_label}</p>
+                    </div>
+                    
+                    {record.public===false ?<p>Private</p> : <p>Public</p>}
+                </div>
             
-            <p>Likes amount {record.likes_num}</p>
-            <hr></hr>
-            {username===record.user && <Link  to='/records/update/:recordId' state={{ id: record.id }}> Update Record</Link>}
-            {}
-            <GiphyBar/>
+                {username===record.user && 
+                <div className='user-record-details'>
+                    <div className='effect-record'>
+                        <div>
+                            <p> Did cue effect habit?:</p> 
+                            <input className="text-box" type='checkbox' checked={record.cue_dh}
+                            onChange={e => setRecord({...record, cue_dh: !record.cue_dh})}></input>
+                        </div>
+                        <div>
+                            <p>Did craving effect habit?: {record.craving_dh}</p>
+                            <input className="text-box" type='checkbox' checked={record.craving_dh}
+                            onChange={e => setRecord({...record, craving_dh: !record.craving_dh})}></input>
+                        </div>
+                        <div>
+                            <p>Did Response effect habit?: {record.response_dh}</p>
+                            <input className="text-box" type='checkbox' checked={record.response_dh}
+                            onChange={e => setRecord({...record, response_dh: !record.response_dh})}></input>
+                        </div>
+                    </div>
+                </div>
+                }
+                <div className='record-detail-comment'>
+                        <p>Comments: </p>
+                        <textarea className='actual-edit-comment' value={record.comment_dh} onChange={e => setRecord({...record, comment_dh: e.target.value })}/>
+                </div>
+                <div className='upd-sav-button'>
+                    {(username===record.user && step===1) && <>
+                    <button className='detail-record-button' onClick={handleBack}>Back</button>
+                    <button className='detail-record-button' onClick={handleSaveUpdate}> Save </button>
+                    </>}
+                </div>
+            </div>
         </div>
+        ,
+        <div>
+            <h1>test</h1>
+        </div>
+
+            ];
+
+            return step < formSteps.length ? formSteps[step] : null;
+            }
+
+    return(
+        <>
+        {console.log(step)}
+        {renderStep(step)}
+        </>
+        
     )
 
     }
