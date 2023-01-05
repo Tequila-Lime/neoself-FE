@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { requestUserInfo } from './Requests'; 
 import { Follow } from './Follow';
+import { Link } from "react-router-dom"
 
 export const UserSearchBar = ({ token }) => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -37,7 +38,7 @@ export const UserSearchBar = ({ token }) => {
                 {profile.avatar && <img src={profile.avatar} alt={profile.username}/>}
             </div>
             <div className="profile-info">
-                <p className="profile-name">{profile.username}</p>
+                <Link className="profile-name" to='/random-profile' state={{ id: profile.id }}>{profile.username}</Link>
                 {profile.full_name === true ? <p>{profile.name}</p> : <p>fill name out</p>}   
             </div> 
             

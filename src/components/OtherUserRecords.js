@@ -1,32 +1,58 @@
 import { requestOtherUserRecords } from './Requests'
 import { useEffect, useState } from 'react'
-import { Link, useLocation } from "react-router-dom"
-
-export const OtherUserRecords = ({ token }) => {
+import { Link } from "react-router-dom"
+// , useLocation
+export const OtherUserRecords = ({ token, id }) => {
     const [recordList, setRecordList] = useState([])
-    const location = useLocation()
+    const [recordsPerPage, setRecordsPerPage] = useState(4)
+    // const location = useLocation()
 
     useEffect(() => {
-        requestOtherUserRecords(token, location.state.id)
+        requestOtherUserRecords(token, id)
             .then(res => setRecordList(res.data))
-    }, [token, location.state.id])
+    }, [token, id])
+
+    function handleLoadMore() {
+        setRecordsPerPage(recordsPerPage + 4);
+      }
+    
+    function handleLoadLess() {
+        setRecordsPerPage(recordsPerPage - 4);
+      }
 
     return (
         <div>
             {/* This name should be from a different endpoint in future, but the component is working fine at the moment */}
-            <h1>Records for {recordList.user}</h1>
-            <div>
-                <div className='UserRecords'>{recordList.map((record, idx) => (
-                    <div key={idx}>
-                        {/* would like to hav name of habit serialized */}
-                        <p>Record for {record.habit_name } on {record.date}</p>
-                        {/* This is where link to record detail would go */}
-                        <Link  to='/records/:recordId' state={{ id: record.id }}> See record detail</Link>
-                        {/* maybe a link to the users profile */}
-                    </div>
-                ))}
-                </div>    
+            {recordList.length === 0 ? <p>No records made</p> : <>
+            <div className='records-cont'>
+            {recordList.slice(0, recordsPerPage).map((record, idx) => (
+            <div className="indiv-record" key={idx}>
+                <div className="record-info">
+                <div className="record-title">
+                    <Link to='/records/:recordId' state={{ id: record.id }}>
+                    {record.habit_name} record by {record.user}
+                    </Link>
+                    <p>{record.date}</p>
+                </div>
+                <p>{record.daily_record}{record.metric_label}</p>
+                </div>
+                <div className="reaction">
+                    <p>Gif</p>
+                    <p>Like</p>
+                </div>
             </div>
+            ))}
+        </div>
+        <div className="load-records">
+            {recordsPerPage < recordList.length && (
+                <button className="load-more" onClick={handleLoadMore}>Load More</button>
+            )}
+            {recordsPerPage > 4 && (
+                <button className="load-more" onClick={handleLoadLess}>Load Less</button>
+            )}
+        </div>
+                </>
+            }    
         </div>
     )
 }

@@ -2,6 +2,7 @@ import { requestOwnProfileInfo } from './Requests';
 import { useEffect, useState } from 'react';
 import { TodayRecords } from './TodayRecords';
 import { UserRecords } from './UserRecords';
+import { Link } from "react-router-dom"
 
 export const Dashboard = ({ token }) => {
     const [ profile, setProfile ] = useState([])
@@ -20,7 +21,7 @@ export const Dashboard = ({ token }) => {
                             {profile.avatar && <img src={profile.avatar} alt={profile.username}/>}
                         </div>
                         <div className="profile-info">
-                            <p className="profile-name">{profile.username}</p>
+                            <Link className="profile-name" to='/profile'> {profile.username}</Link>
                             {profile.full_name === true ? <p>{profile.name}</p> : <p>fill name out</p>}
                         </div>
                     </div>
