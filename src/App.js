@@ -30,6 +30,11 @@ import { ResultDetail } from './components/ResultDetail';
 import { Dashboard } from './components/Dashboard';
 import { FriendDashboard } from './components/FriendsDashboard';
 import { UserSearchBar } from './components/UserSearchBar';
+import { Profile } from './components/Profile';
+import { OwnProfile } from './components/OwnProfile';
+import { OwnHabits } from './components/SelfHabits';
+import { RandomProfile } from './components/RandomProfile';
+import { OtherProfile } from './components/OtherProfile';
 
 function App({ cardData }) {
   const [token, setToken] = useLocalStorageState("token", null)
@@ -76,6 +81,11 @@ function App({ cardData }) {
             <Route path="/results/:id" element={<ResultDetail username={username} token={token}/>} />
             <Route path="/dashboard" element={<Dashboard username={username} token={token}/>} />
             <Route path="/friends" element={<FriendDashboard username={username} token={token}/>} />
+            <Route path="/profile" element={<Profile username={username} token={token}/>} />
+            <Route path="/own-profile" element={<OwnProfile username={username} token={token}/>} />
+            <Route path="/random-profile" element={<RandomProfile username={username} token={token}/>} />
+            <Route path="/other-profile" element={<OtherProfile username={username} token={token}/>} />
+            <Route path="/own-habit" element={<OwnHabits username={username} token={token}/>} />
             <Route path="/user-search-bar" element={<UserSearchBar username={username} token={token}/>} />
             <Route path="/" element={<Login />} />
           </Routes>
