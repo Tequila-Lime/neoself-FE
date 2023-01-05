@@ -39,11 +39,10 @@ export const UserSearchBar = ({ token }) => {
             </div>
             <div className="profile-info">
                 <Link className="profile-name" to='/random-profile' state={{ id: profile.id }}>{profile.username}</Link>
-                {profile.full_name === true ? <p>{profile.name}</p> : <p>fill name out</p>}   
+                {profile.full_name !== null && <p>{profile.full_name}</p>}
             </div> 
             
         </div>
-        <p>{profile.id}</p>
         <Follow token={token} friendId={profile.id}/>
         <p className="wins">Number of Completed Habits: </p>
         </div>

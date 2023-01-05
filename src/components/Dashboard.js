@@ -22,7 +22,7 @@ export const Dashboard = ({ token }) => {
                         </div>
                         <div className="profile-info">
                             <Link className="profile-name" to='/profile'> {profile.username}</Link>
-                            {profile.full_name === true ? <p>{profile.name}</p> : <p>fill name out</p>}
+                            {profile.full_name !== null && <p>{profile.full_name}</p> }
                         </div>
                     </div>
                     {/* <button className='basic-button' type="submit">Friend</button>   */}
