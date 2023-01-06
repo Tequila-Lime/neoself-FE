@@ -24,7 +24,6 @@ export const LikeButton = ({ token, recordId}) => {
 
   return (
     <div>
-        {console.log(likes)}
         {likes.length > 0 && <>{likes.map((like, idx) => (
             <div key={idx}>
                 <button onClick={() => handleRemoveLike(like.id)}>Remove Like</button>

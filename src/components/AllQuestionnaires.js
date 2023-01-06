@@ -11,18 +11,16 @@ export const AllQuestionnaires = ({ token }) => {
     }, [token])
 
     return (
-        <div>
+        <div className='habit-header-link'>
             <h1>Your habits</h1>
-            <div>
-                <div className='questionnaires'>{questionnaireList.map((questionnaire, idx) => (
-                    <div key={idx}>
-                        <p>{questionnaire.habit_name} started on {questionnaire.date}</p>
-                        {console.log(questionnaire.id)}
-                        <Link  to='/habit-page/:id' state={{ id: questionnaire.id }}> Habit Info</Link>
-                    </div>
-                ))}
-                </div>    
-            </div>
+            <div className='list-of-habits'>{questionnaireList.map((questionnaire, idx) => (
+                <div className='each-habit' key={idx}>
+                    <p>{questionnaire.habit_name} started on {questionnaire.date}</p>
+                    {console.log(questionnaire.id)}
+                    <Link  to='/habit-page/:id' state={{ id: questionnaire.id }}> Habit Info</Link>
+                </div>
+            ))}
+            </div>    
         </div>
     )
 }
