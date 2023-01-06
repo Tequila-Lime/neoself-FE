@@ -21,6 +21,7 @@ import { UpdateRecord } from './components/UpdateRecord';
 import { TodayRecords } from './components/TodayRecords';
 import { OtherUserRecords } from './components/OtherUserRecords';
 // import { GiphyBar } from './components/GiphyBar';
+import { HabitPage } from './components/HabitPage';
 import { CreateReaction } from './components/CreateReaction';
 import { Weeklogs } from './components/WeekLogs';
 import { HabitWeeklogs } from './components/HabitWeeklogs';
@@ -76,6 +77,7 @@ function App({ cardData }) {
             <Route path="/records/update/:recordId" element={<UpdateRecord username={username} token={token} isLoggedIn={isLoggedIn}/> }/>
             <Route path="/createReaction" element={<CreateReaction username={username} token={token}/>} />
             {/* <Route path="/giphybar" element={<GiphyBar username={username} token={token}/>} /> */}
+            <Route path="/HabitPage/:questionnaireID" element={<HabitPage username={username} token={token}/>} />
             <Route path="/weeklogs" element={<Weeklogs username={username} token={token}/>} />
             <Route path="/habit-weeklogs/:id" element={<HabitWeeklogs username={username} token={token}/>} />
             <Route path="/weeklogs/:id" element={<WeeklogsDetail username={username} token={token}/>} />
@@ -90,7 +92,7 @@ function App({ cardData }) {
             <Route path="/own-habit" element={<OwnHabits username={username} token={token}/>} />
             <Route path="/user-search-bar" element={<UserSearchBar username={username} token={token}/>} />
             <Route path="/comment-bar" element={<CommentBar username={username} token={token}/>} />
-            <Route path="/like-button" element={<CommentBar username={username} token={token}/>} />
+            <Route path="/like-button" element={<LikeButton username={username} token={token}/>} />
 
           </Routes>
         </div>

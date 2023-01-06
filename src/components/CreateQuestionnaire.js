@@ -92,13 +92,13 @@ export const CreateQuestionnaire = ({token}) => {
 
     const handleClick = (event) => {
         event.preventDefault()
-        if(startOrEnd === true && step ===5){
+        if(startOrEnd === true && step ===6){
             setStep(step+1)
         }
-        else if(startOrEnd === false && step ===5){
-            setStep(12)
+        else if(startOrEnd === false && step ===6){
+            setStep(13)
         }
-        else if(step === 11 ){
+        else if(step === 12 ){
             setStep(16)
         }
         else{
@@ -113,11 +113,11 @@ export const CreateQuestionnaire = ({token}) => {
 
     const handlePrevClick = (event) => {
         event.preventDefault()
-        if (step === 16 && startOrEnd===true){
-            setStep(11)
+        if (step === 17 && startOrEnd===true){
+            setStep(12)
         }
-        else if(step === 12){
-            setStep(5)
+        else if(step === 13){
+            setStep(6)
         }
         else{setStep(step-1)}
     }
@@ -125,6 +125,8 @@ export const CreateQuestionnaire = ({token}) => {
     function renderStep(step){
         const formSteps = [
             <div className="questionnaire indent">
+                <p>Welcome to Neoself and congratulations on taking the first step towards improving your behavior!</p>
+                <p></p>
                 <p>Are you starting or ending Habit?</p>
                 <div>
                     <input className="text-box" type='checkbox' checked={startOrEnd}
@@ -308,6 +310,7 @@ export const CreateQuestionnaire = ({token}) => {
 
     return(
         <form className="habit-form">
+            {console.log(step)}
             {renderStep(step)}
             {step <= 15 && (
                 <div className='habit-buttons'>

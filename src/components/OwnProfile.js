@@ -28,7 +28,7 @@ export const OwnProfile = ({ token }) => {
             <>
             <div className="profile-img">
                     <div className="profile-name-profile">
-                        <div className="actual-img">img</div>
+                        <div className="actual-img">{profile.avatar}</div>
                         <p>{profile.username}</p>
                         <p>{profile.full_name}</p>
                         <Link to="/FriendList">Friends</Link>
