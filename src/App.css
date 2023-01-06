@@ -328,7 +328,7 @@ body{
   flex-flow: row;
   width: 100%;
   border-radius: 2em;
-  background-color: aqua;
+  border: 1px black solid;
 }
 .profile-img{
   display:flex;
@@ -337,7 +337,7 @@ body{
   width: 35%;
 }
 .actual-img{
-  background-color: blue;
+  border: 1px solid black;
   height: 10vh;
   width: 10vh;
   margin-top: 2vh;
@@ -374,6 +374,8 @@ body{
 .bio-info{
   display: flex;
   width: 100%;
+  border:black 1px solid;
+  border-radius: 1em;;
 }
 .bottom-bio{
   display:flex;
@@ -396,7 +398,7 @@ body{
   display: flex;
   justify-content: space-around;
   width:100%;
-  background-color: darkkhaki;
+  border: 1px black solid;
   border-radius: 1em;
   flex-flow: wrap;
 }
@@ -407,7 +409,7 @@ body{
   height: 5vh;
   justify-content: center;
   align-items: center;
-  background-color: aquamarine;
+  border: 1px solid black;
   margin: 2vh 0;
 }
 .record-data{
@@ -425,6 +427,12 @@ body{
 .record-data-r{
   display: flex;
   flex-flow:column;
+  width: 50%;
+}
+.other-user-record-data{
+  display:flex;
+  flex-flow:column;
+  margin: 0 auto;
   width: 50%;
 }
 .prof-data-visual{
@@ -461,9 +469,9 @@ body{
   margin-top: 2vh;
   width:85%;
   height:10vh;
-  border:1px black solid;
+  /* border:1px black solid; */
+  box-shadow: 0 0 5px black;
   border-radius: .5em;
-  background-color: antiquewhite;
 }
 .actual-edit-comment{
   display:flex;
@@ -511,11 +519,11 @@ body{
 .comment-cont{
   display:flex;
   flex-flow: column;
+  margin: 1vh 0;
   width: 100%;
 }
 .comment-bar{
   display: flex;
-  background-color: aqua;
   justify-content: space-between;
 }
 .gif-search{
@@ -534,7 +542,7 @@ body{
   justify-content: center;
   flex-flow:wrap;
   margin: 1vh;
-  width: 30%;
+  width: 28%;
   z-index: 3;
 }
 
@@ -547,6 +555,12 @@ body{
   opacity: 0.6;
   filter: alpha(opacity=50);
   cursor: pointer;
+}
+.gif{
+  display:flex;
+  flex-flow: column;
+  align-items: center;
+  margin: 2vh auto 0 auto;
 }
 
 /* HabitPage CSS */
@@ -613,4 +627,33 @@ body{
   width: 35%;
   color: black;
   border: black 2px solid;
+}
+
+/* Habit Header link */
+.habit-header-link{
+  display:flex;
+  flex-flow: column;
+  width: 100%;
+  align-items: center;
+}
+.habit-header-link h1{
+  font-size: 50px;
+}
+
+.list-of-habits{
+  display:flex;
+  flex-flow: column;
+  width: 80%;
+  align-items: center;
+
+}
+.each-habit{
+  display:flex;
+  margin: 0 0 2vh 0;
+  padding: 2vh;
+  border: 1px black solid;
+  border-radius: 1em;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%
 }

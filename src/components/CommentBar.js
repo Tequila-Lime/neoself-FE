@@ -36,8 +36,7 @@ export const CommentBar = ({ token, recordId }) => {
         }
 
         requestAddRecordReaction(token, recordId, gifMail)
-        window.location.reload();
-        setStep(1)
+        setStep(0)
     }
 
     function viewGifComments(event){
@@ -87,7 +86,6 @@ export const CommentBar = ({ token, recordId }) => {
             {selectedGif.length !== 0 && 
                 <>
                 <div className="gif">
-                    <p>selected gif</p>
                     <img className="selected-gif" src={selectedGif.images.fixed_width.url} alt={selectedGif.title} />
                     <button className="send-gif" onClick={() => handleSendGif(selectedGif)}>Send</button>
                 </div>    

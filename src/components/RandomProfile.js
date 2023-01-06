@@ -9,14 +9,14 @@ export const RandomProfile = ({ token }) => {
         <div className="profile-cont">
             <OtherProfile token={token} id={location.state.id}/>
             <div className="record-data">
-                <div className="record-data-l ">
+                <div className="other-user-record-data">
                     <h3>Records</h3>
                     <OtherUserRecords token={token} id={location.state.id}/>
                 </div>
-                <div className="record-data-r">
+                {/* <div className="record-data-r">
                     <div className="prof-data-visual"></div>
                     <div className="prof-data-visual"></div>
-                </div>
+                </div> */}
             </div>
         </div>
     )

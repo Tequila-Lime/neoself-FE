@@ -4,7 +4,6 @@ import { HabitRecords } from './HabitRecords';
  
 export const HabitPage = ({ token }) => {
     const location = useLocation()
-
                 
     return (
         <div className="habitPage-cont">

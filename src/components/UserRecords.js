@@ -1,6 +1,7 @@
 import { requestUserRecords } from './Requests'
 import { useEffect, useState } from 'react'
 import { Link } from "react-router-dom"
+import { CommentBar } from './CommentBar'
 
 export const UserRecords = ({ token }) => {
     const [recordList, setRecordList] = useState([])
@@ -35,8 +36,7 @@ export const UserRecords = ({ token }) => {
                 <p>{record.daily_record}{record.metric_label}</p>
                 </div>
                 <div className="reaction">
-                    <p>Gif</p>
-                    <p>Like</p>
+                    <CommentBar token={token} recordId={record.id}/>
                 </div>
             </div>
             ))}
