@@ -18,11 +18,7 @@ export const AllQuestionnaires = ({ token }) => {
                     <div key={idx}>
                         <p>{questionnaire.habit_name} started on {questionnaire.date}</p>
                         {console.log(questionnaire.id)}
-                        <Link  to='/questionnaire/:questionnaireId' state={{ id: questionnaire.id }}> See habit details</Link>
-                        <>     </>
-                        <Link  to='/records/habit/:recordId' state={{ id: questionnaire.id }}> See all records</Link>
-                        <>     </>
-                        <Link  to='/habit-weeklogs/:id' state={{ id: questionnaire.id }}> See WeekLogs</Link>
+                        <Link  to='/habit-page/:id' state={{ id: questionnaire.id }}> Habit Info</Link>
                     </div>
                 ))}
                 </div>    

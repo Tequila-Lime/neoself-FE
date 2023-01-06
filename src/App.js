@@ -38,6 +38,7 @@ import { RandomProfile } from './components/RandomProfile';
 import { OtherProfile } from './components/OtherProfile';
 import { CommentBar } from './components/CommentBar';
 import { LikeButton } from './components/LikeButton';
+import { HabitReflection } from './components/HabitReflections';
 
 function App({ cardData }) {
   const [token, setToken] = useLocalStorageState("token", null)
@@ -62,22 +63,21 @@ function App({ cardData }) {
             <Route path="/FriendList" element={<Friends token={token}/>} />
             <Route path="/createReflection" element={<CreateReflection username={username} token={token}/>} />
             <Route path="/reflection" element={<AllReflections username={username} token={token}/>} />
-            <Route path="/reflection" element={<AllReflections username={username} token={token}/>} />
             <Route path="/reflection/:reflectionId" element={<SingleReflection token={token} isLoggedIn={isLoggedIn}/> }/>
+            <Route path="/reflection-habit/:id" element={<HabitReflection token={token} isLoggedIn={isLoggedIn}/> }/>
             <Route path="/reflection/update/:reflectionId" element={<UpdateReflection username={username} token={token} isLoggedIn={isLoggedIn}/> }/>
             <Route path="/create" element={<CreateQuestionnaire username={username} token={token}/>} />
             <Route path="/questionnaire/:questionnaireId" element={<SingleQuestionnaire token={token} isLoggedIn={isLoggedIn}/> }/>
-            <Route path="/questionnaires" element={<AllQuestionnaires username={username} token={token}/>} />
+            <Route path="/habits" element={<AllQuestionnaires username={username} token={token}/>} />
             <Route path="/user-records" element={<UserRecords username={username} token={token}/>} />
             <Route path="/friend-records" element={<FriendRecords username={username} token={token}/>} />
             <Route path="/records-today" element={<TodayRecords username={username} token={token}/>} />
             <Route path="/profile-records/:recordId" element={<OtherUserRecords username={username} token={token}/>} />
-            <Route path="/records/habit/:recordId" element={<HabitRecords token={token} isLoggedIn={isLoggedIn}/> }/>
+            <Route path="/records/habit/" element={<HabitRecords token={token} isLoggedIn={isLoggedIn}/> }/>
             <Route path="/records/:recordId" element={<RecordDetail username={username} token={token} isLoggedIn={isLoggedIn}/> }/>
             <Route path="/records/update/:recordId" element={<UpdateRecord username={username} token={token} isLoggedIn={isLoggedIn}/> }/>
             <Route path="/createReaction" element={<CreateReaction username={username} token={token}/>} />
             {/* <Route path="/giphybar" element={<GiphyBar username={username} token={token}/>} /> */}
-            <Route path="/HabitPage/:questionnaireID" element={<HabitPage username={username} token={token}/>} />
             <Route path="/weeklogs" element={<Weeklogs username={username} token={token}/>} />
             <Route path="/habit-weeklogs/:id" element={<HabitWeeklogs username={username} token={token}/>} />
             <Route path="/weeklogs/:id" element={<WeeklogsDetail username={username} token={token}/>} />
@@ -93,6 +93,7 @@ function App({ cardData }) {
             <Route path="/user-search-bar" element={<UserSearchBar username={username} token={token}/>} />
             <Route path="/comment-bar" element={<CommentBar username={username} token={token}/>} />
             <Route path="/like-button" element={<LikeButton username={username} token={token}/>} />
+            <Route path="/habit-page/:id" element={<HabitPage username={username} token={token}/>} />
 
           </Routes>
         </div>
