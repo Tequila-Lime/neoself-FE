@@ -507,3 +507,44 @@ body{
   background-color: blueviolet;
   color: white;
 }
+/* Gif bar */
+.comment-cont{
+  display:flex;
+  flex-flow: column;
+  width: 100%;
+}
+.comment-bar{
+  display: flex;
+  background-color: aqua;
+  justify-content: space-between;
+}
+.gif-search{
+  display:flex;
+  width: 50%;
+}
+.gif-search-results{
+  display:flex;
+  width: 100%;
+  flex-flow: wrap;
+  justify-content: space-between;
+}
+.indiv-gif-cont{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-flow:wrap;
+  margin: 1vh;
+  width: 30%;
+  z-index: 3;
+}
+
+.indiv-gif{
+  display:flex;
+  border-radius: 1em;
+  width: 100%;
+}
+.indiv-gif:hover{
+  opacity: 0.6;
+  filter: alpha(opacity=50);
+  cursor: pointer;
+}

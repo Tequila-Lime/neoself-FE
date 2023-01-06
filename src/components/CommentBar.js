@@ -1,0 +1,118 @@
+import { requestGiphySearch, requestSpecificGif, requestAddRecordReaction, requestRecordReaction } from "./Requests"
+import { useState } from 'react';
+import { LikeButton } from "./LikeButton"; 
+
+export const CommentBar = ({ token, recordId }) => {
+    const [searchTerm, setSearchTerm] = useState('');
+    const [gifs, setGifs] = useState([]);
+    const [selectedGif, setSelectedGif] = useState([]);
+    const [comments, setComments] = useState([])
+    const [step, setStep] = useState(0)
+
+    const API_KEY = 'GSKy3RpyH0NC0Pg3mw6nVaNaLdDHf2CD'
+
+    function handleSubmit(event) {
+        event.preventDefault();
+        requestGiphySearch(searchTerm, API_KEY).then(response => {
+            setGifs(response.data.data);
+        if (step===2){
+            setStep(0)
+        }
+        else{setStep(2)}
+    });
+    }
+
+    function handleGifSelection(gif){
+        requestSpecificGif(gif.id, API_KEY).then(response => {
+            setSelectedGif(response.data.data);})
+        setGifs([])
+        setStep(3)
+
+    }
+    function handleSendGif(gif){
+        const gifMail = {
+        "record": recordId,
+        "gif_url": `${gif.images.fixed_width.url}`
+        }
+
+        requestAddRecordReaction(token, recordId, gifMail)
+        window.location.reload();
+        setStep(1)
+    }
+
+    function viewGifComments(event){
+        event.preventDefault()
+        requestRecordReaction(token, recordId).then(response => {
+            setComments(response.data);
+        if (step===1){
+            setStep(0)
+        }
+        else{setStep(1)}
+        });
+    }
+
+    function renderStep(step){
+        const profEdit = [
+            <>
+            </>
+            ,
+            <>
+            {comments.length > 0 ?
+                <div>
+                    <h1>Reactions</h1>
+                    <div>
+                        {comments.map((comment, idx) => (
+                            <div key={idx}>
+                                <img src={comment.gif_url} alt="gif" />
+                                <p>{comment.commentor}</p>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+                :
+                <p>No comments</p>
+            } 
+            </>
+            ,
+            <>
+            {gifs.map((gif, idx) => (
+                <div className="indiv-gif-cont" key={idx}>
+                    {/* <img className="indiv-gif" onClick={() =>handleGifSelection(gif)} src={gif.images.fixed_width.url} alt={gif.title} /> */}
+                    <img className="indiv-gif" onClick={() => handleGifSelection(gif)} src={gif.images.fixed_width.url} alt={gif.title} />
+                </div>
+            ))}
+            </>
+            ,
+            <>
+            {selectedGif.length !== 0 && 
+                <>
+                <div className="gif">
+                    <p>selected gif</p>
+                    <img className="selected-gif" src={selectedGif.images.fixed_width.url} alt={selectedGif.title} />
+                    <button className="send-gif" onClick={() => handleSendGif(selectedGif)}>Send</button>
+                </div>    
+                </>
+            }
+            </>
+        ]
+
+        return step < profEdit.length ? profEdit[step] : null;
+    }
+
+
+    return (
+        <div className="comment-cont">
+            <div className="comment-bar">
+                <button onClick={viewGifComments}>View Reactions</button>
+                <div className="gif-search">
+                    <input type="text" value={searchTerm} onChange={e => setSearchTerm(e.target.value)} />
+                    <button type="submit" onClick={handleSubmit}>Search</button>
+                </div>
+                <LikeButton token={token} recordId={recordId} />
+            </div>
+            <div className="gif-search-results">
+            {renderStep(step)}
+            </div>
+        </div>
+    )
+}

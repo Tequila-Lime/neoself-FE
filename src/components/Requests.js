@@ -254,18 +254,17 @@ export const requestUpdateRecordDetail = (token, recordId, updatedRecord) => {
         { headers: { Authorization: `Token ${token}`, }, })
         return response
 }
-// 
-
-export const requestRecordReaction = (token, reactionId) => {
-    const url = `https://neoself-be-service.onrender.com/reaction/record/${reactionId}/`
+// ...
+export const requestRecordReaction = (token, recordId) => {
+    const url = `https://neoself-be-service.onrender.com/reaction/record/${recordId}/`
 
     const response = axios.get(url,
         { headers: { Authorization: `Token ${token}`, }, })
         return response
 }
-
-export const requestAddRecordReaction = (token, reactionId, reactionCont) => {
-    const url = `https://neoself-be-service.onrender.com/reaction/record/${reactionId}/`
+// ...
+export const requestAddRecordReaction = (token, recordId, reactionCont) => {
+    const url = `https://neoself-be-service.onrender.com/reaction/record/${recordId}/`
 
     const response = axios.post(url, reactionCont,
         { headers: { Authorization: `Token ${token}`, }, })
@@ -346,18 +345,37 @@ export const requestResultDetail = (token, resultId) => {
 }
 // these are for liking a record
 
-export const requestRecordLike = (token, reactionId) => {
-    const url = `https://neoself-be-service.onrender.com/like/record/${reactionId}/`
+export const requestRecordLike = (token, recordId) => {
+    const url = `https://neoself-be-service.onrender.com/like/record/${recordId}/`
 
     const response = axios.get(url,
         { headers: { Authorization: `Token ${token}`, }, })
         return response
 }
 
-export const requestAddRecordLike = (token, reactionId, likeCont) => {
-    const url = `https://neoself-be-service.onrender.com/like/record/${reactionId}/`
+export const requestAddRecordLike = (token, recordId, likeCont) => {
+    const url = `https://neoself-be-service.onrender.com/like/record/${recordId}/`
 
     const response = axios.post(url, likeCont,
         { headers: { Authorization: `Token ${token}`, }, })
         return response
 }
+
+export const requestRemoveLike = (token, likeId) => {
+    const url = `https://neoself-be-service.onrender.com/like/${likeId}`
+
+    const response = axios.delete(url,
+        {headers: { Authorization: `Token ${token}`}})
+        return response
+}
+// Giphy Request
+
+export const requestGiphySearch = (searchTerm, API_KEY) => {
+    const url = `https://api.giphy.com/v1/gifs/search?api_key=${API_KEY}&q=${searchTerm}&limit=12&offset=0&rating=G&lang=en`
+     const response = axios.get(url)
+     return response}
+
+export const requestSpecificGif = (gif_id, API_KEY) => {
+    const url = `https://api.giphy.com/v1/gifs/${gif_id}?api_key=${API_KEY}`
+    const response = axios.get(url)
+    return response}
