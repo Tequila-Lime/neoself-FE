@@ -68,7 +68,7 @@ export const OwnProfile = ({ token }) => {
                     <div className="bio">
                         <div className="top-bio">
                             <p className="bio-text">Bio:</p>
-                            <textarea className="bio-info" value={profile.bio}
+                            <textarea className="bio-info" value={profile.bio} maxLength={400}
                     onChange={e => setProfile({...profile, bio: e.target.value})}/>
                         </div>
                         <div className="bottom-bio">

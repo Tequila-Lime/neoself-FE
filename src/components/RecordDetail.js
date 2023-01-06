@@ -2,7 +2,7 @@
 import { requestRecordDetail, requestUpdateRecordDetail } from './Requests'
 import { useEffect, useState } from 'react'
 import {  useLocation } from 'react-router-dom'
-import { GiphyBar } from './GiphyBar'
+import { CommentBar } from './CommentBar'
 
 export const RecordDetail = ({ token, username }) => {
     const [record, setRecord] = useState([])
@@ -71,7 +71,7 @@ export const RecordDetail = ({ token, username }) => {
                 </div>
                 <hr></hr>
                 {}
-                <GiphyBar/>
+                <CommentBar token={token} recordId={record.id}/>
                 {/* where gif and like button will go */}
                 </div>
         </div>,
@@ -135,7 +135,6 @@ export const RecordDetail = ({ token, username }) => {
 
     return(
         <>
-        {console.log(step)}
         {renderStep(step)}
         </>
         

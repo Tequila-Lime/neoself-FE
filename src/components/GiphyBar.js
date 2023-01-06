@@ -32,8 +32,8 @@ return (
     </form>
     {gifs.map((gif, idx) => (
         <div key={idx}>
-        <img src={gif.images.fixed_width.url} alt={gif.title} />
-        {console.log(gif)}
+        <p>{gif}</p>
+        <img src={gif.images.original.url} alt={gif.title} />
         </div>
         ))}
     </div>
