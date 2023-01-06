@@ -2,7 +2,7 @@ import { requestReflectionsForHabit } from './Requests'
 import { useEffect, useState } from 'react'
 import {  useLocation, Link } from 'react-router-dom'
 
-export const HabitReflections = ({ token }) => {
+export const HabitReflection = ({ token }) => {
     const [reflectionList, setReflectionList] = useState([])
     const location = useLocation()
 
