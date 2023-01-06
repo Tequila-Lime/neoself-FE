@@ -548,3 +548,69 @@ body{
   filter: alpha(opacity=50);
   cursor: pointer;
 }
+
+/* HabitPage CSS */
+.habitPage-cont{
+  display:flex;
+  flex-flow:column;
+  width:85%;
+  /* background-color: blueviolet; */
+  margin: 0px auto;
+}
+.habitTitle{
+  display: flex;
+  justify-content: center;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: x-large;
+  padding-bottom: 20px;
+}
+.Habit-Function_Buttons-cont{
+  display: flex;
+  justify-content: space-around;
+}
+.Habit-Function_Button{
+  color: black;
+  background-color: rgb(218, 210, 210);
+  border: black 1px solid;
+  height: 3vh;
+  width: 20%;
+  border-radius: 2em;
+}
+.Data-Visualization-Window-cont{
+  display: flex;
+  justify-content: center;
+  background-color: rgb(218, 210, 210);
+  border: black 2px solid;
+  height: 35vh;
+  width: 96%;
+  margin-top: 15%;
+}
+.Bottom-Console{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  color: black;
+  border: black 2px solid;
+  height: 25vh;
+  width: 96%;
+  margin-top: 15%;
+}
+.Left-Bottom-Console{
+  display:flex;
+  flex-flow:column;
+  align-items: center;
+  height: 20vh;
+  width: 35%;
+  color: black;
+  border: black 2px solid;
+}
+.Right-Bottom-Console{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 20vh;
+  width: 35%;
+  color: black;
+  border: black 2px solid;
+}

@@ -20,14 +20,12 @@ export const HabitPage = ({ token }) => {
             </div>
             <div className="Bottom-Console">
                 <div className="Left-Bottom-Console">
-                    <div className='HabitRecords'>
-                        <HabitRecords token={token} habitId={location.state.id} />
-                    </div>
+                    <HabitRecords token={token} habitId={location.state.id} />
                 </div>
                 <div className="Right-Bottom-Console"></div>
             
                 <div className="middle-cont">
-                    <div className="dash-component">
+                    <div className="">
                         <div className='indent'></div>
                     </div>
                 </div>
