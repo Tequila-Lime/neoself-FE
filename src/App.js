@@ -39,6 +39,8 @@ import { OtherProfile } from './components/OtherProfile';
 import { CommentBar } from './components/CommentBar';
 import { LikeButton } from './components/LikeButton';
 import { HabitReflection } from './components/HabitReflections';
+import { DataVisualization } from './components/DataAllRecord';
+import { DrawingBoard } from './components/DrawingBoard';
 
 function App({ cardData }) {
   const [token, setToken] = useLocalStorageState("token", null)
@@ -95,6 +97,9 @@ function App({ cardData }) {
             <Route path="/like-button" element={<LikeButton username={username} token={token}/>} />
             <Route path="/habit-page/:id" element={<HabitPage username={username} token={token}/>} />
 
+            {/* Data visualizing */}
+            <Route path="/data-visualization" element={<DataVisualization username={username} token={token}/>} />
+            <Route path="/canvas" element={<DrawingBoard username={username} token={token}/>} />
           </Routes>
         </div>
       ) : (

@@ -15,6 +15,7 @@ export const Header = ({ setAuth, username, token }) => {
                 <Link className="nav-link" to="/">Dashboard</Link>
                 <Link className="nav-link" to="/habits">Habits</Link>
                 <Link className="nav-link" to="/friends">Friends</Link>
+                <Link to="/canvas"> canvas</Link>
             </div>
 
             <nav className="nav-links">
