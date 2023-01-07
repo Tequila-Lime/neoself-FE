@@ -16,7 +16,6 @@ export const AllQuestionnaires = ({ token }) => {
             <div className='list-of-habits'>{questionnaireList.map((questionnaire, idx) => (
                 <div className='each-habit' key={idx}>
                     <p>{questionnaire.habit_name} started on {questionnaire.date}</p>
-                    {console.log(questionnaire.id)}
                     <Link  to='/habit-page/:id' state={{ id: questionnaire.id }}> Habit Info</Link>
                 </div>
             ))}

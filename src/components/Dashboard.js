@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { TodayRecords } from './TodayRecords';
 import { UserRecords } from './UserRecords';
 import { Link } from "react-router-dom"
+import { DataVisualization } from './DataAllRecord';
 
 export const Dashboard = ({ token }) => {
     const [ profile, setProfile ] = useState([])
@@ -45,6 +46,7 @@ export const Dashboard = ({ token }) => {
             </div>
             <div className="side-cont">
                 <div className="dash-component">
+                    <DataVisualization token={token} step={1}/>
                     <p>test</p>
                     <p>test</p>
                     <p>test</p>

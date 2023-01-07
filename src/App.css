@@ -657,3 +657,9 @@ body{
   justify-content: space-between;
   width: 100%
 }
+
+.chart{
+  display:flex;
+  border: 1px solid aqua;
+  height: 40vh;
+}

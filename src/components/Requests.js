@@ -126,6 +126,14 @@ export const requestAddReflectionsForHabit = (token, reflectionId, reflectionCon
         { headers: { Authorization: `Token ${token}`, }, })
         return response
 }
+export const requestAddDataReflectionsForHabit = (token, reflectionId, reflectionCont) => {
+    const url = `https://neoself-be-service.onrender.com/questionnaire/${reflectionId}/reflection/data/`
+
+    const response = axios.post(url, reflectionCont,
+        { headers: { Authorization: `Token ${token}`, }, })
+        return response
+}
+
 
 // ✅
 export const requestReflectionDetail = (token, reflectionId) => {
@@ -183,6 +191,13 @@ export const requestSingleQuestionnaire = (token, questionnaireId) => {
 // ✅ test
 export const requestUserRecords = (token) => {
     const url = 'https://neoself-be-service.onrender.com/record/user/'
+
+    const response = axios.get(url,
+        { headers: { Authorization: `Token ${token}`, }, })
+        return response
+}
+export const requestDataUserRecords = (token) => {
+    const url = 'https://neoself-be-service.onrender.com/record/user/data/'
 
     const response = axios.get(url,
         { headers: { Authorization: `Token ${token}`, }, })
