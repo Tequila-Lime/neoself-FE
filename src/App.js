@@ -41,6 +41,7 @@ import { LikeButton } from './components/LikeButton';
 import { HabitReflection } from './components/HabitReflections';
 import { DataVisualization } from './components/DataAllRecord';
 import { DrawingBoard } from './components/DrawingBoard';
+import { DataVisHabit } from './components/DataHabitRecord';
 
 function App({ cardData }) {
   const [token, setToken] = useLocalStorageState("token", null)
@@ -100,6 +101,7 @@ function App({ cardData }) {
             {/* Data visualizing */}
             <Route path="/data-visualization" element={<DataVisualization username={username} token={token}/>} />
             <Route path="/canvas" element={<DrawingBoard username={username} token={token}/>} />
+            <Route path="/habit/data-visualization/:id" element={<DataVisHabit username={username} token={token}/>} />
           </Routes>
         </div>
       ) : (

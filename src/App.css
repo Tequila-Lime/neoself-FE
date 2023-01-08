@@ -660,6 +660,6 @@ body{
 
 .chart{
   display:flex;
-  border: 1px solid aqua;
+  /* border: 1px solid aqua; */
   height: 40vh;
 }
