@@ -1,5 +1,6 @@
-import { requestUsersProfileInfo } from './Requests';
+import { requestUsersProfileInfo} from './Requests';
 import { useEffect, useState } from 'react';
+import { Follow } from './Follow';
 
 export const OtherProfile = ({ token, id }) => {
     const [ profile, setProfile ] = useState([])
@@ -27,7 +28,7 @@ export const OtherProfile = ({ token, id }) => {
                         <div className="bio-text">
                         </div>
                         <div className="friend-profile">
-                            <button>Friend/unfriend</button>
+                            <Follow  token={token} friendId={id}/>
                             <p>Habits started</p>
                         </div>
                         
