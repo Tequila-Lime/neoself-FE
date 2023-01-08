@@ -1,9 +1,9 @@
-import { requestDataUserRecords } from './Requests'
+import { requestHabitRecords } from './Requests'
 import { useEffect, useState } from 'react'
 import { VictoryBar, VictoryChart, VictoryPie,VictoryAxis,VictoryLabel, VictoryLine} from 'victory'
 
 
-export const DataVisualization = ({ token, step }) => {
+export const DataVisHabit = ({ token,habitId, step }) => {
     const [recordList, setRecordList] = useState([])
     const currentDate = new Date()
     const day = currentDate.getDate()
@@ -24,10 +24,10 @@ export const DataVisualization = ({ token, step }) => {
 
 // Needs to pull from questionnaire and a nested record serializer for records
     useEffect(() => {
-      requestDataUserRecords(token)
+        requestHabitRecords(token, habitId)
             .then(res => (setRecordList(res.data)
             ))
-    }, [token])
+    }, [token, habitId])
 
     const todayRecords = recordList.filter((record)=>record.date === today)
 
@@ -195,6 +195,8 @@ export const DataVisualization = ({ token, step }) => {
         return acc;
       }, {} );
 
+    
+
     for (const date in improvementMinor) {
       improvementMinor[date] = improvementMinor[date].total / improvementMinor[date].count;
     }
@@ -203,7 +205,6 @@ export const DataVisualization = ({ token, step }) => {
       x:  key,
       y:  improvementMinor[key]
     }));
-
 
       // container with all the relevant data
     const habitValues = {
@@ -227,8 +228,6 @@ export const DataVisualization = ({ token, step }) => {
 
     // variables for complete circle styles
     const percentageComplete = habitValues.habits_done_today.y * 100;
-    // const meetHabitGoal = habitValues.habits_done_today.y * 100;
-    // const meetHabitMajorGoal = habitValues.habits_done_today.y * 100;
 
     const colorScale = (percentageComplete) => {
       if (percentageComplete < 33) {
@@ -280,10 +279,9 @@ export const DataVisualization = ({ token, step }) => {
               domainPadding={50}
               >
                 <VictoryBar
-                barRatio={.8}
+                barRatio={5}
                   style={{ data: { fill: "#46C8D8" } }}
                   data={habitValues.habit_occurancy}
-                horizontal
                 labels={({ datum }) => `${datum.y}`}
                           />
             </VictoryChart>

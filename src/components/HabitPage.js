@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link, useLocation  } from 'react-router-dom';
 import { HabitRecords } from './HabitRecords';
+import { DataVisHabit } from './DataHabitRecord';
  
 export const HabitPage = ({ token }) => {
     const location = useLocation()
@@ -15,7 +16,9 @@ export const HabitPage = ({ token }) => {
                 <Link className="Habit-Function_Button" to='/createReflection' state={{ id: location.state.id }}>Modify Plan</Link>
             </div>
             <div className="Data-Visualization-Window-cont">
-                <div className="Data-Visualization-Window"></div>
+                <div className="Data-Visualization-Window">
+                    <DataVisHabit token={token} habitId={location.state.id} step={2}/>
+                </div>
             </div>
             <div className="Bottom-Console">
                 <div className="Left-Bottom-Console">
@@ -24,7 +27,9 @@ export const HabitPage = ({ token }) => {
                 <div className="Right-Bottom-Console"></div>
             
                 <div className="middle-cont">
+                    
                     <div className="">
+                        
                         <div className='indent'></div>
                     </div>
                 </div>
