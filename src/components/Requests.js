@@ -85,9 +85,18 @@ export const requestAddFriend = (token, friendId) => {
         return response
 }
 
+export const requestSingleFriendship = (token, friendId) => {
+    const url = `https://neoself-be-service.onrender.com/friends/specific/${friendId}/`
+
+    const response = axios.get(url,
+        { headers: { Authorization: `Token ${token}`}  
+    })
+        return response
+}
+
 // ✅
 export const requestRemoveFriend = (token, friendshipId) => {
-    const url = `https://neoself-be-service.onrender.com/friends/${friendshipId}`
+    const url = `https://neoself-be-service.onrender.com/friends/${friendshipId}/`
 
     const response = axios.delete(url,
         {headers: { Authorization: `Token ${token}`}})
