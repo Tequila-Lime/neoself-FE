@@ -37,7 +37,7 @@ export const Dashboard = ({ token }) => {
                 </div>
             </div>
             <div className="middle-cont">
-                <div className="dash-component">
+                <div className="dash-component-nb">
                     <div className='indent'>
                         <h3>Your Records</h3>
                         <UserRecords token={token}/>
@@ -48,9 +48,6 @@ export const Dashboard = ({ token }) => {
                 <div className="dash-component">
                     <h3>Habits done today</h3>
                     <DataVisualization token={token} step={1}/>
-                    <p>test</p>
-                    <p>test</p>
-                    <p>test</p>
                 </div>
             </div>
             

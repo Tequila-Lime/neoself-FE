@@ -10,20 +10,23 @@ export const Header = ({ setAuth, username, token }) => {
 
     return (
         <header className='header'>
-            <div className='logo-side'>
-                <h1 className='app-name'>Neoself</h1>
-                <Link className="nav-link" to="/">Dashboard</Link>
-                <Link className="nav-link" to="/habits">Habits</Link>
-                <Link className="nav-link" to="/friends">Friends</Link>
-                <Link to="/canvas"> canvas</Link>
+
+            <div className="header-place">
+                <div className='logo-side'>
+                    <h1 className='app-name'>Neoself</h1>
+                    <Link className="nav-link" to="/">Dashboard</Link>
+                    <Link className="nav-link" to="/habits">Habits</Link>
+                    <Link className="nav-link" to="/friends">Friends</Link>
+                    <Link to="/canvas"> canvas</Link>
+                </div>
+
+
+                <nav className="nav-links">
+                
+                        <Link className="new-habit" to="/create">New Habit</Link>
+                        <Link className="nav-link logout" to="/" onClick={handleLogout}>Log Out</Link>
+                </nav>
             </div>
-
-            <nav className="nav-links">
-            
-                    <Link className="new-habit" to="/create">New Habit</Link>
-                    <Link className="nav-link logout" to="/" onClick={handleLogout}>Log Out</Link>
-
-            </nav>
         </header >
     )
 }

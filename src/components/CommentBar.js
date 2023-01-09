@@ -1,7 +1,10 @@
 import { requestGiphySearch, requestSpecificGif, requestAddRecordReaction, requestRecordReaction } from "./Requests"
 import { useState } from 'react';
 import { LikeButton } from "./LikeButton"; 
-
+import { InsertComment } from "@styled-icons/material-rounded/InsertComment"
+import { SearchAlt } from "@styled-icons/boxicons-regular/SearchAlt"
+import { Send } from "@styled-icons/bootstrap/Send"
+ 
 export const CommentBar = ({ token, recordId }) => {
     const [searchTerm, setSearchTerm] = useState('');
     const [gifs, setGifs] = useState([]);
@@ -57,37 +60,34 @@ export const CommentBar = ({ token, recordId }) => {
             ,
             <>
             {comments.length > 0 ?
-                <div>
-                    <h1>Reactions</h1>
-                    <div>
+                    <div className="comment-list-cont">
                         {comments.map((comment, idx) => (
-                            <div key={idx}>
-                                <img src={comment.gif_url} alt="gif" />
+                            <div className="indiv-rec-comment" key={idx}>
                                 <p>{comment.commentor}</p>
+                                <img className="gif-style" src={comment.gif_url} alt="gif" />
                             </div>
                         ))}
                     </div>
-                </div>
                 :
                 <p>No comments</p>
             } 
             </>
             ,
-            <>
+            <div className="searched-gifs">
             {gifs.map((gif, idx) => (
                 <div className="indiv-gif-cont" key={idx}>
                     {/* <img className="indiv-gif" onClick={() =>handleGifSelection(gif)} src={gif.images.fixed_width.url} alt={gif.title} /> */}
                     <img className="indiv-gif" onClick={() => handleGifSelection(gif)} src={gif.images.fixed_width.url} alt={gif.title} />
                 </div>
             ))}
-            </>
+            </div>
             ,
             <>
             {selectedGif.length !== 0 && 
                 <>
-                <div className="gif">
+                <div className="gif-on-cue">
+                    <Send className="send-gif" onClick={() => handleSendGif(selectedGif)}/>
                     <img className="selected-gif" src={selectedGif.images.fixed_width.url} alt={selectedGif.title} />
-                    <button className="send-gif" onClick={() => handleSendGif(selectedGif)}>Send</button>
                 </div>    
                 </>
             }
@@ -97,16 +97,20 @@ export const CommentBar = ({ token, recordId }) => {
         return step < profEdit.length ? profEdit[step] : null;
     }
 
-
     return (
         <div className="comment-cont">
             <div className="comment-bar">
-                <button onClick={viewGifComments}>View Reactions</button>
-                <div className="gif-search">
-                    <input type="text" value={searchTerm} onChange={e => setSearchTerm(e.target.value)} />
-                    <button type="submit" onClick={handleSubmit}>Search</button>
+                <div className="quick-action">
+
+                    <InsertComment className="comment-button spc" onClick={viewGifComments} />
+                    <LikeButton token={token} recordId={recordId} />
                 </div>
-                <LikeButton token={token} recordId={recordId} />
+                
+                <div className="gif-search">
+                    <input className="search-input-gif" placeholder="Send gif..." type="text" value={searchTerm} onChange={e => setSearchTerm(e.target.value)} />
+                    <SearchAlt className="comment-button" type="submit" onClick={handleSubmit}/>
+                </div>
+                
             </div>
             <div className="gif-search-results">
             {renderStep(step)}

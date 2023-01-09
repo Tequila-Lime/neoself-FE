@@ -1,6 +1,7 @@
 import { requestFriendRecords } from './Requests'
 import { useEffect, useState } from 'react'
 import { Link } from "react-router-dom"
+import { CommentBar } from './CommentBar'
 
 export const FriendRecords = ({ token }) => {
     const [recordList, setRecordList] = useState([])
@@ -22,33 +23,34 @@ export const FriendRecords = ({ token }) => {
     return (
         <div>
             <div className='records-cont'>
-            {recordList.slice(0, recordsPerPage).map((record, idx) => (
-            <div className="indiv-record" key={idx}>
-                <div className="record-info">
-                <div className="record-title">
-                    <Link to='/records/:recordId' state={{ id: record.id }}>
-                    {record.habit_name} record by {record.user}
-                    </Link>
-                    <p>{record.date}</p>
+                {recordList.slice(0, recordsPerPage).map((record, idx) => (
+                <div className="indiv-record" key={idx}>
+                    <div className="record-info">
+                        <div className="record-title">
+                                <Link className='user-record-name' to='/random-profile' state={{ id: record.user_number }}>{record.user}</Link>
+                                <p className='date-of-record'>{record.date}</p>
+                                <p className='specific-record'>{record.habit_name}</p>
+                        </div>
+                        <div className='record-action'>
+                            <p className='today-recorded'>{record.daily_record}</p>
+                            <p className='today-metric'>{record.metric_label}</p>
+                        </div>
+                    </div>
+                    <div className="reaction">
+                        <CommentBar token={token} recordId={record.id}/>
+                    </div>
                 </div>
-                <p>{record.daily_record}{record.metric_label}</p>
-                </div>
-                <div className="reaction">
-                    <p>Gif</p>
-                    <p>Like</p>
-                </div>
+                ))}
             </div>
-            ))}
-        </div>
         {/* would like these to be arrows in future */}
-        <div className="load-records">
-            {recordsPerPage < recordList.length && (
-                <button className="load-more" onClick={handleLoadMore}>Load More</button>
-            )}
-            {recordsPerPage > 4 && (
-                <button className="load-more" onClick={handleLoadLess}>Load Less</button>
-            )}
-        </div>
+            <div className="load-records">
+                {recordsPerPage < recordList.length && (
+                    <button className="load-more" onClick={handleLoadMore}>Load More</button>
+                )}
+                {recordsPerPage > 4 && (
+                    <button className="load-more" onClick={handleLoadLess}>Load Less</button>
+                )}
+            </div>
         </div>
     )
 }

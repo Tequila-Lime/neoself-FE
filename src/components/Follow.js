@@ -1,9 +1,10 @@
 import { requestAddFriend,requestRemoveFriend, requestSingleFriendship} from "./Requests";
 import { useState, useEffect } from "react"
+import { PersonRemoveOutline } from "@styled-icons/evaicons-outline/PersonRemoveOutline"
+import { PersonAddOutline} from "@styled-icons/evaicons-outline/PersonAddOutline"
 
 export const Follow = ({ token, friendId}) => { 
-  const [friendship, setFriendShip] = useState()
-  
+  const [friendship, setFriendShip] = useState([])
   
   useEffect(() => {
     requestSingleFriendship(token, friendId).then((res) => setFriendShip(res.data)  
@@ -16,6 +17,8 @@ export const Follow = ({ token, friendId}) => {
     window.location.reload()
     };
 
+  // friendship right now is an array with a dictionary but I want just the dictionary
+
   const handleUnfriend = (event) => {
       event.preventDefault()
       requestRemoveFriend(token, friendship[0].id)
@@ -23,14 +26,13 @@ export const Follow = ({ token, friendId}) => {
     };
 
   return (
-    <div>
+    <div className="profile-info-add">
       {console.log(friendship)}
       {friendship ? friendship.length === 0 ?
-        <button onClick={handleClick} className="is-clickable">Friend</button> 
+        <PersonAddOutline onClick={handleClick} />
         :
-        <button onClick={handleUnfriend} className="is-clickable">Unfriend</button>
+        <PersonRemoveOutline onClick={handleUnfriend} />
       : null}
-
     </div>
   );
 };

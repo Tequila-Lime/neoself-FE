@@ -63,7 +63,7 @@ function App({ cardData }) {
           <Header token={token} setAuth={setAuth} username={username}/>
           <Routes>
             <Route path="/UserList" element={<Users username={username} token={token}/>} />
-            <Route path="/FriendList" element={<Friends token={token}/>} />
+            <Route path="/FriendList" element={<Friends token={token} username={username}/>} />
             <Route path="/createReflection" element={<CreateReflection username={username} token={token}/>} />
             <Route path="/reflection" element={<AllReflections username={username} token={token}/>} />
             <Route path="/reflection/:reflectionId" element={<SingleReflection token={token} isLoggedIn={isLoggedIn}/> }/>

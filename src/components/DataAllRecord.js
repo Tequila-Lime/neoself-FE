@@ -77,7 +77,7 @@ export const DataVisualization = ({ token, step }) => {
       
       return acc;
       }, {});
-    
+
     for (const date in completionOverTime) {
       completionOverTime[date] = completionOverTime[date].total/ completionOverTime[date].count;
     }
@@ -136,27 +136,48 @@ export const DataVisualization = ({ token, step }) => {
     }));
 
     const todayHabitCompletions = todayRecords.reduce((acc, curr) => {
-      let numerator = 0
-      let denominator = 0
       if (curr.date === today) {
-        if (curr.filled_in){
-          numerator++
-          denominator++
-        }
-        else(
-          denominator++
-        )
-      } 
-
-      acc[curr.date] = numerator/denominator
+        if (!acc[curr.date]){
+          if (curr.filled_in){
+            acc[curr.date] = {
+              numerator: 1,
+              denominator: 1
+            }}
+          else{
+            acc[curr.date] = {
+              numerator: 0,
+              denominator: 1
+            }
+          }}
+        else{
+          if (curr.filled_in){
+            acc[curr.date] = {
+              numerator: acc[curr.date].numerator + 1,
+              denominator: acc[curr.date].denominator + 1
+            }}
+          else{
+            acc[curr.date] = {
+              numerator: acc[curr.date].numerator,
+              denominator: acc[curr.date].denominator + 1
+            }
+          }
+          }
+      }
       
       return acc;
       }, {});
-
+    
     const today_completion = Object.keys(todayHabitCompletions).map(key => ({
       x:  key,
-      y:  todayHabitCompletions[key]
+      y:  todayHabitCompletions[key].numerator / todayHabitCompletions[key].denominator
     }));
+
+  const today_completion_math = Object.entries(today_completion).reduce((acc, [key, value]) => {
+      acc.x = key;
+      acc.y = value.y;
+      return acc;
+    }, {});
+    // console.log(today_completion)
 
     const improvement = recordList.reduce((acc, curr) => {
       if (!acc[curr.date]) {
@@ -226,14 +247,13 @@ export const DataVisualization = ({ token, step }) => {
     }
 
     // variables for complete circle styles
-    const percentageComplete = habitValues.habits_done_today.y * 100;
-    // const meetHabitGoal = habitValues.habits_done_today.y * 100;
-    // const meetHabitMajorGoal = habitValues.habits_done_today.y * 100;
+    const percentageComplete = today_completion_math.y * 100;
 
+    // console.log(habitValues.habits_done_today)
     const colorScale = (percentageComplete) => {
       if (percentageComplete < 33) {
         return "red";
-      } else if (percentageComplete < 70) {
+      } else if (percentageComplete < 73) {
         return "orange";
       } else {
         return "green";
@@ -264,6 +284,7 @@ export const DataVisualization = ({ token, step }) => {
           // Chart percent of habits done today
           <>
           {/* {console.log(habitValues.habits_done_today)} */}
+
             <VictoryPie data={habitValues.habits_done_today} 
                     innerRadius={100}
                     style={{
@@ -271,6 +292,7 @@ export const DataVisualization = ({ token, step }) => {
                     labelPosition={"centroid"}
                     labels={({ datum }) => `${(datum.y * 100)}%`}
             />
+            
           </>
             ,
             // Chart 2 habit occurance

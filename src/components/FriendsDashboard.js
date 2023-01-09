@@ -19,6 +19,7 @@ export const FriendDashboard = ({ token }) => {
             </div>
             <div className="side-cont">
                 <div className="dash-component">
+                    <h3>Friends</h3>
                     <Friends token={token}/>
                 </div>
             </div>

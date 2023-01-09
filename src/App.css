@@ -1,5 +1,5 @@
 body{
-  background-color: rgb(255, 255, 255);
+  background-color: rgba(242, 242, 242, 0.842);
   padding: 0px;
   margin: 0px;
 }
@@ -11,15 +11,19 @@ body{
 /* end of reusable */
 /* Header css */
 .header{
-  background-color: lightblue;
+  background-color: white;
   display:flex;
-  justify-content: space-between;
-  align-items: center;
   height: 5em;
   margin: 0px 0px;
   padding: 0px 15px;
 }
-
+.header-place{
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto;
+  width: 87%;
+}
 .logo-side{
   display:flex;
   flex-flow: row;
@@ -137,7 +141,7 @@ body{
 .dashboard-cont{
   display:flex;
   flex-flow:row;
-  width:85%;
+  width:65%;
   /* background-color: blueviolet; */
   margin: 0px auto;
 }
@@ -163,9 +167,14 @@ body{
   flex-flow: column;
   width: 100%;
   border-radius: 1em;
-  background-color: rgb(97, 195, 237);
-  box-shadow: 0px 0px 5px rgb(12, 60, 83) ;
-  /* border: black solid 2px; */
+  background-color: rgb(254, 254, 254);
+  box-shadow: 0px 0px 3px rgb(12, 60, 83) inset;
+  margin: 2vh 0 0 0;
+}
+.dash-component-nb{
+  display:flex;
+  flex-flow: column;
+  width: 100%;
   margin: 2vh 0 0 0;
 }
 
@@ -173,7 +182,7 @@ body{
 .profile-top{
   display:flex;
   justify-content: space-between;
-  margin: 2vh 2vh 0vh 2vh; 
+  margin: 2vh; 
 }
 
 .avatar{
@@ -184,9 +193,17 @@ body{
 }
 
 .profile-info{
+  display:flex;
+  flex-flow:column;
   margin: auto 0px auto 10%;
   text-decoration: none;
 }
+.profile-info-add{
+  display: flex;
+  width:13vh;
+  align-self: flex-end;
+}
+
 .profile-name{
   font-size: 25px;
   text-decoration: none;
@@ -234,33 +251,66 @@ body{
   flex-flow:column;
   height:60%;
   margin-bottom: 3vh;
-  
+  background-color: rgb(255, 255, 255);
+  box-shadow: 0 0 3px black inset;
+  border-radius: .3em;
 }
 .record-info{
   display:flex;
-  flex-flow: column;
+  flex-flow: row;
+  justify-content: space-between;
+  align-items: center;
   padding: 0 2vh;
   height:80%;
-  background-color:rgb(247, 241, 233);
-  border-radius: 1.5em;
-  margin-bottom: 1vh;
-  box-shadow: 0 0 5px black inset;
-  /* border: black 1px solid; */
+  padding: 2vh 0;
+
 }
 .record-title{
   display:flex;
-  flex-flow: row;
+  flex-flow: column;
   align-items: center;
-  justify-content: space-between;
+  margin-left: 2vh;
 }
-.reaction{
+/* content in records title */
+.user-record-name{
   display:flex;
-  justify-content: space-between;
-  background-color: rgb(221, 247, 255);
-  height: 20%;
-  border-radius: .75em;
-  padding: 0 2vh;
-  box-shadow: 0 0 5px black inset;
+  text-decoration: none;
+  color:black;
+  font-size: 30px;
+  margin: 0 0 -5px 0;
+}
+.user-record-name:hover{
+  color:blue;
+}
+.date-of-record{
+  display:flex;
+  color: grey;
+  font-size: 12px;
+}
+.specific-record{
+  display:flex;
+  text-decoration: none;
+  color: black;
+  font-size: 20px;
+  margin: 0 0;
+}
+.specific-record:hover{
+  color: blue;
+}
+.today-recorded{
+  display:flex;
+  font-size:40px;
+  margin: 0 0 -40% 0px;
+}
+/* end of content in record */
+
+.record-action{
+  display: flex;
+  flex-flow:column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  margin-right: 15%;
 }
 
 .load-records{
@@ -516,25 +566,90 @@ body{
   color: white;
 }
 /* Gif bar */
+.reaction{
+  display:flex;
+  justify-content: space-between;
+  height: 20%;
+  padding: 0 2vh;
+}
 .comment-cont{
   display:flex;
   flex-flow: column;
   margin: 1vh 0;
   width: 100%;
+  /* background-color: azure; */
 }
 .comment-bar{
   display: flex;
   justify-content: space-between;
 }
+.quick-action{
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.record-commentor{
+  display: flex;
+  margin-right: 1vh;
+}
+.spc{
+  margin-right: 2vh;
+}
+.comment-button{
+  border:none;
+  height:2em;
+  color:black;
+}
+.comment-button:hover{
+  color:grey;
+}
 .gif-search{
   display:flex;
-  width: 50%;
+  align-items: center;
+}
+.search-input-gif{
+  display: flex;
+  border: none;
+  /* background-color: azure; */
+  border-bottom: 1px black solid;
+  margin-right: 1vh;
+  height: 2vh;
 }
 .gif-search-results{
   display:flex;
   width: 100%;
   flex-flow: wrap;
   justify-content: space-between;
+}
+.comment-list-cont{
+  display:flex;
+  flex-flow:column;
+  align-items: center;
+  width: 100%;
+  border-top: 1px black solid;
+  padding-top: 1.5vh;
+  margin-top: 1vh;
+}
+.indiv-rec-comment{
+  display: flex;
+  width:90%;
+  justify-content: space-around;
+  align-items: center;
+  border-radius: 1em;
+  padding: 1vh;
+  border: 1px black solid;
+  margin-bottom: 2vh;
+}
+.searched-gifs{
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  border-top: 1px black solid;
+  margin-top: 1vh;
+  padding-top: 1vh;
+}
+.gif-style{
+  border-radius: 1em;
 }
 .indiv-gif-cont{
   display: flex;
@@ -562,6 +677,57 @@ body{
   align-items: center;
   margin: 2vh auto 0 auto;
 }
+.gif-on-cue{
+  display:flex;
+  flex-flow: column;
+  margin-top: 1vh;
+  padding-top: 1.5vh;
+  border-top: 1px black solid;
+  width: 100%;
+}
+.selected-gif{
+  display: flex;
+  align-self: center;
+  border-radius: 1em;
+  width: 60%;
+  margin-bottom: 2vh;
+}
+.send-gif{
+  display:flex;
+  align-self: flex-end;
+  width: 8%;
+  margin-bottom: 1vh;
+  margin-right: 3vh;
+}
+/* end gif */
+
+/* Friend List */
+.friends-list{
+  display:flex;
+  flex-flow: column;
+  align-items: center;
+}
+.friend-in-list{
+  display:flex;
+  align-items: center;
+
+  margin-bottom: 1vh;
+  justify-content: space-between;
+
+}
+.list-profile-link{
+  font-size: 25px;
+  text-decoration: none;
+  color:black;
+} 
+.list-profile-link:hover{
+  color: red;
+} 
+.remove-friend-in-list{
+  width:20%;
+}
+
+/* End of friend list */
 
 /* HabitPage CSS */
 .habitPage-cont{
@@ -662,4 +828,22 @@ body{
   display:flex;
   /* border: 1px solid aqua; */
   height: 40vh;
+}
+
+/* user search bar */
+.user-search{
+  display:flex;
+  /* background-color: red; */
+  width:100%;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 2vh;
+}
+
+.user-search-input{
+  display: flex;
+  height: 4vh;
+  border-radius: 1em;
+  width: 70%;
+  border: none;
 }
