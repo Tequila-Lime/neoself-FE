@@ -1,7 +1,7 @@
 import { requestUserRecords } from './Requests'
 import { useEffect, useState } from 'react'
 import { Link } from "react-router-dom"
-import { CommentBar } from './CommentBar'
+import { Edit } from "@styled-icons/boxicons-solid/Edit"
 
 export const UserRecords = ({ token }) => {
     const [recordList, setRecordList] = useState([])
@@ -28,18 +28,25 @@ export const UserRecords = ({ token }) => {
                 <div className="indiv-record" key={idx}>
                     <div className="record-info">
                         <div className="record-title">
-                                <Link className='user-record-name' to='/random-profile' state={{ id: record.user_number }}>{record.user}</Link>
-                                <p className='date-of-record'>{record.date}</p>
-                                <Link className='specific-record' to='/records/:recordId' state={{ id: record.id }}>{record.habit_name}</Link>
+                                <Link className='specific-record-self' to='/records/:recordId' state={{ id: record.id }}>{record.habit_name}</Link>
+                                <p className='date-of-record-self'>{record.date}</p>
                         </div>
                         <div className='record-action'>
-                            <p className='today-recorded'>{record.daily_record}</p>
-                            <p className='today-metric'>{record.metric_label}</p>
+                                <div className='center'>
+                                    <p className='today-recorded'>{record.daily_record}</p>
+                                    <p>{record.metric_label}</p>
+                                </div>
+                                <div className='gls'>
+                                    <p className='txt-sc'>{record.week_reflection.metric_baseline}</p>
+                                    <p className='txt-sc'>{record.week_reflection.goal_metric}</p>
+                                </div>
                         </div>
+                        
                     </div>
-                    <div className="reaction">
-                        <CommentBar token={token} recordId={record.id}/>
-                    </div>
+                    <div className='self-comment'>
+                        <p >{record.comment_dh} {record.week_reflection.metric_baseline}</p>
+                        <Link className='specific-record-self' to='/records/:recordId' state={{ id: record.id }}><Edit className='edt-but' /></Link>
+                    </div>    
                 </div>
                 ))}
         </div>

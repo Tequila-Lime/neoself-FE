@@ -138,6 +138,12 @@ body{
 /* end of login info css */
 
 /* Dashboard CSS */
+.dash-chart{
+  display:flex;
+  flex-flow: column;
+  margin: 2vh;
+  align-self: flex-start;
+}
 .dashboard-cont{
   display:flex;
   flex-flow:row;
@@ -260,10 +266,13 @@ body{
   flex-flow: row;
   justify-content: space-between;
   align-items: center;
-  padding: 0 2vh;
+  padding:2vh;
   height:80%;
-  padding: 2vh 0;
-
+}
+.center{
+  display:flex;
+  flex-flow: column;
+  align-items: center;
 }
 .record-title{
   display:flex;
@@ -297,10 +306,56 @@ body{
 .specific-record:hover{
   color: blue;
 }
+.specific-record-self{
+  display:flex;
+  text-decoration: none;
+  color: black;
+  font-size: 35px;
+  margin: 0 0;
+}
+.date-of-record-self{
+  display:flex;
+  color: grey;
+  font-size: 14px;
+}
+.specific-record-self:hover{
+  color:blue
+}
 .today-recorded{
   display:flex;
   font-size:40px;
-  margin: 0 0 -40% 0px;
+  margin: 0 0 -2vh 0px;
+}
+
+.self-comment{
+  display:flex;
+  flex-flow:row;
+  justify-content: space-between;
+  border-radius:1em;
+  padding: 1vh;
+  margin: -2vh 2vh 1vh 2vh;
+}
+.self-comment p {
+  margin-top: 0;
+}
+.edt-but{
+  display: flex;
+  color: black;
+  height: 3.5vh;
+}
+.edt-but:hover{
+  color: blue;
+}
+.gls{
+  display: flex;
+  justify-content: space-between;
+}
+.txt-sc{
+  display:flex;
+  justify-self: flex-start;
+  margin-top: -1vh;
+  height: 2vh;
+
 }
 /* end of content in record */
 
@@ -308,9 +363,9 @@ body{
   display: flex;
   flex-flow:column;
   justify-content: center;
-  align-items: center;
-  height: 100%;
-  margin-right: 15%;
+  align-content: center;
+  margin: 0 auto;
+  width: 30%;
 }
 
 .load-records{
@@ -846,4 +901,10 @@ body{
   border-radius: 1em;
   width: 70%;
   border: none;
+}
+
+/* Chart container */
+.chart-holder{
+  display:flex;
+  align-self: flex-start;
 }

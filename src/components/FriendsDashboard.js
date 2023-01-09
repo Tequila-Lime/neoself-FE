@@ -10,7 +10,8 @@ export const FriendDashboard = ({ token }) => {
                     <UserSearchBar token={token}/>
             </div>
             <div className="middle-cont">
-                <div className="dash-component">
+                
+                <div className="dash-component-nb">
                     <div className='indent'>
                         <h3>Friends Records</h3>
                         <FriendRecords token={token}/>

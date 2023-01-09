@@ -282,7 +282,7 @@ export const DataVisualization = ({ token, step }) => {
             </VictoryChart>
             ,
           // Chart percent of habits done today
-          <>
+          <div className='chart-holder'>
           {/* {console.log(habitValues.habits_done_today)} */}
 
             <VictoryPie data={habitValues.habits_done_today} 
@@ -293,7 +293,7 @@ export const DataVisualization = ({ token, step }) => {
                     labels={({ datum }) => `${(datum.y * 100)}%`}
             />
             
-          </>
+          </div>
             ,
             // Chart 2 habit occurance
             <>
