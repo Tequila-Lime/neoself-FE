@@ -27,7 +27,6 @@ export const Dashboard = ({ token }) => {
                         </div>
                     </div>
                     {/* <button className='basic-button' type="submit">Friend</button>   */}
-                    <p className="wins">Number of Completed Habits: </p>
                 </div>
                 <div className="dash-component">
                     <div className="indent">
@@ -45,9 +44,9 @@ export const Dashboard = ({ token }) => {
                 </div>
             </div>
             <div className="side-cont">
-                <div className="dash-component">
-                    <h3>Habits done today</h3>
-                    <DataVisualization token={token} step={1}/>
+                <div className="dash-chart">
+                    <h3>Habits Done today</h3>
+                    <DataVisualization  token={token} step={1}/>
                 </div>
             </div>
             

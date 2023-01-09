@@ -29,13 +29,16 @@ export const LikeButton = ({ token, recordId}) => {
   return (
     <div>
 
-        {likes.length > 0 && <>{likes.map((like, idx) => (
+        {likes.length > 0 ? <>{likes.map((like, idx) => (
             <div key={idx}>
-                <HeartFill onClick={() => handleRemoveLike(like.id)}/>
+                <HeartFill className="comment-button" onClick={() => handleRemoveLike(like.id)}/>
             </div>
         ))}
-        </>}
+        </>
+        :
         <Heart className="comment-button" onClick={handleClick}/>
+        }
+        
         
     </div>
   );
