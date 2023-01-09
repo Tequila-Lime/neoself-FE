@@ -1,26 +1,10 @@
 import { requestHabitRecords } from './Requests'
 import { useEffect, useState } from 'react'
-import { VictoryBar, VictoryChart, VictoryPie,VictoryAxis,VictoryLabel, VictoryLine} from 'victory'
+import { VictoryBar, VictoryChart,VictoryAxis,VictoryLabel, VictoryLine} from 'victory'
 
 
 export const DataVisHabit = ({ token,habitId, step }) => {
     const [recordList, setRecordList] = useState([])
-    const currentDate = new Date()
-    const day = currentDate.getDate()
-    const month = currentDate.getMonth() + 1; // January is 0, so we need to add 1
-    const year = currentDate.getFullYear();
-
-    let today = `${year}-`;
-    if (month < 10) {
-      today += `0${month}-`;
-    } else {
-      today += `${month}-`;
-    }
-    if (day < 10) {
-      today += `0${day}`;
-    } else {
-      today += `${day}`;
-    }
 
 // Needs to pull from questionnaire and a nested record serializer for records
     useEffect(() => {
@@ -29,7 +13,6 @@ export const DataVisHabit = ({ token,habitId, step }) => {
             ))
     }, [token, habitId])
 
-    const todayRecords = recordList.filter((record)=>record.date === today)
 
     const habit_occurance = recordList.reduce((acc, curr) => {
         if (!acc[curr.habit_name]) {
@@ -135,29 +118,6 @@ export const DataVisHabit = ({ token,habitId, step }) => {
       y:  completionToMajorGoal[key]
     }));
 
-    const todayHabitCompletions = todayRecords.reduce((acc, curr) => {
-      let numerator = 0
-      let denominator = 0
-      if (curr.date === today) {
-        if (curr.filled_in){
-          numerator++
-          denominator++
-        }
-        else(
-          denominator++
-        )
-      } 
-
-      acc[curr.date] = numerator/denominator
-      
-      return acc;
-      }, {});
-
-    const today_completion = Object.keys(todayHabitCompletions).map(key => ({
-      x:  key,
-      y:  todayHabitCompletions[key]
-    }));
-
     const improvement = recordList.reduce((acc, curr) => {
       if (!acc[curr.date]) {
         acc[curr.date] = {
@@ -222,22 +182,9 @@ export const DataVisHabit = ({ token,habitId, step }) => {
       "improvement_per_day_major": timeImprovement,
       // x
       "improvement_per_day_minor": timeImprovementMinor,
-      // x
-      "habits_done_today":today_completion
     }
 
     // variables for complete circle styles
-    const percentageComplete = habitValues.habits_done_today.y * 100;
-
-    const colorScale = (percentageComplete) => {
-      if (percentageComplete < 33) {
-        return "red";
-      } else if (percentageComplete < 70) {
-        return "orange";
-      } else {
-        return "green";
-      }
-    }
 
     function renderStep(step){
         const formSteps = [
@@ -259,18 +206,6 @@ export const DataVisHabit = ({ token,habitId, step }) => {
                 />
                 <VictoryBar data={habitValues.days_remaining} />
             </VictoryChart>
-            ,
-          // Chart percent of habits done today
-          <>
-          {/* {console.log(habitValues.habits_done_today)} */}
-            <VictoryPie data={habitValues.habits_done_today} 
-                    innerRadius={100}
-                    style={{
-                      data: { fill: colorScale(percentageComplete) }}}
-                    labelPosition={"centroid"}
-                    labels={({ datum }) => `${(datum.y * 100)}%`}
-            />
-          </>
             ,
             // Chart 2 habit occurance
             <>

@@ -5,7 +5,7 @@ export const DrawingBoard = ({ token }) => {
 
     return (
         <div>
-            <DataVisualization token={token} step={7} />
+            <DataVisualization token={token} step={1} />
         </div>
     )
 }
