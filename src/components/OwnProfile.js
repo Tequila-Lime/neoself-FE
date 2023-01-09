@@ -57,6 +57,8 @@ export const OwnProfile = ({ token }) => {
                 <div className="profile-img">
                         <div className="profile-name-profile">
                             <div className="actual-img">img</div>
+                            <input className="text-box" type='text' value={profile.avatar}
+                    onChange={e => setProfile({...profile, avatar: e.target.value})}></input>
                             <p>Username</p>
                             <input className="text-box" type='text' value={profile.username}
                     onChange={e => setProfile({...profile, username: e.target.value})}></input>
