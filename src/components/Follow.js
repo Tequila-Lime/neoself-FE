@@ -1,5 +1,7 @@
 import { requestAddFriend,requestRemoveFriend, requestSingleFriendship} from "./Requests";
 import { useState, useEffect } from "react"
+import { PersonRemoveOutline } from "@styled-icons/evaicons-outline/PersonRemoveOutline"
+import { PersonAddOutline} from "@styled-icons/evaicons-outline/PersonAddOutline"
 
 export const Follow = ({ token, friendId}) => { 
   const [friendship, setFriendShip] = useState()
@@ -23,14 +25,12 @@ export const Follow = ({ token, friendId}) => {
     };
 
   return (
-    <div>
-      {console.log(friendship)}
+    <div className="profile-info-add">
       {friendship ? friendship.length === 0 ?
-        <button onClick={handleClick} className="is-clickable">Friend</button> 
+        <PersonAddOutline onClick={handleClick} />
         :
-        <button onClick={handleUnfriend} className="is-clickable">Unfriend</button>
+        <PersonRemoveOutline onClick={handleUnfriend} />
       : null}
-
     </div>
   );
 };
