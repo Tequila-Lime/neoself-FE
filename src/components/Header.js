@@ -20,7 +20,7 @@ export const Header = ({ setAuth, username, token }) => {
 
             <nav className="nav-links">
             
-                    <Link className="new-habit" to="/create">Add a new Habit</Link>
+                    <Link className="new-habit" to="/create">New Habit</Link>
                     <Link className="nav-link logout" to="/" onClick={handleLogout}>Log Out</Link>
 
             </nav>
