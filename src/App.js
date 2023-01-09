@@ -13,6 +13,8 @@ import { UpdateReflection } from './components/UpdateReflection';
 import { AllQuestionnaires } from './components/AllQuestionnaires'
 import { SingleQuestionnaire } from './components/SingleQuestionnaire'
 import { CreateQuestionnaire } from './components/CreateQuestionnaire'
+import { RecentestHabitReflection } from './components/RecentestHabitReflection'
+import { PlanChange } from './components/PlanChange'
 import { UserRecords } from './components/UserRecords'
 import { FriendRecords } from './components/FriendRecords'
 import { HabitRecords } from './components/HabitRecords';
@@ -75,6 +77,7 @@ function App({ cardData }) {
             <Route path="/user-records" element={<UserRecords username={username} token={token}/>} />
             <Route path="/friend-records" element={<FriendRecords username={username} token={token}/>} />
             <Route path="/records-today" element={<TodayRecords username={username} token={token}/>} />
+            <Route path="/plan-change" element={<PlanChange username={username} token={token}/>} />
             <Route path="/profile-records/:recordId" element={<OtherUserRecords username={username} token={token}/>} />
             <Route path="/records/habit/" element={<HabitRecords token={token} isLoggedIn={isLoggedIn}/> }/>
             <Route path="/records/:recordId" element={<RecordDetail username={username} token={token} isLoggedIn={isLoggedIn}/> }/>
@@ -86,7 +89,7 @@ function App({ cardData }) {
             <Route path="/weeklogs/:id" element={<WeeklogsDetail username={username} token={token}/>} />
             <Route path="/results" element={<Results username={username} token={token}/>} />
             <Route path="/results/:id" element={<ResultDetail username={username} token={token}/>} />
-            
+            <Route path="/reflection/recentest/:id" element={<RecentestHabitReflection username={username} token={token}/>} />
             <Route path="/" element={<Dashboard username={username} token={token}/>} />
             <Route path="/friends" element={<FriendDashboard username={username} token={token}/>} />
             <Route path="/profile" element={<Profile username={username} token={token}/>} />

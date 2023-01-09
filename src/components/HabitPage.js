@@ -13,7 +13,7 @@ export const HabitPage = ({ token }) => {
                 <Link className="Habit-Function_Button" to='/results/habit/' state={{ id: location.state.id }}>Habit Results</Link>
                 <Link className="Habit-Function_Button" to='/weeklogs/habit/' state={{ id: location.state.id }}>Week Log</Link>
                 <Link className="Habit-Function_Button" to='/reflection-habit/:id' state={{ id: location.state.id }}>Plans</Link>
-                <Link className="Habit-Function_Button" to='/createReflection' state={{ id: location.state.id }}>Modify Plan</Link>
+                <Link className="Habit-Function_Button" to='/plan-change' state={{ id: location.state.id }}>Modify Plan</Link>
             </div>
             <div className="Data-Visualization-Window-cont">
                 <div className="Data-Visualization-Window">
