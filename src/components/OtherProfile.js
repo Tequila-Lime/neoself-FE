@@ -28,7 +28,7 @@ export const OtherProfile = ({ token, id }) => {
                         <div className="bio-text">
                         </div>
                         <div className="friend-profile">
-                            <Follow  token={token} friendId={id}/>
+                            <Follow  token={token} friendId={id} />
                             <p>Habits started</p>
                         </div>
                         

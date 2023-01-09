@@ -24,22 +24,24 @@ export const UserRecords = ({ token }) => {
     return (
         <div>
             <div className='records-cont'>
-            {recordList.slice(0, recordsPerPage).map((record, idx) => (
-            <div className="indiv-record" key={idx}>
-                <div className="record-info">
-                <div className="record-title">
-                    <Link to='/records/:recordId' state={{ id: record.id }}>
-                    {record.habit_name} record by {record.user}
-                    </Link>
-                    <p>{record.date}</p>
+                {recordList.slice(0, recordsPerPage).map((record, idx) => (
+                <div className="indiv-record" key={idx}>
+                    <div className="record-info">
+                        <div className="record-title">
+                                <Link className='user-record-name' to='/random-profile' state={{ id: record.user_number }}>{record.user}</Link>
+                                <p className='date-of-record'>{record.date}</p>
+                                <Link className='specific-record' to='/records/:recordId' state={{ id: record.id }}>{record.habit_name}</Link>
+                        </div>
+                        <div className='record-action'>
+                            <p className='today-recorded'>{record.daily_record}</p>
+                            <p className='today-metric'>{record.metric_label}</p>
+                        </div>
+                    </div>
+                    <div className="reaction">
+                        <CommentBar token={token} recordId={record.id}/>
+                    </div>
                 </div>
-                <p>{record.daily_record}{record.metric_label}</p>
-                </div>
-                <div className="reaction">
-                    <CommentBar token={token} recordId={record.id}/>
-                </div>
-            </div>
-            ))}
+                ))}
         </div>
         {/* would like these to be arrows in future */}
         <div className="load-records">
