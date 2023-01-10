@@ -1005,6 +1005,22 @@ input[type=number]::-webkit-outer-spin-button {
 .habit-header-link h1{
   font-size: 50px;
 }
+.status-habit-y{
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 30%;
+}
+.status-habit-y h3{
+  font-size: 25px;
+}
+.icon-temp{
+  height: 5vh;
+  color: black;
+}
+.icon-temp:hover{
+  color: blue;
+}
 
 .list-of-habits{
   display:flex;
@@ -1014,14 +1030,15 @@ input[type=number]::-webkit-outer-spin-button {
 
 }
 .each-habit{
-  display:flex;
-  margin: 0 0 2vh 0;
-  padding: 2vh;
-  box-shadow: 0 0 3px black inset;
-  border-radius: .3em;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%
+    display:flex;
+    margin: 0 0 2vh 0;
+    padding: 2vh;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.331);
+    background-color: white;
+    border-radius: 1em;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%
 }
 
 .chart{
