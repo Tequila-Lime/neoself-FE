@@ -36,10 +36,6 @@ export const UserRecords = ({ token }) => {
                                     <p className='today-recorded'>{record.daily_record}</p>
                                     <p>{record.metric_label}</p>
                                 </div>
-                                <div className='gls'>
-                                    <p className='txt-sc'>{record.week_reflection.metric_baseline}</p>
-                                    <p className='txt-sc'>{record.week_reflection.goal_metric}</p>
-                                </div>
                         </div>
                         
                     </div>

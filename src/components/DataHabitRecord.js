@@ -240,7 +240,7 @@ export const DataVisHabit = ({ token,habitId, step }) => {
                 <VictoryAxis dependentAxis label="1.0 = 100%" style={{
                       axisLabel: { padding: 35}
                     }}/>
-                <VictoryLabel text="Habits meeting Base Goal" x={225} y={30} style={{ fontSize: 24 }} textAnchor="middle" />
+                <VictoryLabel text="Record over time to Short Term" x={225} y={30} style={{ fontSize: 24 }} textAnchor="middle" />
                 {/* <VictoryAxis dependentAxis tickValues={[]} /> */}
                 <VictoryLine data={habitValues.improvement_per_day_minor}  />
             </VictoryChart>
@@ -262,12 +262,11 @@ export const DataVisHabit = ({ token,habitId, step }) => {
               domainPadding={50}
               >
                 <VictoryAxis />
-                <VictoryLabel text="Habit Meeting Goal Metric" x={225} y={30} style={{ fontSize: 24 }} textAnchor="middle" />
+                <VictoryLabel text="Habit Meeting Short Term Goal" x={225} y={30} style={{ fontSize: 24 }} textAnchor="middle" />
                 <VictoryBar
                 barRatio={.8}
                   style={{ data: { fill: "#46C8D8" } }}
                   data={habitValues.completion_to_goal}
-                horizontal
                 labels={({ datum }) =>`${Math.round(datum.y * 100)}%`}
                           />
             </VictoryChart>
@@ -279,12 +278,11 @@ export const DataVisHabit = ({ token,habitId, step }) => {
               domainPadding={50}
               >
                 <VictoryAxis />
-                <VictoryLabel text="Habit Meeting Major Goal Metric" x={225} y={30} style={{ fontSize: 24 }} textAnchor="middle" />
+                <VictoryLabel text="Habit Meeting Long Term Goal" x={225} y={30} style={{ fontSize: 24 }} textAnchor="middle" />
                 <VictoryBar
                 barRatio={.8}
                   style={{ data: { fill: "#46C8D8" } }}
                   data={habitValues.percent_to_ultimate_goal}
-                horizontal
                 labels={({ datum }) =>`${Math.round(datum.y * 100)}%`}
                           />
             </VictoryChart>

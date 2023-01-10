@@ -263,7 +263,9 @@ export const DataVisualization = ({ token, step }) => {
     function renderStep(step){
         const formSteps = [
           // chart 0 Days remaining 
+          <div>
             <VictoryChart
+            className="chart"
             domainPadding={20}
             >
                 <VictoryAxis
@@ -280,6 +282,7 @@ export const DataVisualization = ({ token, step }) => {
                 />
                 <VictoryBar data={habitValues.days_remaining} />
             </VictoryChart>
+            </div>
             ,
           // Chart percent of habits done today
           <div className='chart-holder'>
@@ -296,20 +299,21 @@ export const DataVisualization = ({ token, step }) => {
           </div>
             ,
             // Chart 2 habit occurance
-            <>
+            <div className="chart-background">
             {/* {console.log(habitValues.habit_occurancy)} */}
-            <VictoryChart 
-              domainPadding={50}
-              >
-                <VictoryBar
-                barRatio={.8}
-                  style={{ data: { fill: "#46C8D8" } }}
-                  data={habitValues.habit_occurancy}
-                horizontal
-                labels={({ datum }) => `${datum.y}`}
-                          />
-            </VictoryChart>
-              </>
+              <VictoryChart 
+             
+                domainPadding={50}
+                >
+                  <VictoryBar
+                  barRatio={.8}
+                    style={{ data: { fill: "#46C8D8" } }}
+                    data={habitValues.habit_occurancy}
+                  horizontal
+                  labels={({ datum }) => `${datum.y}`}
+                            />
+              </VictoryChart>
+            </div>
             ,
             // Chart 3 Habit completed per date
             <>
