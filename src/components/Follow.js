@@ -14,7 +14,6 @@ export const Follow = ({ token, friendId}) => {
   const handleClick = (event) => {
     event.preventDefault()
     requestAddFriend(token, friendId).then((res) => setFriendShip(res.data));
-    window.location.reload()
     };
 
   // friendship right now is an array with a dictionary but I want just the dictionary
@@ -27,7 +26,6 @@ export const Follow = ({ token, friendId}) => {
 
   return (
     <div className="profile-info-add">
-      {console.log(friendship)}
       {friendship ? friendship.length === 0 ?
         <PersonAddOutline onClick={handleClick} />
         :

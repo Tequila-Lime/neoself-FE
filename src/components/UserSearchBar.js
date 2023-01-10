@@ -33,8 +33,8 @@ export const UserSearchBar = ({ token }) => {
       </div>
   
       {searchResults.length === 0 ? <p>No search results found</p> :<>{searchResults.map((profile, idx) => (
-        <div className='dash-component'>
-        <div className="profile-top" key={idx}>
+        <div className='dash-component' key={idx}>
+        <div className="profile-top" >
             <div className="avatar">
                 {profile.avatar && <img src={profile.avatar} alt={profile.username}/>}
             </div>
