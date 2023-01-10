@@ -218,6 +218,45 @@ body{
 .profile-name:hover{
   color:red;
 }
+.reflection-questionnaire{
+  display:flex;
+  flex-flow:column;
+  width: 65%;
+  margin: 0 auto;
+  justify-content: center;
+  align-items: center;
+}
+.questionReflect{
+  display:flex;
+  flex-flow:column;
+  width: 80%;
+  margin-bottom: 3vh;
+  padding: 2vh;
+  background-color: white;
+  border-radius: .5em;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.516);
+}
+.questionReflect p{
+  margin:0 auto 1vh auto;
+}
+.questionReflect textarea{
+  resize:none;
+  border: none;
+  background-color: rgba(128, 128, 128, 0.256);
+  border-radius: .2em;
+}
+.ref-ct{
+  display: flex;
+  justify-content: center;
+  flex-flow: column;
+}
+.send-reflection{
+  height: 4vh;
+  margin: 0 auto 3vh auto;
+}
+.send-reflection:hover{
+  color:rgb(34, 210, 154);
+}
 .basic-button{
   margin: 2vh 2vh 0vh 2vh;
   height: 2em;
@@ -398,7 +437,7 @@ body{
 }
 .question{
   display:flex;
-  margin:0;
+  margin:0 2vh;;
   font-size: 20px;
 }
 .weekdays{
@@ -946,29 +985,89 @@ input[type=number]::-webkit-outer-spin-button {
   justify-content: center;
   font-family: 'Times New Roman', Times, serif;
   font-size: x-large;
-  padding-bottom: 20px;
+}
+.under-habit-title{
+  display:flex;
+  margin:0;
+}
+.goals-habit{
+  display:flex;
+  justify-content: space-around;
+  width:50%;
+  /* background-color: rgb(183, 183, 255); */
+}
+.dataviz-record{
+  display: flex;
+  margin: 0 0 2vh 0;
+  height: 20vh;
+}
+.number-display{
+  margin: 0;
+  font-size: 40px;
+}
+.record-s-viz{
+  justify-content: flex-end;
+  width: 50%;
+}
+.big-num-goal{
+  display:flex;
+  flex-flow:column;
+  align-items: center;
+  background-color: white;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.289) inset;
+  width:30%;
+  border-radius: 7em;
+}
+.habit-page-total{
+  display: flex;
+  margin: 0 auto;
+  width: 70%;
+}
+.data-s-viz{
+  display: flex;
+  flex-flow: column;
+  width:50%;
+  margin:10px;
+}
+.data-chart-habit{
+  display: flex;
+  align-items: flex-start;
+  margin-left: 15px;
+  height: 100%;
+  background-color: white;
+}
+.chart-background{
+  background-color: white;
+}
+.data-chart-in{
+  display: flex;
+  margin:0px;
 }
 .Habit-Function_Buttons-cont{
   display: flex;
+  width:50%;
   justify-content: space-around;
+  align-items: center;
+}
+.pretend-button{
+  display: flex;
+  width: 30%;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(255, 255, 255);
+  box-shadow: 0 0 3px inset rgba(0, 0, 0, 0.581);
+  height: 3vh;
+  width: 30%;
+  border-radius: .5em;
 }
 .Habit-Function_Button{
-  color: black;
-  background-color: rgb(218, 210, 210);
-  border: black 1px solid;
-  height: 3vh;
-  width: 20%;
-  border-radius: 2em;
+ text-decoration: none;
+  color: rgb(0, 0, 0);
 }
-.Data-Visualization-Window-cont{
-  display: flex;
-  justify-content: center;
-  background-color: rgb(218, 210, 210);
-  border: black 2px solid;
-  height: 35vh;
-  width: 96%;
-  margin-top: 15%;
+.Habit-Function_Button:hover{
+  color:rgb(34, 210, 154);
 }
+
 .Bottom-Console{
   display: flex;
   flex-direction: row;
@@ -1011,12 +1110,11 @@ input[type=number]::-webkit-outer-spin-button {
 }
 .status-habit-y{
   display:flex;
-  justify-content: space-between;
   align-items: center;
-  width: 30%;
+  width: 100%;
 }
 .status-habit-y h3{
-  font-size: 25px;
+  font-size: 20px;
 }
 .icon-temp{
   height: 5vh;
@@ -1029,20 +1127,27 @@ input[type=number]::-webkit-outer-spin-button {
 .list-of-habits{
   display:flex;
   flex-flow: column;
-  width: 80%;
+  width: 35%;
   align-items: center;
+  justify-content: space-between;
   
+}
+.link-for-habit{
+  text-decoration: none;
+  color: black;
+}
+.link-for-habit:hover{
+  color:blue;
 }
 .each-habit{
   display:flex;
-  margin: 0 0 2vh 0;
   padding: 2vh;
   box-shadow: 0 0 3px black inset;
   border-radius: .3em;
   align-items: center;
-  justify-content: space-between;
   width: 100%;
   background-color: white;
+  margin-bottom: 2vh;
 }
 
 .chart{

@@ -18,10 +18,9 @@ export const AllQuestionnaires = ({ token }) => {
                 <div className='each-habit' key={idx}>
                     <div className='status-habit-y'>
                         <h3>{questionnaire.habit_name}</h3>
-                        {questionnaire.status ? <p>active</p>: <p>unactive</p> }
                     </div>
                     
-                    <Link  to='/habit-page/:id' state={{ id: questionnaire.id }}> <DoorOpen className='icon-temp'/></Link>
+                    <Link className='link-for-habit' to={`/habit-page/${questionnaire.id}`} state={{ id: questionnaire.id }}>See habit <DoorOpen className='icon-temp'/></Link>
                 </div>
             ))}
             </div>    

@@ -38,7 +38,7 @@ export const UserRecords = ({ token }) => {
                                     <p className='today-recorded'>{record.daily_record}</p>
                                     <p>{record.metric_label}</p>
                                 </div>
-                                
+
                         </div>
                         
                     </div>

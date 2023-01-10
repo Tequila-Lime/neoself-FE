@@ -4,7 +4,7 @@ import { PersonRemoveOutline } from "@styled-icons/evaicons-outline/PersonRemove
 import { PersonAddOutline} from "@styled-icons/evaicons-outline/PersonAddOutline"
 
 export const Follow = ({ token, friendId}) => { 
-  const [friendship, setFriendShip] = useState([])
+  const [friendship, setFriendShip] = useState(null)
   
   useEffect(() => {
     requestSingleFriendship(token, friendId).then((res) => setFriendShip(res.data)  
