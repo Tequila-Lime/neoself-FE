@@ -147,7 +147,7 @@ body{
 .dashboard-cont{
   display:flex;
   flex-flow:row;
-  width:65%;
+  width:90%;
   /* background-color: blueviolet; */
   margin: 0px auto;
 }
@@ -501,6 +501,7 @@ body{
   width: 100%;
   box-shadow: 0 0 3px black inset;
   border-radius: .3em;
+  background-color: white;
 }
 .profile-img{
   display:flex;
@@ -573,16 +574,17 @@ body{
   box-shadow: 0 0 3px black inset;
   border-radius: .3em;
   flex-flow: wrap;
+  background-color: white;
 }
 .specific-habit{
   display: flex;
-  border-radius: 1em;
   width: 20%;
   height: 5vh;
   justify-content: center;
   align-items: center;
-  border: 1px solid black;
   margin: 2vh 0;
+  box-shadow: 0 0 3px black inset;
+  border-radius: .3em;
 }
 .record-data{
   display:flex;
@@ -1011,7 +1013,7 @@ input[type=number]::-webkit-outer-spin-button {
   flex-flow: column;
   width: 80%;
   align-items: center;
-
+  
 }
 .each-habit{
   display:flex;
@@ -1021,7 +1023,8 @@ input[type=number]::-webkit-outer-spin-button {
   border-radius: .3em;
   align-items: center;
   justify-content: space-between;
-  width: 100%
+  width: 100%;
+  background-color: white;
 }
 
 .chart{
