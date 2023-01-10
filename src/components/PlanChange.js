@@ -78,18 +78,18 @@ return (
                         <div className='reflection-questionnaire' key={idx}>
                             <h1>{reflect.user} Reflection on {reflect.date}</h1>
                             
-                            <div>
+                           <div className="questionReflect">
                                 <p>Follow this prompt: Try to identify a trigger (Environment)</p>
                                 <p>Old: {reflect.cue_question_1}</p>
                                 <textarea value={newReflect.cue_question_1} onChange={e =>setNewReflect({...newReflect, cue_question_1: e.target.value })}/>
                             </div>
                             
-                            <div>
+                           <div className="questionReflect">
                                 <p>Follow this prompt: Define an alternate behavior</p>
                                 <p>Old: {reflect.cue_question_2}</p>
                                 <textarea value={newReflect.cue_question_2} onChange={e =>setNewReflect({...newReflect, cue_question_2: e.target.value })}/>
                             </div>
-                            <div>
+                           <div className="questionReflect">
                                 <p>Follow this prompt: What will be your consequence if you do habit?</p>
                                 <p>Note: Make this a mild inconvenience</p>
                                 
@@ -97,7 +97,7 @@ return (
                        
                                 <textarea value={newReflect.craving_question_1} onChange={e => setNewReflect({...newReflect, craving_question_1: e.target.value })}/>
                             </div>
-                            <div>
+                           <div className="questionReflect">
                                 <p>Follow this prompt: How can you make your habit hard to do?</p>
                                 <p>Old: {reflect.response_question_1}</p>
                                 
