@@ -212,6 +212,7 @@ export const CreateQuestionnaire = ({token}) => {
                 <p>If no progressions input the same as previous </p>
             </div>
             ,
+            // start habit questions
             <div className="questionnaire indent">
                 <p>Follow this prompt: I will [habit] at [time] in [location]</p>
                 <p>Ex: I will read at 9pm in my office chair</p>
@@ -287,7 +288,7 @@ export const CreateQuestionnaire = ({token}) => {
             </div>
             ,
             <div className="questionnaire indent">
-                <p>Follow this prompt: How can you make habit hard to do?</p>
+                <p>Follow this prompt: How can you make your habit hard to do?</p>
                 <p>Ex: I will unplug the TV after every use</p>
                 <textarea value={questionR1} onChange={e => setQuestionR1(e.target.value)}/>
                 {/* <input className="text-box" type='text' value={questionR1}

@@ -37,7 +37,7 @@ export const CommentBar = ({ token, recordId }) => {
         "record": recordId,
         "gif_url": `${gif.images.fixed_width.url}`
         }
-
+        
         requestAddRecordReaction(token, recordId, gifMail)
         setStep(0)
     }

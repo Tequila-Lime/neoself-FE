@@ -1,6 +1,12 @@
 import { requestRecentReflectionDetail } from './Requests'
 import { useEffect, useState } from 'react'
 
+
+// This page has been moved into PlanChange
+
+
+
+
 export const RecentestHabitReflection = ({ token, idx }) => {
     const [reflection, setReflection] = useState([])
     

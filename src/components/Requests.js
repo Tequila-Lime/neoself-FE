@@ -143,12 +143,8 @@ export const requestReflectionsForHabit = (token, reflectionId) => {
   });
   return response;
 };
-
-export const requestAddReflectionsForHabit = (
-  token,
-  reflectionId,
-  reflectionCont
-) => {
+// ----this one----
+export const requestAddReflectionsForHabit = (token,reflectionId,reflectionCont) => {
   const url = `https://neoself-be-service.onrender.com/questionnaire/${reflectionId}/reflection/`;
 
   const response = axios.post(url, reflectionCont, {
@@ -156,11 +152,7 @@ export const requestAddReflectionsForHabit = (
   });
   return response;
 };
-export const requestAddDataReflectionsForHabit = (
-  token,
-  reflectionId,
-  reflectionCont
-) => {
+export const requestAddDataReflectionsForHabit = (token,reflectionId,reflectionCont) => {
   const url = `https://neoself-be-service.onrender.com/questionnaire/${reflectionId}/reflection/data/`;
 
   const response = axios.post(url, reflectionCont, {
