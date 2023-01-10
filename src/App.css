@@ -278,7 +278,6 @@ body{
   display:flex;
   flex-flow: column;
   align-items: center;
-  margin-left: 2vh;
 }
 /* content in records title */
 .user-record-name{
@@ -293,6 +292,7 @@ body{
 }
 .date-of-record{
   display:flex;
+  text-align: left;
   color: grey;
   font-size: 12px;
 }
@@ -310,7 +310,7 @@ body{
   display:flex;
   text-decoration: none;
   color: black;
-  font-size: 35px;
+  font-size: 27px;
   margin: 0 0;
 }
 .date-of-record-self{
@@ -329,11 +329,12 @@ body{
 
 .self-comment{
   display:flex;
-  flex-flow:row;
+  flex-direction:column;
   justify-content: space-between;
   border-radius:1em;
+  width: 75%;
   padding: 1vh;
-  margin: -2vh 2vh 1vh 2vh;
+  margin: -2vh 2vh 1vh 0.5vh;
 }
 .self-comment p {
   margin-top: 0;
@@ -342,6 +343,7 @@ body{
   display: flex;
   color: black;
   height: 3.5vh;
+  align-self: flex-end;
 }
 .edt-but:hover{
   color: blue;
@@ -1071,4 +1073,78 @@ input[type=number]::-webkit-outer-spin-button {
 .chart-holder{
   display:flex;
   align-self: flex-start;
+}
+
+/*Other, to be filed */
+.user-comment-title{
+  font-size: 14px;
+}
+
+.bottom-record{
+  display: flex;
+  flex-direction: row;
+}
+
+.specific-record-button{
+  display: flex;
+  padding-bottom:2mm;
+  padding-left:2mm;
+}
+
+.user-comment{
+  font-size: 13px;
+  text-indent: 3mm;
+
+}
+
+.specific-record-font{
+  font-family: helvetica;
+  font-size: 20px;
+}
+
+
+.habitCont{
+  display:flex;
+  align-items: center;
+  flex-direction: column;
+  
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+.HabitReflections{
+  display:flex;
+  flex-flow: column;
+  align-items: center;
+}
+
+.habitCont2{
+  display: flex;
+  align-items: center;
+  flex-flow: column;
+}
+
+.each-h-reflect{
+  display:flex;
+  flex-direction: row;
+  margin: 0 0 2vh 0;
+  padding: 2vh;
+  box-shadow: 0 0 3px black inset;
+  border-radius: .3em;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  background-color: white;
+}
+
+.reflect-id-link{
+  display: flex;
+  text-align: bottom;
+  padding-top: 15mm;
+  font-size:small;
+}
+
+.habit-title-1{
+  display: flex;
+  align-items: center;
 }
