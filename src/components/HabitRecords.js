@@ -1,6 +1,7 @@
 import { requestHabitRecords } from './Requests'
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
+import { Edit } from "@styled-icons/boxicons-solid/Edit"
 
 export const HabitRecords = ({ token, habitId }) => {
     const [recordList, setRecordList] = useState([])
@@ -21,25 +22,27 @@ export const HabitRecords = ({ token, habitId }) => {
 
     return (
         <div>
-        <h1>Questionnaire Records</h1>
-        <div className='records-cont'>
-            {recordList.slice(0, recordsPerPage).map((record, idx) => (
-            <div className="indiv-record" key={idx}>
-                <div className="record-info">
-                <div className="record-title">
-                    <Link to='/records/:recordId' state={{ id: record.id }}>
-                    {record.habit_name} record by {record.user}
-                    </Link>
-                    <p>{record.date}</p>
+            <div className='records-cont'>
+                {recordList.slice(0, recordsPerPage).map((record, idx) => (
+                <div className="indiv-record" key={idx}>
+                    <div className="record-info">
+                        <div className="record-title">
+                                <p className='date-of-record-self'>{record.date}</p>
+                        </div>
+                        <div className='record-action'>
+                                <div className='center'>
+                                    <p className='today-recorded'>{record.daily_record}</p>
+                                    <p>{record.metric_label}</p>
+                                </div>
+                        </div>
+                        
+                    </div>
+                    <div className='self-comment'>
+                        <p >{record.comment_dh}</p>
+                        <Link className='specific-record-self' to='/records/:recordId' state={{ id: record.id }}><Edit className='edt-but' /></Link>
+                    </div>    
                 </div>
-                <p>{record.daily_record}{record.metric_label}</p>
-                </div>
-                <div className="reaction">
-                    <p>Gif</p>
-                    <p>Like</p>
-                </div>
-            </div>
-            ))}
+                ))}
         </div>
         {/* would like these to be arrows in future */}
         <div className="load-records">

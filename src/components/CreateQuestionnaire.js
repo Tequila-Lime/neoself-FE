@@ -8,13 +8,13 @@ import { CheckboxChecked } from "@styled-icons/fluentui-system-regular/CheckboxC
 import { ArrowLeftSquare } from "@styled-icons/bootstrap/ArrowLeftSquare"
 import { ArrowRightSquare } from "@styled-icons/bootstrap/ArrowRightSquare"
 import { Restart } from "@styled-icons/remix-line/Restart"
-import { Save } from "@styled-icons/bootstrap/Save"
+import { Send } from "@styled-icons/fluentui-system-regular/Send"
 
 export const CreateQuestionnaire = ({token}) => {
     const [step, setStep] = useState(0)
 
     const [startOrEnd, setStartOrEnd] = useState(true)
-    const [habitName, setHabitName] = useState()
+    const [habitName, setHabitName] = useState("")
     const [startToday, setStartToday] = useState(false)
     const [lengthOfHabit, setLengthOfHabit] = useState(30)
     const [monday, setMonday] = useState(true)
@@ -28,13 +28,13 @@ export const CreateQuestionnaire = ({token}) => {
     const [metricBaseline, setMetricBaseline] = useState(0)
     const [goalBaseline, setGoalBaseline] = useState(0)
     const [notification, setNotification] = useState(true)
-    const [questionC1, setQuestionC1] = useState()
-    const [questionC2, setQuestionC2] = useState()
-    const [questionC3, setQuestionC3] = useState()
-    const [questionCR1, setQuestionCR1] = useState()
-    const [questionR1, setQuestionR1] = useState()
-    const [questionR2, setQuestionR2] = useState()
-    const [signature, setSignature] = useState()
+    const [questionC1, setQuestionC1] = useState("")
+    const [questionC2, setQuestionC2] = useState("")
+    const [questionC3, setQuestionC3] = useState("")
+    const [questionCR1, setQuestionCR1] = useState("")
+    const [questionR1, setQuestionR1] = useState("")
+    const [questionR2, setQuestionR2] = useState("")
+    const [signature, setSignature] = useState("")
     const [publicStatus, setPublicStatus] = useState(true)
 
     const navigate = useNavigate()
@@ -100,13 +100,13 @@ export const CreateQuestionnaire = ({token}) => {
 
     const handleClick = (event) => {
         event.preventDefault()
-        if(startOrEnd === true && step ===6){
+        if(startOrEnd === true && step ===5){
             setStep(step+1)
         }
-        else if(startOrEnd === false && step ===6){
-            setStep(13)
+        else if(startOrEnd === false && step ===5){
+            setStep(12)
         }
-        else if(step === 12 ){
+        else if(step === 11 ){
             setStep(16)
         }
         else{
@@ -121,11 +121,11 @@ export const CreateQuestionnaire = ({token}) => {
 
     const handlePrevClick = (event) => {
         event.preventDefault()
-        if (step === 17 && startOrEnd===true){
-            setStep(12)
+        if (step === 16 && startOrEnd===true){
+            setStep(11)
         }
-        else if(step === 13){
-            setStep(6)
+        else if(step === 12){
+            setStep(5)
         }
         else{setStep(step-1)}
     }
@@ -242,7 +242,7 @@ export const CreateQuestionnaire = ({token}) => {
             </div>
             ,
             <div className="questionnaire indent">
-                <p className='question'>Please put Metric for habit _ _</p>
+                <p className='question'>Please put Metric for habit (Short term)</p>
                 <p>Ex: I will read 30 min</p>
                 <div className='fill-in'>
                     <p> I will {habitName}</p>
@@ -260,7 +260,7 @@ export const CreateQuestionnaire = ({token}) => {
             </div>
             ,
             <div className="questionnaire indent">
-                <p className='question'>Ultimate goal metric for habit</p>
+                <p className='question'>Long term goal metric for habit</p>
                 <div className='fill-in'>
                     <input className="numeric-input" type='number' value={goalBaseline}
                     onChange={e => setGoalBaseline(e.target.value)}></input>
@@ -376,7 +376,7 @@ export const CreateQuestionnaire = ({token}) => {
 
     return(
         <form className="habit-form">
-            {console.log(step)}
+            {console.log(questionnaireCont)}
             {renderStep(step)}
             
             <hr></hr>
@@ -397,7 +397,7 @@ export const CreateQuestionnaire = ({token}) => {
                     
                     {signature === undefined ? null : 
                     <>
-                        <Save className='cmt-icon' onClick={handleCreate} />
+                        <Send className='cmt-icon' onClick={handleCreate} />
                     </>
                     }
                     
