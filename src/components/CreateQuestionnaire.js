@@ -1,6 +1,14 @@
 import { useState } from 'react'
 import { requestCreateQuestionnaire } from './Requests'
 import { useNavigate } from 'react-router-dom';
+import { SwitchLeft } from "@styled-icons/material/SwitchLeft"
+import { SwitchRight } from "@styled-icons/material/SwitchRight"
+import { CheckboxUnchecked } from "@styled-icons/fluentui-system-filled/CheckboxUnchecked"
+import { CheckboxChecked } from "@styled-icons/fluentui-system-regular/CheckboxChecked"
+import { ArrowLeftSquare } from "@styled-icons/bootstrap/ArrowLeftSquare"
+import { ArrowRightSquare } from "@styled-icons/bootstrap/ArrowRightSquare"
+import { Restart } from "@styled-icons/remix-line/Restart"
+import { Save } from "@styled-icons/bootstrap/Save"
 
 export const CreateQuestionnaire = ({token}) => {
     const [step, setStep] = useState(0)
@@ -125,183 +133,240 @@ export const CreateQuestionnaire = ({token}) => {
     function renderStep(step){
         const formSteps = [
             <div className="questionnaire indent">
-                <p>Welcome to Neoself and congratulations on taking the first step towards improving your behavior!</p>
-                <p></p>
-                <p>Are you starting or ending Habit?</p>
-                <div>
-                    <input className="text-box" type='checkbox' checked={startOrEnd}
-                    onChange={e => setStartOrEnd(!startOrEnd)}></input>
+                <p>Beginning of Questionnaire:</p>
+                <p className='question'>Are you starting or ending Habit?</p>
+                <div className='switch-cmt'>
+                    <p>Start</p>
+                    {startOrEnd ? 
+                    <SwitchRight  className='cmt-icon'  onClick={e => setStartOrEnd(!startOrEnd)} />
+                    :
+                     <SwitchLeft className='cmt-icon' onClick={e => setStartOrEnd(!startOrEnd)} />
+                    }
+                    <p>End</p>
+                    {console.log(startOrEnd)}
                 </div>
             </div>
             ,
             <div className="questionnaire indent">
-                <p>What is your habit</p>
+                <p className='question'>What is your habit</p>
                 <p>Ex: Reading</p>
-                <input className="text-box" placeholder='Ex: Reading' type='text' value={habitName}
+                <input className="hbt-name-input" placeholder='Ex: Reading' type='text' value={habitName}
                 onChange={e => setHabitName(e.target.value)}></input>
                 <p>*Just put name of activity*</p>
             </div>
             ,
             <div className="questionnaire indent">
-                <p>What days of the week will you do habit?</p>
+                <p className='question'>What days of the week will you do habit?</p>
                 <div className="weekdays">
-                    <div>
-                        <p>Sunday</p>
-                        <input className="dow" type='checkbox' checked={sunday}
-                            onChange={e => setSunday(!sunday)}></input>
+                    <div className='sp-day'>
+                        <p>Sun</p>
+                        {sunday ? 
+                        <CheckboxChecked  className='cmt-icon'  onClick={e => setSunday(!sunday)} />
+                        :
+                        <CheckboxUnchecked className='cmt-icon' onClick={e => setSunday(!sunday)} />
+                        }
+                        
                     </div>
-                    <div>
-                        <p>Monday</p>
-                        <input className="dow" type='checkbox' checked={monday}
-                            onChange={e => setMonday(!monday)}></input>
+                    <div className='sp-day'>
+                        <p>Mon</p>
+                        {monday ? 
+                        <CheckboxChecked  className='cmt-icon'  onClick={e => setMonday(!monday)} />
+                        :
+                        <CheckboxUnchecked className='cmt-icon' onClick={e => setMonday(!monday)} />
+                        }
+                        
                     </div>
-                    <div>
-                        <p>Tuesday</p>
-                        <input className="dow" type='checkbox' checked={tuesday}
-                            onChange={e => setTuesday(!tuesday)}></input>
+                    <div className='sp-day'>
+                        <p>Tue</p>
+                        {tuesday ? 
+                        <CheckboxChecked  className='cmt-icon'  onClick={e => setTuesday(!tuesday)} />
+                        :
+                        <CheckboxUnchecked className='cmt-icon' onClick={e => setTuesday(!tuesday)} />
+                        }
+                        
                     </div>
-                    <div>
-                        <p>Wednesday</p>
-                        <input className="dow" type='checkbox' checked={wednesday}
-                            onChange={e => setWednesday(!wednesday)}></input>
+                    <div className='sp-day'>
+                        <p>Wed</p>
+                        {wednesday ? 
+                        <CheckboxChecked  className='cmt-icon'  onClick={e => setWednesday(!wednesday)} />
+                        :
+                        <CheckboxUnchecked className='cmt-icon' onClick={e => setWednesday(!wednesday)} />
+                        }
+                       
                     </div>
-                    <div>
-                        <p>Thursday</p>
-                        <input className="dow" type='checkbox' checked={thursday}
-                            onChange={e => setThursday(!thursday)}></input>
+                    <div className='sp-day'>
+                        <p>Thu</p>
+                        {thursday ? 
+                        <CheckboxChecked  className='cmt-icon'  onClick={e => setThursday(!thursday)} />
+                        :
+                        <CheckboxUnchecked className='cmt-icon' onClick={e => setThursday(!thursday)} />
+                        }
+                        
                     </div>
-                    <div>
-                        <p>Friday</p>
-                        <input className="dow" type='checkbox' checked={friday}
-                            onChange={e => setFriday(!friday)}></input>
+                    <div className='sp-day'>
+                        <p>Fri</p>
+                        {friday ? 
+                        <CheckboxChecked  className='cmt-icon'  onClick={e => setFriday(!friday)} />
+                        :
+                        <CheckboxUnchecked className='cmt-icon' onClick={e => setFriday(!friday)} />
+                        }
+
                     </div>
-                    <div>
-                        <p>Saturday</p>
-                        <input className="dow" type='checkbox' checked={saturday}
-                            onChange={e => setSaturday(!saturday)}></input>
+                    <div className='sp-day'>
+                        <p>Sat</p>
+                        {saturday ? 
+                        <CheckboxChecked  className='cmt-icon'  onClick={e => setSaturday(!saturday)} />
+                        :
+                        <CheckboxUnchecked className='cmt-icon' onClick={e => setSaturday(!saturday)} />
+                        }
+
                     </div>
                 </div>
-                <p>Are you starting today?</p>
-                <input className="text-box" type='checkbox' checked={startToday}
-                onChange={e => setStartToday(!startToday)}></input>
-            </div>
-            ,
-            <div className="questionnaire indent">
-                <p>Over how many days will this habit be tracked?</p>
-                <input className="text-box" type='number' value={lengthOfHabit}
-                onChange={e => setLengthOfHabit(e.target.value)}></input>
-            </div>
-            ,
-            <div className="questionnaire indent">
-                <p>Numeric Value for habit</p>
-                <input className="text-box" type='number' value={metricBaseline}
-                onChange={e => setMetricBaseline(e.target.value)}></input>
+                <p className='question'>Are you starting today?</p>
 
-                <p>How will you measure your habit</p>
-                <input className="text-box" type='text' placeholder="Ex: min" value={metricLabel}
-                    onChange={e => setMetricLabel(e.target.value)}></input>
+                {startToday ? 
+                        <CheckboxChecked  className='cmt-icon'  onClick={e => setStartToday(!startToday)} />
+                        :
+                        <CheckboxUnchecked className='cmt-icon' onClick={e => setStartToday(!startToday)} />
+                        }
+            </div>
+            ,
+            <div className="questionnaire indent">
+                <p className='question'>Over how many days will this habit be tracked?</p>
+                <div className='fill-in'>
+                    <input className="numeric-input" type='number' value={lengthOfHabit}
+                onChange={e => setLengthOfHabit(e.target.value)}></input>
+                <p>Days</p>
+                </div>
+                
+            </div>
+            ,
+            <div className="questionnaire indent">
+                <p className='question'>Please put Metric for habit _ _</p>
+                <p>Ex: I will read 30 min</p>
+                <div className='fill-in'>
+                    <p> I will {habitName}</p>
+                    {/* <div className='widerpls'> */}
+                        <input className="numeric-input" type='number' value={metricBaseline}
+                        onChange={e => setMetricBaseline(e.target.value)}></input>
+
+                        <input className="numeric-input" type='text' placeholder="Ex: min" value={metricLabel}
+                            onChange={e => setMetricLabel(e.target.value)}></input>
+                    {/* </div> */}
+                </div>
+               
 
                 <p>Note: If goal is to just do it or not do it, input <b>1 time</b> for this section </p>
             </div>
             ,
             <div className="questionnaire indent">
-                <p>Ultimate goal metric for habit</p>
-                <input className="text-box" type='number' value={goalBaseline}
+                <p className='question'>Ultimate goal metric for habit</p>
+                <div className='fill-in'>
+                    <input className="numeric-input" type='number' value={goalBaseline}
                     onChange={e => setGoalBaseline(e.target.value)}></input>
                 <p>{metricLabel}</p>
+                </div>
+                
                 <p>If no progressions input the same as previous </p>
             </div>
             ,
             // start habit questions
             <div className="questionnaire indent">
-                <p>Follow this prompt: I will [habit] at [time] in [location]</p>
+                <p className='question'>Follow this prompt: I will [habit] at [time] in [location]</p>
                 <p>Ex: I will read at 9pm in my office chair</p>
-                <textarea value={questionC1} onChange={e => setQuestionC1(e.target.value)}/>
+                <textarea className="long-answer" value={questionC1} onChange={e => setQuestionC1(e.target.value)}/>
                 {/* <input className="text-box" type='text' value={questionC1}
                     onChange={e => setQuestionC1(e.target.value)}></input> */}
             </div>
             ,
             <div className="questionnaire indent">
-                <p>Follow this prompt: After [current habit], I will [new habit]</p>
+                <p className='question'>Follow this prompt: After [current habit], I will [new habit]</p>
                 <p>Ex: After I take a shower at night, I will read</p>
-                <textarea value={questionC2} onChange={e => setQuestionC2(e.target.value)}/>
+                <textarea className="long-answer" value={questionC2} onChange={e => setQuestionC2(e.target.value)}/>
                 {/* <input className="text-box" type='text' value={questionC2}
                 onChange={e => setQuestionC2(e.target.value)}></input> */}
             </div>
             ,
             <div className="questionnaire indent">
-                <p>Follow this prompt: Please define a visual cue that would remind you to do habit?</p>
+                <p className='question'>Follow this prompt: Please define a visual cue that would remind you to do habit?</p>
                 <p>Ex: I will place book on my bed because it is where I go after I take a shower </p>
-                <textarea value={questionC3} onChange={e => setQuestionC3(e.target.value)}/>
+                <textarea className="long-answer" value={questionC3} onChange={e => setQuestionC3(e.target.value)}/>
                 {/* <input className="text-box" type='text' value={questionC3}
                 onChange={e => setQuestionC3(e.target.value)}></input> */}
             </div>
             ,
             <div className="questionnaire indent">
-                <p>Follow this prompt: How will you reward yourself?</p>
-                <p>Ex:I will reward myself with more TV time on the weekend</p>
-                <textarea value={questionCR1} onChange={e => setQuestionCR1(e.target.value)}/>
+                <p className='question'>Follow this prompt: How will you reward yourself?</p>
+                <p>Ex: I will reward myself with more TV time on the weekend</p>
+                <textarea className="long-answer" value={questionCR1} onChange={e => setQuestionCR1(e.target.value)}/>
                 {/* <input className="text-box" type='text' value={questionCR1}
                 onChange={e => setQuestionCR1(e.target.value)}></input> */}
             </div>
             ,
             <div className="questionnaire indent">
-                <p>Follow this prompt: How can I make this habit easy?</p>
+                <p className='question'>Follow this prompt: How can I make this habit easy?</p>
                 <p>Ex: When I place the book on my bed it will already be open to the page where I left off</p>
-                <textarea value={questionR1} onChange={e => setQuestionR1(e.target.value)}/>
+                <textarea className="long-answer" value={questionR1} onChange={e => setQuestionR1(e.target.value)}/>
                 {/* <input className="text-box" type='text' value={questionR1}
                 onChange={e => setQuestionR1(e.target.value)}></input> */}
             </div>
             ,
             <div className="questionnaire indent">
-                <p>Follow this prompt: What are the Progressions?</p>
+                <p className='question'>Follow this prompt: What are the Progressions?</p>
                 <p>Ex: I will start by reading for 5 min, then each day read longer by a minute</p>
-                <textarea value={questionR2} onChange={e => setQuestionR2(e.target.value)}/>
+                <textarea className="long-answer" value={questionR2} onChange={e => setQuestionR2(e.target.value)}/>
                 {/* <input className="text-box" type='text' value={questionR2}
                 onChange={e => setQuestionR2(e.target.value)}></input> */}
             </div>
             ,
             // This is the end habit questions
             <div className="questionnaire indent">
-                <p>Follow this prompt: Try to identify a trigger (Environment)</p>
+                <p className='question'>Follow this prompt: Try to identify a trigger (Environment)</p>
                 <p>Ex: When I am stressed I watch too much TV</p>
-                <textarea value={questionC1} onChange={e => setQuestionC1(e.target.value)}/>
+                <textarea className="long-answer" value={questionC1} onChange={e => setQuestionC1(e.target.value)}/>
                 {/* <input className="text-box" type='text' value={questionC1}
                 onChange={e => setQuestionC1(e.target.value)}></input> */}
             </div>
             ,
             <div className="questionnaire indent">
-                <p>Follow this prompt: Define an alternate behavior</p>
+                <p className='question'>Follow this prompt: Define an alternate behavior</p>
                 <p>Ex: I can meditate instead of watching TV</p>
-                <textarea value={questionC2} onChange={e => setQuestionC2(e.target.value)}/>
+                <textarea className="long-answer" value={questionC2} onChange={e => setQuestionC2(e.target.value)}/>
                 {/* <input className="text-box" type='text' value={questionC2}
                 onChange={e => setQuestionC2(e.target.value)}></input> */}
             </div>
             ,
             <div className="questionnaire indent">
-                <p>Follow this prompt: What will be your consequence if you do habit?</p>
+                <p className='question'>Follow this prompt: What will be your consequence if you do habit?</p>
                 <p>Ex: I will add an additional leg day in the gym </p>
                 <p>Note: Make this a mild inconvenience</p>
-                <textarea value={questionCR1} onChange={e => setQuestionCR1(e.target.value)}/>
+                <textarea className="long-answer" value={questionCR1} onChange={e => setQuestionCR1(e.target.value)}/>
                 {/* <input className="text-box" type='text' value={questionCR1}
                 onChange={e => setQuestionCR1(e.target.value)}></input> */}
             </div>
             ,
             <div className="questionnaire indent">
-                <p>Follow this prompt: How can you make your habit hard to do?</p>
+                <p className='question'>Follow this prompt: How can you make your habit hard to do?</p>
                 <p>Ex: I will unplug the TV after every use</p>
-                <textarea value={questionR1} onChange={e => setQuestionR1(e.target.value)}/>
+                <textarea className="long-answer" value={questionR1} onChange={e => setQuestionR1(e.target.value)}/>
                 {/* <input className="text-box" type='text' value={questionR1}
                 onChange={e => setQuestionR1(e.target.value)}></input> */}
             </div>
             ,
             <div className="questionnaire indent">
-                <p>Do you want all records to be public(can change later)</p>
-                <input className="dow" type='checkbox' checked={publicStatus}
-                            onChange={e => setPublicStatus(e.target.value)}></input>
+                <p className='question'>Do you want all records to be public(can change later)</p>
+                <div className='switch-cmt'>
+                    <p>Start</p>
+                    {publicStatus ? 
+                    <SwitchRight  className='cmt-icon'  onClick={e => setPublicStatus(!publicStatus)} />
+                    :
+                     <SwitchLeft className='cmt-icon' onClick={e => setPublicStatus(!publicStatus)} />
+                    }
+                    <p>End</p>
+                </div>
 
-                <p>Sign</p>
-                <input className="text-box" placeholder='Ex: John Doe' type='text' value={signature}
+                <p className='question'>Sign</p>
+                <input className="hbt-name-input" placeholder='Ex: John Doe' type='text' value={signature}
                 onChange={e => setSignature(e.target.value)}></input>
             </div>
         ];
@@ -313,21 +378,28 @@ export const CreateQuestionnaire = ({token}) => {
         <form className="habit-form">
             {console.log(step)}
             {renderStep(step)}
+            
+            <hr></hr>
+
             {step <= 15 && (
                 <div className='habit-buttons'>
                     {step !== 0 &&
                         <>
-                        <button className='button' onClick={handlePrevClick}>Prev</button>
-                        <button className='button' onClick={handleBegin}> To start </button>
+                        <ArrowLeftSquare className='cmt-icon' onClick={handlePrevClick} />
+                        <Restart className='cmt-icon' onClick={handleBegin} />
                         </> }
-                    <button className='button' onClick={handleClick}>Next</button>
+                    <ArrowRightSquare className='cmt-icon' onClick={handleClick}/>
                 </div>
                 )}
-
             {step > 15 &&(
                 <div className='habit-buttons'>
-                    <button className='button' onClick={handlePrevClick}>Prev</button>
-                    {signature === undefined ? null : <button className='button' onClick={handleCreate}> Submit </button>}
+                    <ArrowLeftSquare className='cmt-icon' onClick={handlePrevClick} />
+                    
+                    {signature === undefined ? null : 
+                    <>
+                        <Save className='cmt-icon' onClick={handleCreate} />
+                    </>
+                    }
                     
                 </div>
                 )}

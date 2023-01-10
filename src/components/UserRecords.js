@@ -44,7 +44,7 @@ export const UserRecords = ({ token }) => {
                         
                     </div>
                     <div className='self-comment'>
-                        <p >{record.comment_dh} {record.week_reflection.metric_baseline}</p>
+                        <p >{record.comment_dh}</p>
                         <Link className='specific-record-self' to='/records/:recordId' state={{ id: record.id }}><Edit className='edt-but' /></Link>
                     </div>    
                 </div>

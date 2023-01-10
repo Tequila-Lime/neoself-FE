@@ -382,7 +382,8 @@ body{
   align-items: center;
   width: 50%;
   margin: 5% auto;
-  background-color: rgb(218, 210, 210);
+  background-color: white;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.332);
   border-radius: 2em;
 }
 .questionnaire{
@@ -391,13 +392,79 @@ body{
     flex-flow: column;
     justify-content: center;
     align-items: center;
-    margin: 2vh 2vh;
+    margin: 2vh;
+}
+.question{
+  display:flex;
+  margin:0;
+  font-size: 20px;
 }
 .weekdays{
   display:flex;
+  margin: 0 0 2vh 0;
+}
+.sp-day{
+  margin: 0 1vh;
+}
+.sp-day p{
+  display: flex;
+  justify-content: center;
+  font-size: 15px;
 }
 .dow{
   background-color: olive;
+}
+.long-answer{
+  width:60%;
+  resize: none;
+  border: none;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.56) inset;
+  border-radius: .5em;
+  height: 10vh;
+  background-color: rgba(179, 179, 179, 0.284);
+}
+.fill-in{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width:100%;
+}
+.switch-cmt{
+  display: flex;
+  width:100%;
+  justify-content: center;
+  align-items: center;
+}
+.cmt-icon{
+  height: 4vh;
+}
+.widerpls{
+  display: flex;
+  justify-content: center;
+  width:5%;
+  background-color: yellow;
+
+}
+.hbt-name-input{
+  font-size: 15px;
+  width: 20%;
+  margin: 0 1vh;
+  border-radius: .3em;
+  text-align: center;
+  border: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+  outline: none;
+}
+
+.numeric-input{
+  font-size: 15px;
+  width: 10%;
+  margin: 0 1vh;
+  border-radius: .3em;
+  text-align: center;
+  border: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+  outline: none;
 }
 
 .habit-buttons{
@@ -556,9 +623,9 @@ body{
   flex-flow: column;
   margin: 5% auto 0 auto;
   width: 50%;
-  /* background-color: aqua; */
-  border: 1px black solid;
   border-radius: 1em;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.362) ;
+  background-color: white;
 }
 .effect-record{
   display:flex;
@@ -566,50 +633,125 @@ body{
 }
 .record-detail-comment{
   display:flex;
+  flex-flow:column;
   justify-content: space-between;
   align-items: flex-start;
 }
-.actual-comment{
-  display:flex;
-  margin-top: 2vh;
-  width:85%;
-  height:10vh;
-  /* border:1px black solid; */
-  box-shadow: 0 0 5px black;
-  border-radius: .5em;
+.record-detail-comment p{
+  margin:0 2vh 2vh 2vh;
 }
+.actual-comment{
+  display: flex;
+  width:100%;
+}
+
 .actual-edit-comment{
   display:flex;
-  margin-top: 2vh;
-  padding: 1vh;
-  width:85%;
-  border:1px black solid;
-  border-radius: .5em;
-  background-color: antiquewhite;
+  width:100%;
+  margin: 0 2vh 2vh 2vh; 
+  border:none;
+  background-color: rgb(240, 241, 241);
+  resize: none;
 }
 .bio-text-record{
   display: flex;
-  margin: 1vh;
 }
 .r-detail-title{
+  display:flex; 
   background-color: lightgreen;
   width:100%;
   border-radius: 1em 1em 0 0;
 }
+.r-title{
+  display:flex;
+  width: 100%;
+  margin: 0 2vh;
+  justify-content: space-between;
+  align-items: center;
+}
+.rec-det-icon{
+  display: flex;
+  height:3vh;
+  margin-left: 2vh;
+}
+
+.btn-cmnt{
+  display:flex;
+}
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+
 .record-info-input{
   display:flex;
   margin-top: 2vh;
 }
 .record-info-input-num{
-  margin-right:2vh;
-}
-.detail-title{
-  margin: 2vh;
+  display: flex;
+  text-align: right;
+  /* border: none; */
+  width:50%;
+  border-radius: .3em;
+  font-size: 45px;
 }
 .status-input{
   display:flex;
   justify-content: space-between;
 }
+.status-input-m{
+  display: flex;
+  flex-flow: column;
+  width:55%;
+}
+.status-status{
+  display: flex;
+  justify-content: space-between;
+  margin: 0 20%;
+}
+.status-metric{
+  display:flex;
+  justify-content: space-between;
+}
+.big-status{
+  display:flex;
+  flex-flow: column;
+  align-items: flex-end;
+  justify-content: center;
+  width: 50%;
+}
+.big-status p:first-child{
+  font-size: 50px;
+  margin: 0;
+}
+.big-status p:nth-child(2){
+  margin: 0;
+  font-size: 20px;
+}
+.lil-status{
+  display:flex;
+  flex-flow: column;
+  width: 50%;
+  justify-content: center;
+  /* background-color: brown; */
+  align-items: flex-start;
+}
+.lil-status p{
+  font-size: 12px;
+  margin: 0 0 0 0;
+}
+.status-input-q{
+  display: flex;
+  flex-flow:column;
+  width:45%;
+}
+.status-input-q div{
+  display:flex;
+  justify-content: space-between;
+  margin: 0 2vh 0 0;
+}
+
 .upd-sav-button{
   display: flex;
   justify-content: space-between;
@@ -620,6 +762,9 @@ body{
   background-color: blueviolet;
   color: white;
 }
+
+
+
 /* Gif bar */
 .reaction{
   display:flex;
