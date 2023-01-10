@@ -28,7 +28,9 @@ export const UserRecords = ({ token }) => {
                 <div className="indiv-record" key={idx}>
                     <div className="record-info">
                         <div className="record-title">
-                                <Link className='specific-record-self' to='/records/:recordId' state={{ id: record.id }}>{record.habit_name}</Link>
+                                <div className="specific-record-font">
+                                    <Link className='specific-record-self' to='/records/:recordId' state={{ id: record.id }}>{record.habit_name}</Link>
+                                </div>
                                 <p className='date-of-record-self'>{record.date}</p>
                         </div>
                         <div className='record-action'>
@@ -36,12 +38,24 @@ export const UserRecords = ({ token }) => {
                                     <p className='today-recorded'>{record.daily_record}</p>
                                     <p>{record.metric_label}</p>
                                 </div>
+
                         </div>
                         
                     </div>
-                    <div className='self-comment'>
-                        <p >{record.comment_dh}</p>
-                        <Link className='specific-record-self' to='/records/:recordId' state={{ id: record.id }}><Edit className='edt-but' /></Link>
+                    <div className='bottom-record'>
+                        <div className='self-comment'>
+                        
+                            <div className='user-comment-title'>
+                                <p>User Comment:</p>
+                            </div>
+                            <div className='user-comment'>
+                                <p >{record.comment_dh}</p>
+                            </div>
+                        </div>
+                    
+                        <div className='specific-record-button'>
+                            <Link className='specific-record-self' to='/records/:recordId' state={{ id: record.id }}><Edit className='edt-but' /></Link>
+                        </div>
                     </div>    
                 </div>
                 ))}
