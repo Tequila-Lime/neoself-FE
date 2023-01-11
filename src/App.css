@@ -195,20 +195,27 @@ body{
 /* Profile Component */
 .profile-top{
   display:flex;
+  flex-direction:column;
   justify-content: space-between;
   margin: 2vh; 
 }
 
 .avatar{
+  display: flex;
+  align-items:center;
+  margin: 0 auto;
   height: 100px;
   width: 100px;
+  justify-content: center;
   background-color: aquamarine;
   border-radius: 4em;
 }
 
 .profile-info{
   display:flex;
-  flex-flow:column;
+  flex-direction:column;
+  padding-right:3mm;
+  align-items: center;
   margin: auto 0px auto 10%;
   text-decoration: none;
 }
@@ -557,15 +564,17 @@ body{
 /* Profile Pages */
 .profile-cont{
   display:flex;
+  
   flex-flow:column;
   /* background-color: cadetblue; */
   width: 70%;
   margin: 5vh auto 0px auto;
 }
 .profile-title{
-  display:flex;
-  flex-flow: row;
-  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  width: 70%;
   box-shadow: 0 0 3px black inset;
   border-radius: .3em;
   background-color: white;
