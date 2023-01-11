@@ -742,7 +742,13 @@ body{
   display: flex;
   width:100%;
 }
-
+.idec{
+  display: flex;
+  flex-flow:column;
+  align-items: center;
+  margin: 0 auto;
+  width: 70%;
+}
 .actual-edit-comment{
   display:flex;
   width:100%;

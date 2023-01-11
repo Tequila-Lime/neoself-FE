@@ -13,19 +13,36 @@ export const SingleReflection = ({ token }) => {
 
     return (
         
-        <div>
-            <h1>Went to page</h1>
-            <h1>{reflection.id}</h1>
-            <div>
-                <p>{reflection.metric_baseline}{reflection.metric_label} </p>
-                <p>{reflection.goal_metric} {reflection.goal_label} </p>
-                <p>{reflection.cue_question_1} </p>
-                <p>{reflection.cue_question_2} </p>
-                <p>{reflection.cue_question_3} </p>
-                <p>{reflection.craving_question_1} </p>
-                <p>{reflection.response_question_1} </p>
-                <p>{reflection.response_question_2} </p>
-            </div>    
+        <div className='idec'>
+           <h1>{reflection.user} Reflectionion on {reflection.date}</h1>
+                            
+                            <div className="questionReflect">
+                                <p>I will [habit] at [time] in [location]</p>
+                                <p>Answer: {reflection.cue_question_1}</p>
+                            </div>
+                            
+                            <div className="questionReflect">
+                                <p>After [current habit], I will [new habit]</p>
+                                <p>Answer: {reflection.cue_question_2}</p>
+                            </div>
+                            <div className="questionReflect">
+                                <p>Please define a visual cue that would remind you to do habit?</p>
+                                <p>Answer: {reflection.cue_question_3}</p>
+                            </div>
+                            <div className="questionReflect">
+                                <p>How will you reward yourself?</p>
+                                <p>Answer: {reflection.craving_question_1}</p>
+                            </div>
+                            
+                            <div className="questionReflect">
+                                <p>How can I make this habit easy?</p>
+                                <p>Answer: {reflection.response_question_1}</p>
+                            </div>
+                            
+                            <div className="questionReflect">
+                                <p>What are the Progressions?</p>
+                                <p>Answer: {reflection.response_question_2}</p>
+                            </div>  
             </div>
     )
 }
