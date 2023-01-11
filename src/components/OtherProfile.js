@@ -13,8 +13,7 @@ export const OtherProfile = ({ token, id }) => {
             <div className="profile-title">
                 <div className="profile-img">
                     <div className="profile-name-profile">
-                        <div className="actual-img">img</div>
-                        <p>{profile.username}</p>
+                        <p className='profile-name-p'>{profile.username}</p>
                         <p>{profile.full_name}</p>
                     </div>
                 </div>
@@ -22,7 +21,7 @@ export const OtherProfile = ({ token, id }) => {
                     <div className="top-bio">
                         <p className="bio-text">Bio:</p>
                         {/* <textarea  /> */}
-                        <p className="bio-info">{profile.bio}</p>
+                        <p>{profile.bio}</p>
                     </div>
                     <div className="bottom-bio">
                         <div className="bio-text">

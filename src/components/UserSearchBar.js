@@ -34,14 +34,10 @@ export const UserSearchBar = ({ token }) => {
       {searchResults.length === 0 ? <p>No search results found</p> :<>{searchResults.map((profile, idx) => (
         <div className='dash-component' key={idx}>
         <div className="profile-top" >
-            <div className="avatar">
-                {profile.avatar && <img src={profile.avatar} alt={profile.username}/>}
-            </div>
-            <div className="profile-info">
+            <div className="profile-info-p">
                 <Link className="profile-name" to='/random-profile' state={{ id: profile.id }}>{profile.username}</Link>
                 {profile.full_name !== null && <p>{profile.full_name}</p>}
             </div> 
-            
         </div>
         
         </div>
