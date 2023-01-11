@@ -28,7 +28,7 @@ export const OwnProfile = ({ token }) => {
             <>
             <div className="profile-img">
                     <div className="profile-name-profile">
-                        <img src={profile.avatar}/>
+                        <img src={profile.avatar} alt="profile-img"/>
                         <p>{profile.username}</p>
                         <p>{profile.full_name}</p>
                         <Link to="/FriendList">Friends</Link>
@@ -47,7 +47,6 @@ export const OwnProfile = ({ token }) => {
                             {/* <button>Friend/unfriend</button> */}
                             {/* this is for self profile above is for other users */}
                             <button onClick={handleEdit}>Edit Profile</button>
-                            <p>Habits started</p>
                         </div>
                     </div>
                 </div>
@@ -57,7 +56,7 @@ export const OwnProfile = ({ token }) => {
                 <div className="profile-img">
                         <div className="profile-name-profile">
                             <div className="actual-img">img</div>
-                            <input className="text-box" type='image' value={profile.avatar}
+                            <input className="text-box" type='text' value={profile.avatar}
                     onChange={e => setProfile({...profile, avatar: e.target.value})}></input>
                             <p>Username</p>
                             <input className="text-box" type='text' value={profile.username}

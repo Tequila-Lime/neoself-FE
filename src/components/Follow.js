@@ -27,9 +27,9 @@ export const Follow = ({ token, friendId}) => {
   return (
     <div className="profile-info-add">
       {friendship ? friendship.length === 0 ?
-        <PersonAddOutline onClick={handleClick} />
+        <PersonAddOutline className="person-outline" onClick={handleClick} />
         :
-        <PersonRemoveOutline onClick={handleUnfriend} />
+        <PersonRemoveOutline className="person-outline" onClick={handleUnfriend} />
       : null}
     </div>
   );

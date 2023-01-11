@@ -64,16 +64,16 @@ export const RecordDetail = ({ token, username }) => {
                     </div>
                     <div className='status-input-q'>
                         <div>
-                            <p>Cue Habit?</p>
-                            {record.cue_dh===false ?<p>❌</p> : <p>✅</p>}
+                            <p>Did it conflict with other plans?</p>
+                            {record.cue_dh===false ?<p>no</p> : <p>yes</p>}
                         </div>
                         <div>
-                            <p>Craving?</p>
-                            {record.craving_dh===false ?<p>❌</p> : <p>✅</p>}
+                            <p>Did you reward yourself?</p>
+                            {record.craving_dh===false ?<p>no</p> : <p>yes</p>}
                         </div>
                         <div>
-                            <p>Response?</p>
-                            {record.response_dh===false ?<p>❌</p> : <p>✅</p>}
+                            <p>Was it </p>
+                            {record.response_dh===false ?<p>no</p> : <p>yes</p>}
                         </div>
                     </div>   
                 </div>

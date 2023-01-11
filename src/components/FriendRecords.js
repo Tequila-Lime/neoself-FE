@@ -2,6 +2,8 @@ import { requestFriendRecords } from './Requests'
 import { useEffect, useState } from 'react'
 import { Link } from "react-router-dom"
 import { CommentBar } from './CommentBar'
+import { ArrowDownCircle } from "@styled-icons/feather/ArrowDownCircle"
+import { ArrowUpCircle } from "@styled-icons/bootstrap/ArrowUpCircle"
 
 export const FriendRecords = ({ token }) => {
     const [recordList, setRecordList] = useState([])
@@ -29,9 +31,9 @@ export const FriendRecords = ({ token }) => {
                         <div className="record-title">
                                 <Link className='user-record-name' to='/random-profile' state={{ id: record.user_number }}>{record.user}</Link>
                                 <p className='date-of-record'>{record.date}</p>
-                                <p className='specific-record'>{record.habit_name}</p>
+                                <p className='specific-record-f'>{record.habit_name}</p>
                         </div>
-                        <div className='record-action'>
+                        <div className='record-action-f'>
                             <p className='today-recorded'>{record.daily_record}</p>
                             <p className='today-metric'>{record.metric_label}</p>
                         </div>
@@ -43,14 +45,16 @@ export const FriendRecords = ({ token }) => {
                 ))}
             </div>
         {/* would like these to be arrows in future */}
-            <div className="load-records">
-                {recordsPerPage < recordList.length && (
-                    <button className="load-more" onClick={handleLoadMore}>Load More</button>
-                )}
-                {recordsPerPage > 4 && (
-                    <button className="load-more" onClick={handleLoadLess}>Load Less</button>
-                )}
-            </div>
+        <div className="load-records">
+            {recordsPerPage < recordList.length && (
+                <ArrowDownCircle className="load-more" onClick={handleLoadMore}/>
+                // <button className="load-more" onClick={handleLoadMore}>Load More</button>
+            )}
+            {recordsPerPage > 4 && (
+                <ArrowUpCircle className="load-more" onClick={handleLoadLess}/>
+                // <button className="load-more" onClick={handleLoadLess}>Load Less</button>
+            )}
+        </div>
         </div>
     )
 }

@@ -29,7 +29,6 @@ export const OtherProfile = ({ token, id }) => {
                         </div>
                         <div className="friend-profile">
                             <Follow  token={token} friendId={id} />
-                            <p>Habits started</p>
                         </div>
                         
                     </div>

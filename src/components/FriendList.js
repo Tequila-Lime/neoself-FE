@@ -23,7 +23,7 @@ export const Friends = ({ token }) => {
 
 
   return (
-        <div className="friends-list indent">
+        <div className="friends-list">
           {friendList.map((friend, idx) => (
             <div className="friend-in-list" key={idx}>
               {self.username === friend.current_user ?
