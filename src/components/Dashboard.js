@@ -18,9 +18,6 @@ export const Dashboard = ({ token }) => {
             <div className="side-cont">
                 <div className="dash-component">
                     <div className="profile-top">
-                        <div className="avatar">
-                            {profile.avatar && <img src={profile.avatar} alt={profile.username}/>}
-                        </div>
                         <div className="profile-info">
                             <Link className="profile-name" to='/profile'> {profile.username}</Link>
                             {profile.full_name !== null && <p>{profile.full_name}</p> }

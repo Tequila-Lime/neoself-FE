@@ -27,8 +27,7 @@ export const OwnProfile = ({ token }) => {
             <>
             <div className="profile-img">
                     <div className="profile-name-profile">
-                        <img src={profile.avatar} alt="profile-img"/>
-                        <p>{profile.username}</p>
+                        <p className='profile-name-p'>{profile.username}</p>
                         <p>{profile.full_name}</p>
                     </div>
                 </div>
@@ -36,7 +35,7 @@ export const OwnProfile = ({ token }) => {
                     <div className="top-bio">
                         <p className="bio-text">Bio:</p>
                         {/* <textarea  /> */}
-                        <p className="bio-info">{profile.bio}</p>
+                        <p>{profile.bio}</p>
                     </div>
                     <div className="bottom-bio">
                         <div className="bio-text">
@@ -53,9 +52,6 @@ export const OwnProfile = ({ token }) => {
                 <>
                 <div className="profile-img">
                         <div className="profile-name-profile">
-                            <div className="actual-img">img</div>
-                            <input className="text-box" type='text' value={profile.avatar}
-                    onChange={e => setProfile({...profile, avatar: e.target.value})}></input>
                             <p>Username</p>
                             <input className="text-box" type='text' value={profile.username}
                     onChange={e => setProfile({...profile, username: e.target.value})}></input>
