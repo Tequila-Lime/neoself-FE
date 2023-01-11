@@ -72,7 +72,7 @@ export const RecordDetail = ({ token, username }) => {
                             {record.craving_dh===false ?<p>no</p> : <p>yes</p>}
                         </div>
                         <div>
-                            <p>Was it </p>
+                            <p>Was it attainable?</p>
                             {record.response_dh===false ?<p>no</p> : <p>yes</p>}
                         </div>
                     </div>   
@@ -122,17 +122,17 @@ export const RecordDetail = ({ token, username }) => {
                     </div>
                     <div className='status-input-q'>
                         <div>
-                            <p>Cue Habit?</p>
+                        <p>Did it conflict with other plans?</p>
                             <input className="text-box" type='checkbox' checked={record.cue_dh}
                             onChange={e => setRecord({...record, cue_dh: !record.cue_dh})}></input>
                         </div>
                         <div>
-                            <p>Craving?</p>
+                        <p>Did you reward yourself?</p>
                             <input className="text-box" type='checkbox' checked={record.craving_dh}
                             onChange={e => setRecord({...record, craving_dh: !record.craving_dh})}></input>
                         </div>
                         <div>
-                            <p>Response?</p>
+                        <p>Was it attainable?</p>
                             <input className="text-box" type='checkbox' checked={record.response_dh}
                             onChange={e => setRecord({...record, response_dh: !record.response_dh})}></input>
                         </div>
