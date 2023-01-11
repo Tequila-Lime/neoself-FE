@@ -299,7 +299,7 @@ export const DataVisualization = ({ token, step }) => {
           </div>
             ,
             // Chart 2 habit occurance
-            <div className="chart-background">
+            <>
             {/* {console.log(habitValues.habit_occurancy)} */}
               <VictoryChart 
              
@@ -309,11 +309,10 @@ export const DataVisualization = ({ token, step }) => {
                   barRatio={.8}
                     style={{ data: { fill: "#46C8D8" } }}
                     data={habitValues.habit_occurancy}
-                  horizontal
                   labels={({ datum }) => `${datum.y}`}
                             />
               </VictoryChart>
-            </div>
+            </>
             ,
             // Chart 3 Habit completed per date
             <>
@@ -333,7 +332,7 @@ export const DataVisualization = ({ token, step }) => {
                 <VictoryAxis dependentAxis label="1.0 = 100%" style={{
                       axisLabel: { padding: 35}
                     }}/>
-                <VictoryLabel text="Habits meeting Base Goal" x={225} y={30} style={{ fontSize: 24 }} textAnchor="middle" />
+                <VictoryLabel text="Habits meeting Short Term Goal" x={225} y={30} style={{ fontSize: 24 }} textAnchor="middle" />
                 {/* <VictoryAxis dependentAxis tickValues={[]} /> */}
                 <VictoryLine data={habitValues.improvement_per_day_minor}  />
             </VictoryChart>
@@ -344,7 +343,7 @@ export const DataVisualization = ({ token, step }) => {
             <VictoryAxis dependentAxis label="1.0 = 100%" style={{
                   axisLabel: { padding: 35}
                 }}/>
-            <VictoryLabel text="Habits meeting Extended Goal" x={225} y={30} style={{ fontSize: 24 }} textAnchor="middle" />
+            <VictoryLabel text="Habits meeting long term goal" x={225} y={30} style={{ fontSize: 24 }} textAnchor="middle" />
             {/* <VictoryAxis dependentAxis tickValues={[]} /> */}
             <VictoryLine data={habitValues.improvement_per_day_major }  />
         </VictoryChart>
@@ -355,12 +354,11 @@ export const DataVisualization = ({ token, step }) => {
               domainPadding={50}
               >
                 <VictoryAxis />
-                <VictoryLabel text="Habit Meeting Goal Metric" x={225} y={30} style={{ fontSize: 24 }} textAnchor="middle" />
+                <VictoryLabel text="Habit Meeting Short Term Goal" x={225} y={30} style={{ fontSize: 24 }} textAnchor="middle" />
                 <VictoryBar
                 barRatio={.8}
                   style={{ data: { fill: "#46C8D8" } }}
                   data={habitValues.completion_to_goal}
-                horizontal
                 labels={({ datum }) =>`${Math.round(datum.y * 100)}%`}
                           />
             </VictoryChart>
@@ -372,12 +370,11 @@ export const DataVisualization = ({ token, step }) => {
               domainPadding={50}
               >
                 <VictoryAxis />
-                <VictoryLabel text="Habit Meeting Major Goal Metric" x={225} y={30} style={{ fontSize: 24 }} textAnchor="middle" />
+                <VictoryLabel text="Habit Meeting Long Term Goal" x={225} y={30} style={{ fontSize: 24 }} textAnchor="middle" />
                 <VictoryBar
                 barRatio={.8}
                   style={{ data: { fill: "#46C8D8" } }}
                   data={habitValues.percent_to_ultimate_goal}
-                horizontal
                 labels={({ datum }) =>`${Math.round(datum.y * 100)}%`}
                           />
             </VictoryChart>

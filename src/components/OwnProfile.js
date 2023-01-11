@@ -1,6 +1,5 @@
 import { requestOwnProfileInfo, requestEditOwnProfileInfo  } from './Requests';
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
 
 export const OwnProfile = ({ token }) => {
     const [ profile, setProfile ] = useState([])
@@ -31,7 +30,6 @@ export const OwnProfile = ({ token }) => {
                         <img src={profile.avatar} alt="profile-img"/>
                         <p>{profile.username}</p>
                         <p>{profile.full_name}</p>
-                        <Link to="/FriendList">Friends</Link>
                     </div>
                 </div>
                 <div className="bio">
