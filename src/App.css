@@ -585,7 +585,8 @@ body{
 .profile-title{
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
+  justify-content: center;
+  margin: 0 auto;
   width: 70%;
   box-shadow: 0 0 3px black inset;
   border-radius: .3em;
