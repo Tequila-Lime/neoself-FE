@@ -99,7 +99,11 @@ export const RecordDetail = ({ token, username }) => {
                 <div className='status-input'>
                     <div className='status-input-m'>
                         <div className='status-status'>
-                            {record.public===false ?<p>Private</p> : <p>Public</p>}
+                            <div className='pub-txt'>
+                                {record.public===false ?<p>Private</p> : <p>Public</p>}
+                                <input className="text-box" type='checkbox' checked={record.public}
+                                onChange={e => setRecord({...record, public: !record.public})}></input>
+                            </div>
                             <p>{record.date}</p>
                         </div>
                         <div className='status-metric'>

@@ -760,9 +760,12 @@ body{
 .bio-text-record{
   display: flex;
 }
+.detail-title{
+  color:white;
+}
 .r-detail-title{
   display:flex; 
-  background-color: lightgreen;
+  background-color: rgb(28, 170, 130);
   width:100%;
   border-radius: 1em 1em 0 0;
 }
@@ -777,6 +780,7 @@ body{
   display: flex;
   height:3vh;
   margin-left: 2vh;
+  color:white;
 }
 
 .btn-cmnt{
@@ -1141,6 +1145,9 @@ input[type=number]::-webkit-outer-spin-button {
   height: 25vh;
   width: 96%;
   margin-top: 15%;
+}
+.pub-txt{
+  display:flex;
 }
 .Left-Bottom-Console{
   display:flex;
