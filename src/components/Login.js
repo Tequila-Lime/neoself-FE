@@ -19,9 +19,11 @@ export const Login = ({ setAuth }) => {
 
     return (
         <div>
-            <header className='header'>
-                <h1 className='app-name'>Neoself</h1>
-            </header>
+            <div className="header">
+                <header className='header-place'>
+                    <h1 className='app-name'>Neoself</h1>
+                </header>
+            </div>    
             <div className="login-box">
                 <h3 className="login-label">Login</h3>
                 <form className="login-form">

@@ -2,6 +2,8 @@ import { requestHabitRecords } from './Requests'
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { Edit } from "@styled-icons/boxicons-solid/Edit"
+import { ArrowDownCircle } from "@styled-icons/feather/ArrowDownCircle"
+import { ArrowUpCircle } from "@styled-icons/bootstrap/ArrowUpCircle"
 
 export const HabitRecords = ({ token, habitId }) => {
     const [recordList, setRecordList] = useState([])
@@ -47,10 +49,12 @@ export const HabitRecords = ({ token, habitId }) => {
         {/* would like these to be arrows in future */}
         <div className="load-records">
             {recordsPerPage < recordList.length && (
-                <button className="load-more" onClick={handleLoadMore}>Load More</button>
+                <ArrowDownCircle className="load-more" onClick={handleLoadMore}/>
+                // <button className="load-more" onClick={handleLoadMore}>Load More</button>
             )}
             {recordsPerPage > 4 && (
-                <button className="load-more" onClick={handleLoadLess}>Load Less</button>
+                <ArrowUpCircle className="load-more" onClick={handleLoadLess}/>
+                // <button className="load-more" onClick={handleLoadLess}>Load Less</button>
             )}
         </div>
         </div>

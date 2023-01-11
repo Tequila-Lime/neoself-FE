@@ -38,14 +38,14 @@ export const Dashboard = ({ token }) => {
             <div className="middle-cont">
                 <div className="dash-component-nb">
                     <div className='indent'>
-                        <h3>Your Records</h3>
+                        <h3 className='txt-nice'>Your Records</h3>
                         <UserRecords token={token}/>
                     </div>
                 </div>
             </div>
             <div className="side-cont">
                 <div className="dash-chart">
-                    <h3>Habits Done today</h3>
+                    <h3 className='txt-nice'>Habits Done today</h3>
                     <DataVisualization  token={token} step={1}/>
                 </div>
             </div>

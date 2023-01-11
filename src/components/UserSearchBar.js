@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { requestUserInfo } from './Requests'; 
-import { Follow } from './Follow';
 import { Link } from "react-router-dom"
 import { SearchAlt } from "@styled-icons/boxicons-regular/SearchAlt"
 
@@ -41,7 +40,6 @@ export const UserSearchBar = ({ token }) => {
             <div className="profile-info">
                 <Link className="profile-name" to='/random-profile' state={{ id: profile.id }}>{profile.username}</Link>
                 {profile.full_name !== null && <p>{profile.full_name}</p>}
-                <Follow token={token} friendId={profile.id}/>
             </div> 
             
         </div>

@@ -1,6 +1,9 @@
 import { requestOtherUserRecords } from './Requests'
 import { useEffect, useState } from 'react'
 import { Link } from "react-router-dom"
+import { CommentBar } from './CommentBar'
+import { ArrowDownCircle } from "@styled-icons/feather/ArrowDownCircle"
+import { ArrowUpCircle } from "@styled-icons/bootstrap/ArrowUpCircle"
 // , useLocation
 export const OtherUserRecords = ({ token, id }) => {
     const [recordList, setRecordList] = useState([])
@@ -26,29 +29,33 @@ export const OtherUserRecords = ({ token, id }) => {
             {recordList.length === 0 ? <p>No records made</p> : <>
             <div className='records-cont'>
             {recordList.slice(0, recordsPerPage).map((record, idx) => (
-            <div className="indiv-record" key={idx}>
-                <div className="record-info">
-                <div className="record-title">
-                    <Link to='/records/:recordId' state={{ id: record.id }}>
-                    {record.habit_name} record by {record.user}
-                    </Link>
-                    <p>{record.date}</p>
+                <div className="indiv-record" key={idx}>
+                    <div className="record-info">
+                        <div className="record-title">
+                                <Link className='user-record-name' to='/random-profile' state={{ id: record.user_number }}>{record.user}</Link>
+                                <p className='date-of-record'>{record.date}</p>
+                                <p className='specific-record-f'>{record.habit_name}</p>
+                        </div>
+                        <div className='record-action-f'>
+                            <p className='today-recorded'>{record.daily_record}</p>
+                            <p className='today-metric'>{record.metric_label}</p>
+                        </div>
+                    </div>
+                    <div className="reaction">
+                        <CommentBar token={token} recordId={record.id}/>
+                    </div>
                 </div>
-                <p>{record.daily_record}{record.metric_label}</p>
-                </div>
-                <div className="reaction">
-                    <p>Gif</p>
-                    <p>Like</p>
-                </div>
+                ))}
             </div>
-            ))}
-        </div>
+        {/* would like these to be arrows in future */}
         <div className="load-records">
             {recordsPerPage < recordList.length && (
-                <button className="load-more" onClick={handleLoadMore}>Load More</button>
+                <ArrowDownCircle className="load-more" onClick={handleLoadMore}/>
+                // <button className="load-more" onClick={handleLoadMore}>Load More</button>
             )}
             {recordsPerPage > 4 && (
-                <button className="load-more" onClick={handleLoadLess}>Load Less</button>
+                <ArrowUpCircle className="load-more" onClick={handleLoadLess}/>
+                // <button className="load-more" onClick={handleLoadLess}>Load Less</button>
             )}
         </div>
                 </>

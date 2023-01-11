@@ -15,7 +15,7 @@ export const Register = ({ setAuth }) => {
                     .then((res) => {
                         const token = res.data.auth_token
                         setAuth(token, username)
-                        navigate("/all")
+                        navigate("/")
                     })
             ))
     }
@@ -23,7 +23,9 @@ export const Register = ({ setAuth }) => {
     return (
         <div>
             <header className='header'>
-                <h1 className='idk'>Neoself</h1>
+                <div className="header-place">
+                    <h1 className="app-name">Neoself</h1>
+                </div>
             </header>
             <div className="login-box">
                 <h3 className="login-label">Register</h3>
@@ -36,7 +38,7 @@ export const Register = ({ setAuth }) => {
                         <input className="login-input" type="password" placeholder="password"
                             onChange={(e) => setPassword(e.target.value)} />
                     </div>
-                    <div className="login-field is-flex is-justify-content-space-between">
+                    <div className="login-field">
 
                         <button className='register-button' type="submit"
                             onClick={handleSubmit}>Register</button>
