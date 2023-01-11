@@ -1,6 +1,7 @@
 import { OwnProfile } from "./OwnProfile"
 import { OwnHabits } from "./SelfHabits"
 import { UserRecords } from './UserRecords';
+import { DataVisualization } from "./DataAllRecord";
 
 export const Profile = ({ token }) => {
 
@@ -14,8 +15,9 @@ export const Profile = ({ token }) => {
                     <UserRecords token={token}/>
                 </div>
                 <div className="record-data-r">
-                    <div className="prof-data-visual"></div>
-                    <div className="prof-data-visual"></div>
+                    <DataVisualization token={token} step={5} />
+                    <DataVisualization token={token} step={6}/>
+                    <DataVisualization token={token} step={7}/>
                 </div>
             </div>
         </div>

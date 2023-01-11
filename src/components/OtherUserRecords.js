@@ -1,6 +1,5 @@
 import { requestOtherUserRecords } from './Requests'
 import { useEffect, useState } from 'react'
-import { Link } from "react-router-dom"
 import { CommentBar } from './CommentBar'
 import { ArrowDownCircle } from "@styled-icons/feather/ArrowDownCircle"
 import { ArrowUpCircle } from "@styled-icons/bootstrap/ArrowUpCircle"
@@ -32,7 +31,7 @@ export const OtherUserRecords = ({ token, id }) => {
                 <div className="indiv-record" key={idx}>
                     <div className="record-info">
                         <div className="record-title">
-                                <Link className='user-record-name' to='/random-profile' state={{ id: record.user_number }}>{record.user}</Link>
+                                <p className='user-record-name-or'>{record.user}</p>
                                 <p className='date-of-record'>{record.date}</p>
                                 <p className='specific-record-f'>{record.habit_name}</p>
                         </div>

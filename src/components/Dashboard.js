@@ -45,8 +45,10 @@ export const Dashboard = ({ token }) => {
             </div>
             <div className="side-cont">
                 <div className="dash-chart">
-                    <h3 className='txt-nice'>Habits Done today</h3>
-                    <DataVisualization  token={token} step={1}/>
+                    <h3 className='txt-nice'>Records Done</h3>
+                    <div className='front-chart-i'>
+                        <DataVisualization  token={token} step={2}/>
+                    </div>
                 </div>
             </div>
             
