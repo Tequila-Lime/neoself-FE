@@ -14,7 +14,7 @@ export const TodayRecords = ({ token }) => {
         <div>
             <div>
                 <div className="indent">
-                        {recordList.length === 0 ? <p>No records test</p> :
+                        {recordList.length === 0 ? <p>No records today</p> :
                         <div className='user-records'>{recordList.map((record, idx) => (
                             <div key={idx}>
                                 <Link className='today-records ' to='/records/:recordId' state={{ id: record.id }}>{record.habit_name } record </Link>
